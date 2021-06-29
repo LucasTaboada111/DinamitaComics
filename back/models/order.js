@@ -4,9 +4,9 @@ const db = require("../config");
 
 
 
-class Cart extends S.Model {}
+class Order extends S.Model {}
   
-Cart.init(
+Order.init(
     {
       status: {
         type: S.BOOLEAN,
@@ -27,7 +27,7 @@ Cart.init(
         defaultValue: S.NOW,
       },
     },
-    { sequelize: db, modelName: "cart" }
+    { sequelize: db, modelName: "order" }
   );
 
-  module.exports = Cart
+  module.exports = Order

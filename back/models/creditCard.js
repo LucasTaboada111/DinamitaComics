@@ -4,9 +4,9 @@ const db = require("../config");
 
 
 
-class Payment extends S.Model {}
+class CreditCard extends S.Model {}
   
-Payment.init(
+CreditCard.init(
     {
       csNumber: {
         type: S.STRING,
@@ -25,7 +25,7 @@ Payment.init(
         allowNull: false,
       },
     },
-    { sequelize: db, modelName: "payment" }
+    { sequelize: db, modelName: "creditCard" }
   );
 
-  module.exports = Payment
+  module.exports = CreditCard
