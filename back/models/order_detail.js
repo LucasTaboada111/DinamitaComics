@@ -7,6 +7,7 @@ OrderDetail.init(
   {
     totalPrice: {
       type: S.INTEGER,
+      defaultValue: 0
     },
     quantity: {
       type: S.STRING,
