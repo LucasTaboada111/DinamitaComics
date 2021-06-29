@@ -25,6 +25,10 @@ User.init(
       type: S.STRING,
       allowNull: false,
     },
+    country:{
+        type:S.STRING,
+        allowNull: false,
+    },
     username: {
       type: S.STRING,
       allowNull: false,
@@ -43,6 +47,10 @@ User.init(
     phone: {
       type: S.INTEGER,
       allowNull: false,
+    },
+    isAdmin:{
+        type: S.BOOLEAN,
+        defaultValue:false,
     },
     salt: {
       type: S.STRING,
