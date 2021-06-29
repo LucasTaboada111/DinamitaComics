@@ -21,7 +21,7 @@ CreditCard.belongsTo(User)
 
 
 //Orden tiene varios orderdetails
-Order.hasMany(OrderDetail,{foreignKey:'cartId'})
+Order.hasMany(OrderDetail,{foreignKey:'orderId'})
 OrderDetail.belongsTo(Order)    
 
 
@@ -44,4 +44,4 @@ Category.belongsToMany(Comic,{through:"comic_category"})
 
 
 
-module.exports = {User ,Comic,Category,Order,OrderDetail,Review,CreditCard}
+module.exports = {User:User ,Comic,Category,Order,OrderDetail,Review,CreditCard}

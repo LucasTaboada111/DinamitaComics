@@ -1,9 +1,9 @@
 const S = require("sequelize");
 const db = require("../config");
 
-class CartDetail extends S.Model {}
+class OrderDetail extends S.Model {}
 
-CartDetail.init(
+OrderDetail.init(
   {
     totalPrice: {
       type: S.INTEGER,
@@ -12,7 +12,7 @@ CartDetail.init(
       type: S.STRING,
     },
   },
-  { sequelize: db, modelName: "cart_detail" }
+  { sequelize: db, modelName: "order_detail" }
 );
 
-module.exports = CartDetail;
+module.exports = OrderDetail;

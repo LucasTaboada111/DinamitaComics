@@ -1,6 +1,5 @@
 const S = require("sequelize");
 const db = require("../config");
-
 const bcrypt = require("bcrypt");
 
 class User extends S.Model {
@@ -9,7 +8,7 @@ class User extends S.Model {
   }
 
   validPassword(password) {
-    return this.password === User.hashPassword(password, this.salt);
+    return this.password === User.hash(password, this.salt);
   }
 }
 
@@ -55,7 +54,8 @@ User.init(
 
 User.addHook("beforeCreate", async user => {
     user.salt = await bcrypt.genSalt(6)
-    user.password = await User.hash(user.password, user.salt)
+    user.password = await user.hash(user.password, user.salt)
   })
+
 
 module.exports = User;
