@@ -20,7 +20,6 @@ router.delete(":id", isAdmin,(req, res, next) => {
 
 router.get("/users",isAdmin, (req, res, next) => {
   User.findAll().then((users) => {
-      console.log(users)
     res.status(200).send(users);
   })
   .catch((err)=>{
