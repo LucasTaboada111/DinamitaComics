@@ -2,7 +2,6 @@ import React from 'react';
 import Login from './components/Login';
 import Register from './components/Register'
 import { Route, Switch } from 'react-router';
-import axios from 'axios'
 
 import './App.css';
 import "primereact/resources/themes/saga-blue/theme.css"
