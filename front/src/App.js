@@ -8,18 +8,23 @@ import "primereact/resources/themes/saga-blue/theme.css"
 import "primereact/resources/primereact.min.css"
 import "primeicons/primeicons.css"
 
+import Navbar from './components/Navbar';
 
 
 function App() {
  /*  aca van las rutas */
   return (
     <div>
-        
+         <Navbar />
+
+         
         <Switch>
+          
 
         <Route path="/register" component={Register} /> 
         <Route path="/login" component={Login} />
         
+       
 
         </Switch>
 

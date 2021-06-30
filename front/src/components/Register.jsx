@@ -11,7 +11,7 @@ import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
 import { postUser } from "../store/user";
-import CountryService from "../Configs/CountryService";
+import CountryService from "../configs/CountryService";
 //import '../Configs/countries.json'
 import style from "../styles/form.module.css";
 
