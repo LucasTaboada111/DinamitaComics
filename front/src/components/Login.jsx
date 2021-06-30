@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { loginUser } from "../store/user";
+import styles from '../styles/login.module.css'
 
 const LoginView = () => {
   
@@ -22,8 +23,8 @@ const LoginView = () => {
         email: email,
         password: password,
       }),
-      history.push("/")
-    ) //history push /me
+      history.push("/me")
+    ) 
       .catch(() => setError(true));
   };
 
@@ -32,29 +33,33 @@ const LoginView = () => {
   );
 
   return (
-    <div className="sign-up-or-log-in">
+    <div className={styles.form}>
       <h2>
         Welcome back
         <hr />
       </h2>
       <form onSubmit={handleClick}>
-        <label>Email</label>
+        <label className={styles.label}>Email</label>
         <input
+        className={styles.input}
           type="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Password</label>
+        <label className={styles.label}>Password</label>
         <input
+        className={styles.input}
           type="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Log In</button>
+        <button className={styles.label}>Log In</button>
       </form>
       <Link to="/register">
-        <div className="sign-up-or-log-in-no-account">
-          Don't have an account? Sign up
+        <br>
+        </br>
+        <div>
+          Don't have an account?     Sign up
         </div>
       </Link>
       {error && <Error />}

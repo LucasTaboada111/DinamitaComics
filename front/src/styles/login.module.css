@@ -1,0 +1,26 @@
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+}
+
+.label {
+
+    font-size: 12px;
+    display: block;
+    width: 100%;
+}
+
+.input  {
+
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+}

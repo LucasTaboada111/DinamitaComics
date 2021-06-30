@@ -1,7 +1,23 @@
 
+.form {
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+
+
 
 .formdemo .card {
-    min-width: 450px;
+    min-width: 50px;
 }
 .formdemo .card form {
     margin-top: 2rem;

@@ -9,7 +9,7 @@ import axios from 'axios'
 export const postUser = createAsyncThunk('POST_USER', (user) => {
 
 
-    return axios.post('/api/users', user)
+    return axios.post('/api/users/register', user)
     .then((res) => res.data)
     .catch((err) => console.log(err, "Falló postUser"))
 })
@@ -18,13 +18,12 @@ export const postUser = createAsyncThunk('POST_USER', (user) => {
 
 export const loginUser = createAsyncThunk('LOGIN_USER', (user) => {
 
-    return axios.post('api/users/login', user)
+    return axios.post('http://localhost:3001/api/users/login', user)
     .then((res) => {
         const userLogeado = res.data[0]
     window.localStorage.setItem("user", JSON.stringify(userLogeado))
     alert(`Bienvenido ${res.data[0].name}`)
-    }
-
+    },
 )})
 
 //Deslog User
