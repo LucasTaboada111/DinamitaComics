@@ -18,7 +18,7 @@ class Comic extends S.Model {}
       },
       category: {
         type: S.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       img: {
         type: S.STRING,
