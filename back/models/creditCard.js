@@ -2,8 +2,6 @@ const S = require("sequelize");
 const db = require("../config");
 
 
-
-
 class CreditCard extends S.Model {}
   
 CreditCard.init(

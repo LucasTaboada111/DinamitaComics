@@ -1,0 +1,39 @@
+
+.form {
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+
+
+
+.formdemo .card {
+    min-width: 50px;
+}
+.formdemo .card form {
+    margin-top: 2rem;
+}
+.formdemo .card .p-field {
+    margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 960px) {
+    .formdemo .card {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 640px) {
+    .formdemo .card {
+        width: 100%;
+        min-width: 0;
+    }
+}
+             
