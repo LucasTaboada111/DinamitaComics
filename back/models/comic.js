@@ -13,12 +13,8 @@ class Comic extends S.Model {}
         allowNull: false,
       },
       price: {
-        type: S.INTEGER,
+        type: S.FLOAT,
         allowNull: false,
-      },
-      category: {
-        type: S.STRING,
-        // allowNull: false,
       },
       img: {
         type: S.STRING,
@@ -29,14 +25,14 @@ class Comic extends S.Model {}
         allowNull: false,
       },
       rating: {
-        type: S.INTEGER,
+        type: S.FLOAT,
         allowNull: false,
       },
       stock: {
         type: S.INTEGER,
         allowNull: false,
       },
-      age:{
+      year:{
         type: S.INTEGER,
         allowNull: false,
       }
