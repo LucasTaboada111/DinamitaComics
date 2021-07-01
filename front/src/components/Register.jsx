@@ -9,12 +9,6 @@ import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
 import { postUser } from "../store/user";
-<<<<<<< HEAD
-
-=======
-import CountryService from "../configs/CountryService";
-//import '../Configs/countries.json'
->>>>>>> 1dec3b099ae42bcb55cb794de0c851c9b713a2b9
 import style from "../styles/form.module.css";
 
 const FormikFormDemo = () => {
@@ -109,7 +103,6 @@ const FormikFormDemo = () => {
     );
   };
 
-  const passwordHeader = <h6>Pick a password</h6>;
   const passwordFooter = (
     <React.Fragment>
       <Divider layout="horizontal"  />

@@ -63,7 +63,7 @@ app.use((err,req,res,next)=>{
   res.status(500).send(err)
 })
 
-db.sync({ force: false })
+db.sync({ force: true })
   .then(({ config }) => {
     console.log(`Successful database connection to => ${config.database}`)
     app.listen(PORT, () => console.log(`server listening at port ${PORT}`))
