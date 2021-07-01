@@ -5,12 +5,13 @@ class OrderDetail extends S.Model {}
 
 OrderDetail.init(
   {
+    products:{
+      type: S.ARRAY(S.TEXT),
+      defaultValue: []
+    },
     totalPrice: {
       type: S.INTEGER,
       defaultValue: 0
-    },
-    quantity: {
-      type: S.STRING,
     },
   },
   { sequelize: db, modelName: "order_detail" }

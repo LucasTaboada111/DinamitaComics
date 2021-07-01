@@ -203,7 +203,7 @@ console.log("Please wait creating data!!")
 Aventuras.map(comic => {
   Comic.create(comic).then(comicCreado => {
     Category.findOne({ where: { name: "Aventuras" } }).then(category => {
-      comicCreado.adloginUserdCategory(category)
+      comicCreado.addCategory(category)
     })
   })
 })
