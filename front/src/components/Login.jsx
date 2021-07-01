@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
@@ -33,27 +32,30 @@ const LoginView = () => {
   );
 
   return (
+    <div className={styles.container}>
     <div className={styles.form}>
-      <h2>
+      <h2 style={{color:"white"}}>
         Welcome back
         <hr />
       </h2>
       <form onSubmit={handleClick}>
-        <label className={styles.label}>Email</label>
+       
         <input
         className={styles.input}
           type="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
-        <label className={styles.label}>Password</label>
+        
         <input
         className={styles.input}
           type="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
         />
-        <button className={styles.label}>Log In</button>
+        <button className={styles.button} >Log In</button>
       </form>
       <Link to="/register">
         <br>
@@ -63,6 +65,7 @@ const LoginView = () => {
         </div>
       </Link>
       {error && <Error />}
+    </div>
     </div>
   );
 };

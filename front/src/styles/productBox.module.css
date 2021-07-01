@@ -1,0 +1,48 @@
+.container  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 5px 4px 15px -2px rgba(0,0,0,0.36); 
+    box-shadow: 5px 4px 15px -2px rgba(0,0,0,0.36);
+    width: 15rem;
+    height: 25rem; 
+    flex-direction: column;
+    margin: 1.5%;
+    border: 3px double rgba(4, 15, 23, 0.081);
+  border-radius: 43px;
+background: #b8a2a2b3;
+box-shadow:  7px 7px 12px #ccc29e,
+             -7px -7px 12px #F8F2DD;
+}
+.imageContainer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.image {
+
+    width: 70%;
+    height: auto;
+    
+}
+
+.productName    {
+
+    color:red
+
+}
+
+.addToCart {
+
+    border-radius: 60px;
+    color: white;
+    background-color: black;
+
+}
+
+.price {
+
+    color: green;
+
+}
