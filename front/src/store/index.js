@@ -1,20 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
-import logger from "redux-logger";
-import userReducer from "./user";
-
+import { configureStore } from "@reduxjs/toolkit"
+import logger from "redux-logger"
+import userReducer from "./user"
+import comicsReducer from "./comics"
 
 const store = configureStore({
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: false
     }).concat(logger),
 
   reducer: {
+    user: userReducer,
+    comics: comicsReducer
+  }
+})
 
-    user: userReducer
-
-  },
-
-});
-
-export default store;
+export default store

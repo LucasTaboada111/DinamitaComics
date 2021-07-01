@@ -1,23 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import App from "./App"
 
-import { BrowserRouter, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from './store'
+import { BrowserRouter, Route } from "react-router-dom"
+import { Provider } from "react-redux"
+import store from "./store"
 
 document.body.style = "background: #EEDFAA"
 
-
 ReactDOM.render(
-
-
   <BrowserRouter>
     <Provider store={store}>
-     <Route path="/" component={App} />
+      <Route path="/" component={App} />
     </Provider>
   </BrowserRouter>,
 
   document.getElementById("root")
-);
+)
