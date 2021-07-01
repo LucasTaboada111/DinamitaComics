@@ -14,13 +14,8 @@ const LoginView = () => {
 
   const handleClick = e => {
     e.preventDefault()
-    dispatch(
-      userLogin({
-        email: email,
-        password: password
-      }),
-      history.push("/")
-    ).catch(() => setError(true))
+    dispatch(userLogin({ email, password }))
+    history.push("/")
   }
 
   const Error = () => <div className="error-in-log-in-or-sign-up"> Invalid Email or Password</div>

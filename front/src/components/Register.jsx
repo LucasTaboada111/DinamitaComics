@@ -142,7 +142,7 @@ const FormikFormDemo = () => {
                 "p-invalid": isFormFieldValid("fullname")
               })}
               placeholder="Fullname"
-              style={{ width: "100%" }}
+              style={{ width: "100%", border: "none" }}
             />
             <label
               htmlFor="name"
@@ -160,11 +160,10 @@ const FormikFormDemo = () => {
               name="username"
               value={formik.values.username}
               onChange={handleData}
-              autoFocus
+              placeholder="Username"
               className={classNames({
                 "p-invalid": isFormFieldValid("username")
               })}
-              placeholder="Username"
               style={{ margin: "10px 0px", width: "100%" }}
             />
             <label

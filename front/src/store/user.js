@@ -6,13 +6,19 @@ export const userRegister = createAsyncThunk("userRegister", user => {
 })
 
 export const userLogin = createAsyncThunk("userLogin", user => {
-  return axios.post("/api/users/login", user).then(res => res.data)
+  return axios.post("/api/users/login", user).then(res => {
+    alert("now you are login")
+    return res.data
+  })
 })
 
 export const cookiesUser = createAction("cookiesUser", user => ({ payload: user }))
 
 export const userLogout = createAsyncThunk("userLogout", () => {
-  return axios.post("api/users/logout").then(res => res.data)
+  return axios.post("api/users/logout").then(res => {
+    alert("now you are logout")
+    return res.data
+  })
 })
 
 export const getSingleUser = createAsyncThunk("GET_SINGLEUSER", () => {
