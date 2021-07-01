@@ -10,7 +10,7 @@ const Aventuras = [
   {
     name: "Batman: The Killing Joke",
     price: 1.14,
-    img: "https://static.wikia.nocookie.net/batman/images/9/9f/BTKJ.jpg/revision/latest/top-crop/width/360/height/450?cb=20160503185920&path-prefix=es",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7GCIxlrwMmzS1j0Y73OmX5InrDRsAo_JErSk5TLXNfNHM9NkFTpEoNyGrHRHoRgbcp0&usqp=CAU",
     plot: "Batman: The Killing Joke is a 1988 DC Comics one-shot graphic novel featuring the characters Batman and the Joker written by Alan Moore and illustrated by Brian Bolland. The Killing Joke provides an origin story for the supervillain the Joker, loosely adapted from the 1951 story arc 'The Man Behind the Red Hood!'. The Joker's origin is presented via flashback, while simultaneously depicting his attempt to drive Jim Gordon insane and Batman's desperate attempt to stop him.",
     rating: 5,
     stock: 5,
@@ -19,7 +19,7 @@ const Aventuras = [
   {
     name: "The Dark Knight Returns",
     price: 1.25,
-    img: "https://static.wikia.nocookie.net/batman/images/3/3d/Batman_The_Dark_Knight_Returns_Vol.1_1.jpg/revision/latest?cb=20151026195227&path-prefix=es",
+    img: "https://upload.wikimedia.org/wikipedia/en/e/e9/Batman_The_Dark_Knight_Returns_%28film%29.jpg",
     plot: "The Dark Knight Returns (alternatively titled Batman: The Dark Knight Returns) is a 1986 four-issue comic book miniseries starring Batman, written by Frank Miller, illustrated by Miller, and Klaus Janson, with color by Lynn Varley, and published by DC Comics. It tells an alternative story of Bruce Wayne, who at 55-years-old returns from retirement to fight crime and faces opposition from the Gotham City police force and the United States government. The story also features the return of classic foes such as Two-Face and the Joker, and culminates with a confrontation against Superman, who is now a pawn of the government.",
     rating: 4,
     stock: 6,
@@ -51,7 +51,16 @@ const Aventuras = [
     rating: 4.5,
     stock: 9,
     year: 2009
-  }
+  },
+  {
+    name: "Evangelion",
+    price: 3.15,
+    img: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1314677626l/12472406.jpg",
+    plot: "In 2015, fifteen years after a global cataclysm known as the Second Impact, teenager Shinji Ikari is summoned to the futuristic city of Tokyo-3 by his estranged father Gendo Ikari, director of the special paramilitary force Nerv. Shinji witnesses United Nations forces battling an Angel, one of a race of giant monstrous beings whose awakening was foretold by the Dead Sea Scrolls. Because of the Angels' near-impenetrable force-fields, Nerv's giant Evangelion bio-machines.",
+    rating: 5,
+    stock: 4,
+    year: 1996
+  },
 ]
 
 const Humorístico = [

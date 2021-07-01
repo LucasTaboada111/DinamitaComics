@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 const ProductBox = ({comics}) => {
     
 
+
+
+ 
+
+
+
+
   return (
 
     <div
@@ -14,6 +21,10 @@ const ProductBox = ({comics}) => {
     >
         {comics.map((comic)=>{
             return (
+                <Link                   
+                  to={`/comic/:${comic.id}`}
+                  comics={comics}
+                >
                 <div className={styles.container} key={comic.id}>
                             <div>
                                 <div className={styles.imageContainer}>
@@ -32,6 +43,7 @@ const ProductBox = ({comics}) => {
                                 </div>
                             </div>
                 </div>
+                </Link>
             )
         })}
     </div>

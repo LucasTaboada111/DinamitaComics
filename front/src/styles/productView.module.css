@@ -5,14 +5,15 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.211);
     border-radius: 60px ;
-    height: 48rem;
+    height: 60rem;
     margin-top: 2%;
     margin-bottom: 5%;
     margin-right: 5%;
     margin-left: 5%;
     flex-direction: row;
     padding: 2%;
-    width: 48%;
+    width: 65%;
+
 }
 
 .center{
@@ -70,8 +71,8 @@
 
 .price  {
 
-    color:blue
-
+    color:blue;
+    font-size: 2rem;
 }
 
 .cartButton {
