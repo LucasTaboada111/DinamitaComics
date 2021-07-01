@@ -73,5 +73,5 @@ db.sync({ force: false })
   })
 
 
-
-  module.exports = app
+  
+module.exports = app

@@ -35,7 +35,6 @@ router.post("/",(req,res,next)=>{
   })
 })
 
-
 router.put("/edit/:id",async (req,res,next)=>{
   const id = req.params.id
   try {
