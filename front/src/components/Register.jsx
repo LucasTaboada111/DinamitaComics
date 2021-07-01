@@ -8,7 +8,7 @@ import { Dialog } from "primereact/dialog"
 import { Divider } from "primereact/divider"
 import { classNames } from "primereact/utils"
 import { useDispatch } from "react-redux"
-import { userRegister } from "../store/user"
+import { postUser } from "../store/user"
 import style from "../styles/form.module.css"
 
 const FormikFormDemo = () => {
