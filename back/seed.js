@@ -36,7 +36,7 @@ const Aventuras = [
   },
   {
     name: "The Amazing Spider-Man: Kraven's Last Hunt",
-    price: 0.8,
+    price: 0.82,
     img: "https://images-na.ssl-images-amazon.com/images/I/81T--4Z80mL.jpg",
     plot: "Kraven hunts down Spider-Man, defeats him, and seemingly shoots him dead. Kraven then buries him, and donning a copy of Spider-Man's costume, seeks to prove himself superior at his adversary's former activities. ",
     rating: 3.75,
@@ -57,7 +57,7 @@ const Aventuras = [
 const Humorístico = [
   {
     name: "All-New Guardians Of The Galaxy Vol. 1: Communication Breakdown",
-    price: 1.1,
+    price: 1.15,
     img: "https://m.media-amazon.com/images/I/51454KQ1j4L.jpg",
     plot: "A new era of cosmic adventure begins! The Guardians of the Galaxy have taken off into space once more on their biggest and weirdest misadventures yet! Kicking things off with the boldest heist they've ever pulled, Star-Lord, Rocket and company blast their way through the galaxy -with the peacekeepers of the Nova Corps hot on their tail! And soon enough, they find themselves caught in a war between the Collector and the Grandmaster! Will there be any room to explain why Groot can't grow any bigger, what Gamora is searching for, or why Drax has sworn off violence?! You bet there will - the all-new Guardians of the Galaxy has space for all your Marvel Cosmic needs!",
     rating: 4,
@@ -66,7 +66,7 @@ const Humorístico = [
   },
   {
     name: "Deadpool Kills the Marvel Universe",
-    price: 4.2,
+    price: 4.20,
     img: "https://images-na.ssl-images-amazon.com/images/I/919h1KUZY6L.jpg",
     plot: "What if everything you thought was funny about Deadpool was actually just disturbing? What if he decided to kill everyone and everything that makes up the Marvel Universe? What if he actually pulled it off? Would that be FUN for you? The Merc with a Mouth takes a turn for the twisted in a horror comic like no other!",
     rating: 3.2,
@@ -93,7 +93,7 @@ const Humorístico = [
   },
   {
     name: "Shazam! The Monster Society of Evil",
-    price: 1.2,
+    price: 1.21,
     img: "https://images-na.ssl-images-amazon.com/images/I/71S+w2-q1SL.jpg",
     plot: "Granted the powers of the ancient gods, young Billy Batson transforms into Captain Marvel whenever he says the magic word, Shazam! Now, Captain Marvel faces an alien invasion and must stop the Monster Society of Evil from taking over the world. Jeff Smith, the award-winning creator of Bone, brings back an icon of the comic-book world.",
     rating: 2.8,
@@ -105,7 +105,7 @@ const Humorístico = [
 const Terror = [
   {
     name: "Saga of the Swamp Thing Book One",
-    price: 1.2,
+    price: 1.29,
     img: "https://http2.mlstatic.com/D_NQ_NP_724718-MLA41394798773_042020-O.jpg",
     plot: "A haunting origin story that reshapes Swamp Thing mythology with terrifying revelations that begin a journey of discovery and adventure that will take him across the stars and beyond.",
     rating: 4.5,
@@ -114,7 +114,7 @@ const Terror = [
   },
   {
     name: "Hellboy in Hell Volume 1: The Descent",
-    price: 2.2,
+    price: 2.28,
     img: "https://m.media-amazon.com/images/I/41KDSuas7PL.jpg",
     plot: "After saving the world in The Storm and the Fury but sacrificing himself and Great Britain, Hellboy is dead, cast into Hell, where he finds many familiar faces and a throne that awaits him.",
     rating: 3.8,
@@ -132,7 +132,7 @@ const Terror = [
   },
   {
     name: "Batman: Death of the family ",
-    price: 1.3,
+    price: 1.36,
     img: "https://images-na.ssl-images-amazon.com/images/I/91grEvxbcoL.jpg",
     plot: "One year ago, the Joker limped off the streets of Gotham, mutilated and scarred when someone had taken the pale white skin right off of his face. But now, the Dark Knight’s greatest foe has returned but for once, Batman doesn’t seem to be his target. Instead, the Joker turns his vile hatred towards Commissioner Gordon, Alfred, Robin, Nightwing, Batgirl, Red Hood and Red Robin … the only family Bruce Wayne has left. The Clown Prince of Crime will unleash his most unpredictable, vicious and psychotic assault ever on everyone Batman holds dear.",
     rating: 4.5,
@@ -141,7 +141,7 @@ const Terror = [
   },
   {
     name: "Punisher: Year One",
-    price: 1.2,
+    price: 1.23,
     img: "https://m.media-amazon.com/images/I/51fC-Ns4wOL.jpg",
     plot: "Punisher War Journal, Page One: We've known for years about the deaths of Frank Castle's wife and children, but now we see Castle himself mere hours later, when his grief and rage were at their freshest. To the police, he's a lead. To a reporter, he's a story. To the mob, he's just one more loose end. In four issues, they'll all learn what he's really become...",
     rating: 2.8,
@@ -153,7 +153,7 @@ const Terror = [
 const Fantástico = [
   {
     name: "Critical Role Vox Machina: Origins Volume 1",
-    price: 1.2,
+    price: 1.25,
     img: "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/09/rsz_crvmo3_i1_cvr_4x6_sol.jpg",
     plot: "Six would-be heroes on seemingly different jobs find their paths intertwined as they investigate shady business in the swamp town of Stilben. They'll need to put their heads-- and weapons--together to figure out what's going on...and keep from being killed in the process. Even then, whether or not they can overcome what truly lurks at the bottom of the town's travails remains to be seen! ",
     rating: 4.5,
@@ -162,7 +162,7 @@ const Fantástico = [
   },
   {
     name: "Arrowsmith",
-    price: 2.2,
+    price: 2.28,
     img: "https://www.ecccomics.com/content/productos/1605/arrowsmith.jpg",
     plot: "The series is set in an alternate history Earth in which the United States of America is actually the United States of Columbia, magic is real, and the First World War is fought with and by dragons, spells, vampires and all other kinds of magical weapons and beings. ",
     rating: 3.8,
@@ -180,7 +180,7 @@ const Fantástico = [
   },
   {
     name: "Teen Titans: Beast Boy",
-    price: 1.3,
+    price: 1.39,
     img: "http://d3ugyf2ht6aenh.cloudfront.net/stores/947/716/products/55460741-33edca096a1045af2c16021688833620-640-0.jpg",
     plot: "Garfield Logan has spent his entire life being overlooked. Even in a small town like Eden, Georgia, the 17-year-old with green streaks in his hair can’t find a way to stand out–and the clock is ticking. Senior year is almost over. If Gar doesn’t find a way to impress the Chosen Ones–the social elite at Bull Creek High School–he will never know what it’s like to matter. Gar’s best friends, Stella and Tank, don’t understand why he cares what other people think. They miss their funny, pizza-loving, video game-obsessed best friend.",
     rating: 4.5,
@@ -189,7 +189,7 @@ const Fantástico = [
   },
   {
     name: "The Saga of Crystar",
-    price: 1.2,
+    price: 1.23,
     img: "https://images-na.ssl-images-amazon.com/images/I/81KHyo7HGtL._AC_SY500_.jpg",
     plot: "Years ago, The Demon Lord sent his demon armies to conquer the world of Crystalium. The King of Crystalium led the fight against the Demon Lord in the Chaos War, but he was killed during the war. The forces of Order then sent the wizard Ogeode and the Prisma-Crystal to drive away The Demon Lord's minions and the forces of Chaos. In his defeat, the Demon Lord made the 'Prophecy of Chaos', that he would one day send another of his servants to divide the planet against itself and bring ruin to all. ",
     rating: 2.8,

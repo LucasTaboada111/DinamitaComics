@@ -1,37 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { useFormik } from "formik";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Password } from "primereact/password";
-import { Dialog } from "primereact/dialog";
-import { Divider } from "primereact/divider";
-import { classNames } from "primereact/utils";
-import { useDispatch } from "react-redux";
-import { postUser } from "../store/user";
-import style from "../styles/form.module.css";
+import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router"
+import { useDispatch } from "react-redux"
+
+import { useFormik } from "formik"
+import { InputText } from "primereact/inputtext"
+import { Button } from "primereact/button"
+import { Password } from "primereact/password"
+import { Dialog } from "primereact/dialog"
+import { Divider } from "primereact/divider"
+import { classNames } from "primereact/utils"
+import { userRegister } from "../store/user"
+import style from "../styles/form.module.css"
 
 const FormikFormDemo = () => {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([])
 
-  const [showMessage, setShowMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(false)
 
-  const [registro, setRegistro] = useState({});
+  const [registro, setRegistro] = useState({})
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const history = useHistory();
+  const history = useHistory()
 
   useEffect(() => {
-    setCountries([
-      "Select your country",
-      "Argentina",
-      "Uruguay",
-      "Chile",
-      "Bolivia",
-      "Paraguay",
-    ]);
-  }, []);
+    setCountries(["Select your country", "Argentina", "Uruguay", "Chile", "Bolivia", "Paraguay"])
+  }, [])
 
   const formik = useFormik({
     initialValues: {
@@ -43,69 +37,61 @@ const FormikFormDemo = () => {
       password: "",
       date: null,
       country: null,
-      accept: false,
+      accept: false
     },
-    validate: (data) => {
-      let errors = {};
+    validate: data => {
+      let errors = {}
 
       if (!data.name) {
-        errors.name = "Name is required.";
+        errors.name = "Name is required."
       }
 
       if (!data.email) {
-        errors.email = "Email is required.";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)
-      ) {
-        errors.email = "Invalid email address. E.g. example@email.com";
+        errors.email = "Email is required."
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)) {
+        errors.email = "Invalid email address. E.g. example@email.com"
       }
 
       if (!data.password) {
-        errors.password = "Password is required.";
+        errors.password = "Password is required."
       }
 
       if (!data.accept) {
-        errors.accept = "You need to agree to the terms and conditions.";
+        errors.accept = "You need to agree to the terms and conditions."
       }
 
-      return errors;
-    },
-  });
+      return errors
+    }
+  })
 
-  const redirect = () => history.push("/login");
+  const redirect = () => history.push("/login")
 
-  //Esta funcion ejecuta el mensaje post login
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setShowMessage(true);
-    setTimeout(() => redirect(), 4000);
-  };
+  const onSubmit = e => {
+    e.preventDefault()
+    setShowMessage(true)
+    setTimeout(() => redirect(), 4000)
+  }
 
-  const handlePost = (e) => {
-    e.preventDefault();
-    dispatch(postUser(registro));
-  };
+  const handleRegister = e => {
+    e.preventDefault()
+    dispatch(userRegister(registro))
+  }
 
-  const handleData = (e) => {
-    const key = e.target.name;
-    const value = e.target.value;
+  const handleData = e => {
+    const key = e.target.name
+    const value = e.target.value
 
-    setRegistro({ ...registro, [key]: value });
-  };
+    setRegistro({ ...registro, [key]: value })
+  }
 
-  const isFormFieldValid = (name) =>
-    !!(formik.touched[name] && formik.errors[name]);
-  const getFormErrorMessage = (name) => {
-    return (
-      isFormFieldValid(name) && (
-        <small className="p-error">{formik.errors[name]}</small>
-      )
-    );
-  };
+  const isFormFieldValid = name => !!(formik.touched[name] && formik.errors[name])
+  const getFormErrorMessage = name => {
+    return isFormFieldValid(name) && <small className="p-error">{formik.errors[name]}</small>
+  }
 
   const passwordFooter = (
     <React.Fragment>
-      <Divider layout="horizontal"  />
+      <Divider layout="horizontal" />
       <p className="p-mt-2">Suggestions</p>
       <ul className="p-pl-2 p-ml-2 p-mt-0" style={{ lineHeight: "1.5" }}>
         <li>At least one lowercase</li>
@@ -114,7 +100,7 @@ const FormikFormDemo = () => {
         <li>Minimum 8 characters</li>
       </ul>
     </React.Fragment>
-  );
+  )
 
   return (
     <div className={style.container}>
@@ -125,28 +111,24 @@ const FormikFormDemo = () => {
         showHeader={false}
         breakpoints={{ "960px": "80vw" }}
         style={{ width: "30vw" }}
-        contentStyle={{ backgroundColor: "rgba(1,2,3,.5)", color: "white" }}
-      >
+        contentStyle={{ backgroundColor: "rgba(1,2,3,.5)", color: "white" }}>
         <div className="p-d-flex p-ai-center p-dir-col p-pt-6 p-px-30">
           <i
             className="pi pi-check-circle"
-            style={{ fontSize: "5rem", color: "var(--gray-500)" }}
-          ></i>
+            style={{ fontSize: "5rem", color: "var(--gray-500)" }}></i>
           <h5>Registration Successful!</h5>
           <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-            Su cuenta ha sido registrada con exito! Bienvenid@{" "}
-            <b>{registro.fullname}</b>
+            Su cuenta ha sido registrada con exito! Bienvenid@ <b>{registro.fullname}</b>
           </p>
         </div>
       </Dialog>
 
       <form
         className={style.form}
-        onSubmit={(e) => {
-          handlePost(e);
-          onSubmit(e);
-        }}
-      >
+        onSubmit={e => {
+          handleRegister(e)
+          onSubmit(e)
+        }}>
         <div className="p-field">
           <span>
             <InputText
@@ -157,17 +139,16 @@ const FormikFormDemo = () => {
               onChange={handleData}
               autoFocus
               className={classNames({
-                "p-invalid": isFormFieldValid("fullname"),
+                "p-invalid": isFormFieldValid("fullname")
               })}
               placeholder="Fullname"
-              style={{ width: "100%" }}
+              style={{ width: "100%", border: "none" }}
             />
             <label
               htmlFor="name"
               className={classNames({
-                "p-error": isFormFieldValid("name"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("name")
+              })}></label>
           </span>
           {getFormErrorMessage("name")}
         </div>
@@ -179,19 +160,17 @@ const FormikFormDemo = () => {
               name="username"
               value={formik.values.username}
               onChange={handleData}
-              autoFocus
-              className={classNames({
-                "p-invalid": isFormFieldValid("username"),
-              })}
               placeholder="Username"
+              className={classNames({
+                "p-invalid": isFormFieldValid("username")
+              })}
               style={{ margin: "10px 0px", width: "100%" }}
             />
             <label
               htmlFor="name"
               className={classNames({
-                "p-error": isFormFieldValid("name"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("name")
+              })}></label>
           </span>
           {getFormErrorMessage("name")}
         </div>
@@ -205,7 +184,7 @@ const FormikFormDemo = () => {
               onChange={handleData}
               autoFocus
               className={classNames({
-                "p-invalid": isFormFieldValid("adress"),
+                "p-invalid": isFormFieldValid("adress")
               })}
               placeholder="Adress"
               style={{ width: "100%" }}
@@ -213,9 +192,8 @@ const FormikFormDemo = () => {
             <label
               htmlFor="name"
               className={classNames({
-                "p-error": isFormFieldValid("name"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("name")
+              })}></label>
           </span>
           {getFormErrorMessage("name")}
         </div>
@@ -229,7 +207,7 @@ const FormikFormDemo = () => {
               onChange={handleData}
               autoFocus
               className={classNames({
-                "p-invalid": isFormFieldValid("phone"),
+                "p-invalid": isFormFieldValid("phone")
               })}
               placeholder="Phone"
               style={{ margin: "10px 0px", width: "100%" }}
@@ -237,9 +215,8 @@ const FormikFormDemo = () => {
             <label
               htmlFor="name"
               className={classNames({
-                "p-error": isFormFieldValid("name"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("name")
+              })}></label>
           </span>
           {getFormErrorMessage("name")}
         </div>
@@ -251,21 +228,20 @@ const FormikFormDemo = () => {
               id="email"
               name="email"
               value={formik.values.email}
-              onChange={(e) => {
-                formik.handleChange(e);
-                handleData(e);
+              onChange={e => {
+                formik.handleChange(e)
+                handleData(e)
               }}
               className={classNames({
-                "p-invalid": isFormFieldValid("email"),
+                "p-invalid": isFormFieldValid("email")
               })}
               placeholder="Email"
             />
             <label
               htmlFor="email"
               className={classNames({
-                "p-error": isFormFieldValid("email"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("email")
+              })}></label>
           </span>
           {getFormErrorMessage("email")}
         </div>
@@ -278,35 +254,29 @@ const FormikFormDemo = () => {
               onChange={formik.handleChange}
               toggleMask
               className={classNames({
-                "p-invalid": isFormFieldValid("password"),
+                "p-invalid": isFormFieldValid("password")
               })}
               placeholder="Password"
               style={{ margin: "10px 0px" }}
               header={passwordFooter}
-             
             />
             <label
               htmlFor="password"
               className={classNames({
-                "p-error": isFormFieldValid("password"),
-              })}
-            ></label>
+                "p-error": isFormFieldValid("password")
+              })}></label>
           </span>
           {getFormErrorMessage("password")}
         </div>
         <div className="p-field">
           <div>
-            <select
-              name="country"
-              onChange={(e) => handleData(e)}
-              className={style.select}
-            >
-              {countries.map((country) => {
+            <select name="country" onChange={e => handleData(e)} className={style.select}>
+              {countries.map(country => {
                 return (
                   <option key={country} value={country}>
                     {country}
                   </option>
-                );
+                )
               })}
             </select>
           </div>
@@ -320,13 +290,13 @@ const FormikFormDemo = () => {
             border: "1px solid white",
             borderRadius: "10px",
             boxShadow: " 0px 1px 2px white",
-            width:"50%",
-          margin:"10px auto"
+            width: "50%",
+            margin: "10px auto"
           }}
         />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default FormikFormDemo;
+export default FormikFormDemo

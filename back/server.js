@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(cookieParser())
 
-app.use(sessions({ secret: "ecomerce" }))
+app.use(sessions({ secret: "ecomerce", resave: true, saveUninitialized: true }))
 app.use(passport.initialize())
 app.use(passport.session())
 passport.use(
