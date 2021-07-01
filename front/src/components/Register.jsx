@@ -1,34 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { useFormik, setValue } from "formik";
+import { useHistory } from "react-router";
+import { useFormik } from "formik";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
-import { Dropdown } from "primereact/dropdown";
-import { Calendar } from "primereact/calendar";
 import { Password } from "primereact/password";
-import { Checkbox } from "primereact/checkbox";
 import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
 import { postUser } from "../store/user";
-import CountryService from "../Configs/CountryService";
-//import '../Configs/countries.json'
+
 import style from "../styles/form.module.css";
 
 const FormikFormDemo = () => {
   const [countries, setCountries] = useState([]);
-  console.log(countries, "soy countries");
+
   const [showMessage, setShowMessage] = useState(false);
-  const [formData, setFormData] = useState({});
 
   const [registro, setRegistro] = useState({});
 
   const dispatch = useDispatch();
-  //const countryservice = new CountryService();
+
+  const history = useHistory();
 
   useEffect(() => {
-    // countryservice.prototype.getCountries().then(data => setCountries(data));
-    setCountries(["Argentina", "Uruguay", "Chile", "Bolivia"]);
+    setCountries([
+      "Select your country",
+      "Argentina",
+      "Uruguay",
+      "Chile",
+      "Bolivia",
+      "Paraguay",
+    ]);
   }, []);
 
   const formik = useFormik({
@@ -68,48 +71,28 @@ const FormikFormDemo = () => {
 
       return errors;
     },
-
-    onSubmit: (data) => {
-      setFormData(data);
-      setShowMessage(true);
-
-      formik.resetForm();
-    },
   });
+
+  const redirect = () => history.push("/login");
+
+  //Esta funcion ejecuta el mensaje post login
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setShowMessage(true);
+    setTimeout(() => redirect(), 4000);
+  };
 
   const handlePost = (e) => {
     e.preventDefault();
-
     dispatch(postUser(registro));
-    console.log(registro, "soy registro");
   };
 
   const handleData = (e) => {
-    e.preventDefault();
-
     const key = e.target.name;
     const value = e.target.value;
 
     setRegistro({ ...registro, [key]: value });
-    console.log(registro);
   };
-
-  const handleCountry = (e) => {
-    console.log(formik.values.country);
-
-    const value = e.target.value;
-
-    formik.values.country = value;
-
-    // const key = e.target.name;
-    // const value = e.target.value;
-
-    // setRegistro({ ...registro, [key]: value });
-  };
-  /*  name: userName,
-            email: email,
-            password: password,
-            Fullname: Fullname, */
 
   const isFormFieldValid = (name) =>
     !!(formik.touched[name] && formik.errors[name]);
@@ -121,20 +104,10 @@ const FormikFormDemo = () => {
     );
   };
 
-  const dialogFooter = (
-    <div className="p-d-flex p-jc-center">
-      <Button
-        label="OK"
-        className="p-button-text"
-        autoFocus
-        onClick={() => setShowMessage(false)}
-      />
-    </div>
-  );
   const passwordHeader = <h6>Pick a password</h6>;
   const passwordFooter = (
     <React.Fragment>
-      <Divider />
+      <Divider layout="horizontal"  />
       <p className="p-mt-2">Suggestions</p>
       <ul className="p-pl-2 p-ml-2 p-mt-0" style={{ lineHeight: "1.5" }}>
         <li>At least one lowercase</li>
@@ -146,205 +119,214 @@ const FormikFormDemo = () => {
   );
 
   return (
-    <div className={style.form}>
+    <div className={style.container}>
       <Dialog
         visible={showMessage}
         onHide={() => setShowMessage(false)}
-        position="top"
-        footer={dialogFooter}
+        position="top-left"
         showHeader={false}
         breakpoints={{ "960px": "80vw" }}
         style={{ width: "30vw" }}
+        contentStyle={{ backgroundColor: "rgba(1,2,3,.5)", color: "white" }}
       >
-        <div className="p-d-flex p-ai-center p-dir-col p-pt-6 p-px-3">
+        <div className="p-d-flex p-ai-center p-dir-col p-pt-6 p-px-30">
           <i
             className="pi pi-check-circle"
-            style={{ fontSize: "5rem", color: "var(--green-500)" }}
+            style={{ fontSize: "5rem", color: "var(--gray-500)" }}
           ></i>
           <h5>Registration Successful!</h5>
           <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-            Your account is registered under name <b>{formData.name}</b> ; it'll
-            be valid next 30 days without activation. Please check{" "}
-            <b>{formData.email}</b> for activation instructions.
+            Su cuenta ha sido registrada con exito! Bienvenid@{" "}
+            <b>{registro.fullname}</b>
           </p>
         </div>
       </Dialog>
 
-      <div className="p-d-flex p-jc-center">
-        <div className="card">
-          <h5 className="p-text-center">Register</h5>
-          <form
-            className={style.form}
-            /* onSubmit={formik.handleSubmit}*/
-            onSubmit={handlePost}
-            className="p-fluid"
-          >
-            <div className="p-field">
-              <span className="p-float-label">
-                <InputText
-                  id="Fullname"
-                  name="fullname"
-                  value={formik.values.fullname}
-                  onChange={handleData}
-                  autoFocus
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("fullname"),
-                  })}
-                />
-                <label
-                  htmlFor="name"
-                  className={classNames({
-                    "p-error": isFormFieldValid("name"),
-                  })}
-                >
-                  fullname*
-                </label>
-              </span>
-              {getFormErrorMessage("name")}
-            </div>
-
-            <div className="p-field">
-              <span className="p-float-label">
-                <InputText
-                  id="Username"
-                  name="username"
-                  value={formik.values.username}
-                  onChange={handleData}
-                  autoFocus
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("username"),
-                  })}
-                />
-                <label
-                  htmlFor="name"
-                  className={classNames({
-                    "p-error": isFormFieldValid("name"),
-                  })}
-                >
-                  username*
-                </label>
-              </span>
-              {getFormErrorMessage("name")}
-            </div>
-
-            <div className="p-field">
-              <span className="p-float-label">
-                <InputText
-                  id="Adress"
-                  name="adress"
-                  value={formik.values.adress}
-                  onChange={handleData}
-                  autoFocus
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("adress"),
-                  })}
-                />
-                <label
-                  htmlFor="name"
-                  className={classNames({
-                    "p-error": isFormFieldValid("name"),
-                  })}
-                >
-                  adress*
-                </label>
-              </span>
-              {getFormErrorMessage("name")}
-            </div>
-
-            <div className="p-field">
-              <span className="p-float-label">
-                <InputText
-                  id="Phone"
-                  name="phone"
-                  value={formik.values.phone}
-                  onChange={handleData}
-                  autoFocus
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("phone"),
-                  })}
-                />
-                <label
-                  htmlFor="name"
-                  className={classNames({
-                    "p-error": isFormFieldValid("name"),
-                  })}
-                >
-                  phone
-                </label>
-              </span>
-              {getFormErrorMessage("name")}
-            </div>
-
-            <div className="p-field">
-              <span className="p-float-label p-input-icon-right">
-                <i className="pi pi-envelope" />
-                <InputText
-                  id="email"
-                  name="email"
-                  value={formik.values.email}
-                  //onChange={handleData}
-                  onChange={(e) => {
-                    formik.handleChange(e);
-                    handleData(e);
-                  }}
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("email"),
-                  })}
-                />
-                <label
-                  htmlFor="email"
-                  className={classNames({
-                    "p-error": isFormFieldValid("email"),
-                  })}
-                >
-                  Email*
-                </label>
-              </span>
-              {getFormErrorMessage("email")}
-            </div>
-            <div className="p-field">
-              <span className="p-float-label">
-                <Password
-                  id="password"
-                  name="password"
-                  value={formik.values.password}
-                  onChange={handleData}
-                  onChange={formik.handleChange}
-                  toggleMask
-                  className={classNames({
-                    "p-invalid": isFormFieldValid("password"),
-                  })}
-                  header={passwordHeader}
-                  footer={passwordFooter}
-                />
-                <label
-                  htmlFor="password"
-                  className={classNames({
-                    "p-error": isFormFieldValid("password"),
-                  })}
-                >
-                  Password*
-                </label>
-              </span>
-              {getFormErrorMessage("password")}
-            </div>
-            <div className="p-field">
-              <span className="p-float-label">
-                <div>
-                  <select>
-                    {countries.map((countrysito) => {
-                      return <option key={countrysito}>
-                          {countrysito}
-                      </option>;
-                    })}
-                  </select>
-                </div>
-              </span>
-            </div>
-            <Button type="submit" label="Registrarse" className="p-mt-2" />
-          </form>
+      <form
+        className={style.form}
+        onSubmit={(e) => {
+          handlePost(e);
+          onSubmit(e);
+        }}
+      >
+        <div className="p-field">
+          <span>
+            <InputText
+              id="Fullname"
+              username
+              name="fullname"
+              value={formik.values.fullname}
+              onChange={handleData}
+              autoFocus
+              className={classNames({
+                "p-invalid": isFormFieldValid("fullname"),
+              })}
+              placeholder="Fullname"
+              style={{ width: "100%" }}
+            />
+            <label
+              htmlFor="name"
+              className={classNames({
+                "p-error": isFormFieldValid("name"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("name")}
         </div>
-      </div>
+
+        <div className="p-field">
+          <span>
+            <InputText
+              id="Username"
+              name="username"
+              value={formik.values.username}
+              onChange={handleData}
+              autoFocus
+              className={classNames({
+                "p-invalid": isFormFieldValid("username"),
+              })}
+              placeholder="Username"
+              style={{ margin: "10px 0px", width: "100%" }}
+            />
+            <label
+              htmlFor="name"
+              className={classNames({
+                "p-error": isFormFieldValid("name"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("name")}
+        </div>
+
+        <div className="p-field">
+          <span>
+            <InputText
+              id="Adress"
+              name="address"
+              value={formik.values.adress}
+              onChange={handleData}
+              autoFocus
+              className={classNames({
+                "p-invalid": isFormFieldValid("adress"),
+              })}
+              placeholder="Adress"
+              style={{ width: "100%" }}
+            />
+            <label
+              htmlFor="name"
+              className={classNames({
+                "p-error": isFormFieldValid("name"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("name")}
+        </div>
+
+        <div className="p-field">
+          <span>
+            <InputText
+              id="Phone"
+              name="phone"
+              value={formik.values.phone}
+              onChange={handleData}
+              autoFocus
+              className={classNames({
+                "p-invalid": isFormFieldValid("phone"),
+              })}
+              placeholder="Phone"
+              style={{ margin: "10px 0px", width: "100%" }}
+            />
+            <label
+              htmlFor="name"
+              className={classNames({
+                "p-error": isFormFieldValid("name"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("name")}
+        </div>
+
+        <div className="p-field">
+          <span className=" p-input-icon-right">
+            <i className="pi pi-envelope" />
+            <InputText
+              id="email"
+              name="email"
+              value={formik.values.email}
+              onChange={(e) => {
+                formik.handleChange(e);
+                handleData(e);
+              }}
+              className={classNames({
+                "p-invalid": isFormFieldValid("email"),
+              })}
+              placeholder="Email"
+            />
+            <label
+              htmlFor="email"
+              className={classNames({
+                "p-error": isFormFieldValid("email"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("email")}
+        </div>
+        <div className="p-field">
+          <span name="password" onChange={handleData}>
+            <Password
+              id="password"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              toggleMask
+              className={classNames({
+                "p-invalid": isFormFieldValid("password"),
+              })}
+              placeholder="Password"
+              style={{ margin: "10px 0px" }}
+              header={passwordFooter}
+             
+            />
+            <label
+              htmlFor="password"
+              className={classNames({
+                "p-error": isFormFieldValid("password"),
+              })}
+            ></label>
+          </span>
+          {getFormErrorMessage("password")}
+        </div>
+        <div className="p-field">
+          <div>
+            <select
+              name="country"
+              onChange={(e) => handleData(e)}
+              className={style.select}
+            >
+              {countries.map((country) => {
+                return (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+        <Button
+          type="submit"
+          label="Register"
+          className="p-mt-2"
+          style={{
+            backgroundColor: "rgba(1,2,3,.5)",
+            border: "1px solid white",
+            borderRadius: "10px",
+            boxShadow: " 0px 1px 2px white",
+            width:"50%",
+          margin:"10px auto"
+          }}
+        />
+      </form>
     </div>
   );
 };

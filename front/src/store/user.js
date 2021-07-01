@@ -7,7 +7,7 @@ import axios from 'axios'
  //creamos USERS
 
 export const postUser = createAsyncThunk('POST_USER', (user) => {
-
+//console.log("hola bombon",user)
 
     return axios.post('/api/users/register', user)
     .then((res) => res.data)
@@ -17,10 +17,10 @@ export const postUser = createAsyncThunk('POST_USER', (user) => {
 //log User
 
 export const loginUser = createAsyncThunk('LOGIN_USER', (user) => {
-
-    return axios.post('http://localhost:3001/api/users/login', user)
+    return axios.post('/api/users/login', user)
     .then((res) => {
-        const userLogeado = res.data[0]
+        const userLogeado = res.data
+        console.log(userLogeado)
     window.localStorage.setItem("user", JSON.stringify(userLogeado))
     alert(`Bienvenido ${res.data[0].name}`)
     },
