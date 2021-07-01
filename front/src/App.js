@@ -14,6 +14,7 @@ import Home from './components/Home'
 import Footer from './components/Footer';
 import './styles/global.module.css'
 import NotFound from './components/NotFound';
+import ProductView from './components/ProductView';
 
 function App() {
  /*  aca van las rutas */
@@ -24,7 +25,7 @@ function App() {
 
         <Switch>
           
-
+        <Route path='/product' component={ProductView} />
         <Route path="/register" component={Register} /> 
         <Route path="/login" component={Login} />
         

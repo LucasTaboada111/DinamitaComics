@@ -2,14 +2,16 @@ import React from "react";
 import styles from "../styles/productBox.module.css";
 import containerStyles from '../styles/productsContainer.module.css'
 import { Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 
 const ProductBox = () => {
+
   return (
 
     <div
-    className={containerStyles.container}
-    >
+    className={containerStyles.container} >
+
+      <Link to='/product' >
     <div className={styles.container}>
         <div className={styles.imageContainer}>
         <img  className={styles.image} src="https://www.ecccomics.com/content/productos/9580/PORTADA_JPG_WEB_invencible_1.jpg" alt="comic" />
@@ -154,6 +156,7 @@ const ProductBox = () => {
             </Button>
         </div>
     </div>
+    </Link>
     </div>
   );
 };
