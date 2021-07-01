@@ -8,7 +8,7 @@ const NavbarCategories = () => {
     return (
         
         <div className={styles.container}>
-            
+                soy categories
         </div>
     )
 }
