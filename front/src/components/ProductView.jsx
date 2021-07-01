@@ -19,8 +19,7 @@ const ProductView = ({comicId}) => {
 
   },[]);
     
- 
-
+  
   return (
       <div className={styles.center}>
     <div className={styles.container}>
