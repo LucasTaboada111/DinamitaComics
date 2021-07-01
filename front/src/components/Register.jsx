@@ -9,8 +9,11 @@ import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
 import { postUser } from "../store/user";
+<<<<<<< HEAD
 import CountryService from "../configs/CountryService";
 //import '../Configs/countries.json'
+=======
+>>>>>>> fb9c5b8240a45b8fed929c59d0df961ca9aa5e9f
 import style from "../styles/form.module.css";
 
 const FormikFormDemo = () => {
