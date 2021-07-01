@@ -21,11 +21,12 @@ const ProductBox = ({comics}) => {
     >
         {comics.map((comic)=>{
             return (
-                <Link                   
-                  to={`/comic/:${comic.id}`}
-                  comics={comics}
-                >
-                <div className={styles.container} key={comic.id}>
+                
+                <div className={styles.container} key={comic.id}> <Link                   
+                
+                to={`/comic/:${comic.id}`}
+                comics={comics}
+              > 
                             <div>
                                 <div className={styles.imageContainer}>
                                 <img  className={styles.image} src= {comic.img} alt="comic" />
@@ -42,8 +43,8 @@ const ProductBox = ({comics}) => {
                                     </Button>
                                 </div>
                             </div>
-                </div>
                 </Link>
+                </div>
             )
         })}
     </div>
