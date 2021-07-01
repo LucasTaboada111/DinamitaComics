@@ -200,9 +200,9 @@ const Fantástico = [
 
 console.log("Please wait creating data!!")
 
-Aventuras.map((comic) =>{
-  Comic.create(comic).then((comicCreado)=>{
-    Category.findOne({where:{name:"Aventuras"}}).then((category)=>{
+Aventuras.map(comic => {
+  Comic.create(comic).then(comicCreado => {
+    Category.findOne({ where: { name: "Aventuras" } }).then(category => {
       comicCreado.addCategory(category)
     })
   })
