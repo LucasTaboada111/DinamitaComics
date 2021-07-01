@@ -7,6 +7,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from './store'
 
+document.body.style = "background: #EEDFAA"
+
 
 ReactDOM.render(
 

@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import ProductBox from "./ProductBox";
 import CarrouselBanner from "./CarrouselBanner";
 import NavbarCategories from "./NavbarCategories";

@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../styles/productBox.module.css";
 import containerStyles from '../styles/productsContainer.module.css'
+import { Button } from "react-bootstrap";
+
 
 const ProductBox = () => {
   return (
@@ -18,10 +20,10 @@ const ProductBox = () => {
         <div className={styles.price}>
             Price
         </div>
-        <div className={styles.addToCart}>
-            <button>
+        <div >
+            <Button className={styles.addToCart} >
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -35,9 +37,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -51,9 +53,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -67,9 +69,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -83,9 +85,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -99,9 +101,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -115,9 +117,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -131,9 +133,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     <div className={styles.container}>
@@ -147,9 +149,9 @@ const ProductBox = () => {
             Price
         </div>
         <div className={styles.addToCart}>
-            <button>
+            <Button>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     </div>
     </div>

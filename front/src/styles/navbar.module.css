@@ -7,7 +7,8 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    
+    justify-content: space-between;
+
     @media (max-width: 600px) {
         height: 100vh;
 
@@ -18,4 +19,24 @@
   width: 6.5rem;
   height: auto;
   margin-left: 40%;
+}
+
+.boxLeft  {
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.boxCenter  {
+
+  display: flex;
+  align-items: center;
+
+}
+
+.boxRight {
+
+  display: flex;
+  align-items: flex-end;
+
 }
