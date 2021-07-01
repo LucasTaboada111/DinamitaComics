@@ -7,6 +7,9 @@ const Review = require("./review")
 const CreditCard = require("./creditCard")
 
 //Un usuario tiene ordenesDeCOMpra
+User.hasMany(OrderDetail,{foreignKey: 'userId'})
+OrderDetail.belongsTo(User)
+
 User.hasMany(Order,{foreignKey: 'userId'})
 Order.belongsTo(User)
 
@@ -21,8 +24,8 @@ CreditCard.belongsTo(User)
 
 
 //Orden tiene varios orderdetails
-Order.hasMany(OrderDetail,{foreignKey:'orderId'})
-OrderDetail.belongsTo(Order)    
+OrderDetail.hasMany(Order,{foreignKey:'order_detail_id'})
+/* Order.belongsTo(OrderDetail) */    
 
 
 //Comic tiene varias orderDetail
