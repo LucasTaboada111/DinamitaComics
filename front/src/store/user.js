@@ -1,65 +1,36 @@
-import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
-import axios from 'axios'
+import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit"
+import axios from "axios"
 
-        //estas son rutas del backend del api
-
-
- //creamos USERS
-
-export const postUser = createAsyncThunk('POST_USER', (user) => {
-//console.log("hola bombon",user)
-
-    return axios.post('/api/users/register', user)
-    .then((res) => res.data)
-    .catch((err) => console.log(err, "Falló postUser"))
+export const userRegister = createAsyncThunk("userRegister", user => {
+  return axios.post("/api/users/register", user).then(res => res.data)
 })
 
-//log User
-
-export const loginUser = createAsyncThunk('LOGIN_USER', (user) => {
-    return axios.post('/api/users/login', user)
-    .then((res) => {
-        const userLogeado = res.data
-        console.log(userLogeado)
-    window.localStorage.setItem("user", JSON.stringify(userLogeado))
-    alert(`Bienvenido ${res.data[0].name}`)
-    },
-)})
-
-//Deslog User
-export const logOutUser = createAsyncThunk('LOGOUT_USER', () => {
-
-
-    return axios.post('api/users/logout')
-    .then((res) => res.data)
-    .catch((err) => (err, "fallo logout"))
+export const userLogin = createAsyncThunk("userLogin", user => {
+  return axios.post("/api/users/login", user).then(res => res.data)
 })
 
+export const cookiesUser = createAction("cookiesUser", user => ({ payload: user }))
 
-export const getSingleUser = createAsyncThunk('GET_SINGLEUSER', () => {
-
-    return axios({
-        method:"GET",
-        withCredentials:true,
-        url:"/api/user"
-    })
-    .then((res) => res.data)
-    .catch((err) => (err, "falló "))
+export const userLogout = createAsyncThunk("userLogout", () => {
+  return axios.post("api/users/logout").then(res => res.data)
 })
 
-const userReducer = createReducer([], {
+export const getSingleUser = createAsyncThunk("GET_SINGLEUSER", () => {
+  return axios({
+    method: "GET",
+    withCredentials: true,
+    url: "/api/user"
+  }).then(res => res.data)
+})
 
-    [loginUser.fulfilled]: (state, action) => [state, action.payload],
-
-    [postUser]: (state, action) => [state, action.payload],
-
+const userReducer = createReducer(
+  {},
+  {
+    [userLogin.fulfilled]: (state, action) => action.payload,
     [getSingleUser.fulfilled]: (state, action) => [state, action.payload],
-    [logOutUser.fulfilled]: (state, action) => [state, action.payload],
-
-})
+    [userLogout.fulfilled]: (state, action) => action.payload,
+    [cookiesUser]: (state, action) => action.payload
+  }
+)
 
 export default userReducer
-
-
-
-
