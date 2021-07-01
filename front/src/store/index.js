@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import userReducer from "./user";
+import comicsReducer from "./comics";
 
 
 const store = configureStore({
@@ -10,9 +11,8 @@ const store = configureStore({
     }).concat(logger),
 
   reducer: {
-
-    user: userReducer
-
+    user: userReducer,
+    comics: comicsReducer,
   },
 
 });

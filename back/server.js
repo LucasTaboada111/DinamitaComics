@@ -1,64 +1,58 @@
-const express = require("express");
-const app = express();
-const {User ,Comic,Category,Cart,CartDetail,Review,Payment} = require("./models");
-const db = require("./config");
+const express = require("express")
+const app = express()
+const { User, Comic, Category, Cart, CartDetail, Review, Payment } = require("./models")
+const db = require("./config")
 const PORT = process.env.PORT || 3001
-const passport = require("passport");
-const sessions = require("express-session");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const localStrategy = require("passport-local").Strategy;
+const passport = require("passport")
+const sessions = require("express-session")
+const cors = require("cors")
+const cookieParser = require("cookie-parser")
+const localStrategy = require("passport-local").Strategy
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+app.use(cookieParser())
 
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(cors());
-app.use(cookieParser());
-
-
-
-app.use(sessions({ secret: "ecomerce", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(sessions({ secret: "ecomerce" }))
+app.use(passport.initialize())
+app.use(passport.session())
 passport.use(
-  new localStrategy(
-    { usernameField: "email", passwordField: "password" },
-    function (email, password, done) {
-      User.findOne({
-        where: {
-          email,
-        },
-      })
-        .then((user) => {
-          if (!user) {
-            return done(null, false);
+  new localStrategy({ usernameField: "email", passwordField: "password" }, function (
+    email,
+    password,
+    done
+  ) {
+    User.findOne({
+      where: {
+        email
+      }
+    })
+      .then(user => {
+        if (!user) {
+          return done(null, false)
+        }
+        user.hash(password, user.salt).then(hash => {
+          if (hash !== user.password) {
+            return done(null, false)
           }
-          user.hash(password, user.salt).then((hash) => {
-            if (hash !== user.password) {
-              return done(null, false); 
-            }
-            done(null, user);
-          });
+          done(null, user)
         })
-        .catch(done);
-    }
-  )
-);
+      })
+      .catch(done)
+  })
+)
 
+passport.serializeUser(function (user, done) {
+  done(null, user.id)
+})
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
+passport.deserializeUser(function (id, done) {
+  User.findByPk(id).then(user => done(null, user))
+})
 
-passport.deserializeUser(function(id, done) {
-  User.findByPk(id)
-    .then(user => done(null, user))
-});
-
-
-
-app.use("/api",require("./routes"));
-app.use((err,req,res,next)=>{
+app.use("/api", require("./routes"))
+app.use((err, req, res, next) => {
   console.log(err)
   res.status(500).send(err)
 })
@@ -72,6 +66,4 @@ db.sync({ force: true })
     console.log("DB sync failed", err)
   })
 
-
-
-  module.exports = app
+module.exports = app
