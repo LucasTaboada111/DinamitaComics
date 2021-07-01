@@ -2,10 +2,17 @@ import React from "react";
 import styles from "../styles/productBox.module.css";
 import containerStyles from '../styles/productsContainer.module.css'
 import { Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 
 const ProductBox = ({comics}) => {
     
+
+
+
+ 
+
+
+
 
   return (
 
@@ -14,6 +21,10 @@ const ProductBox = ({comics}) => {
     >
         {comics.map((comic)=>{
             return (
+                <Link                   
+                  to={`/comic/:${comic.id}`}
+                  comics={comics}
+                >
                 <div className={styles.container} key={comic.id}>
                             <div>
                                 <div className={styles.imageContainer}>
@@ -32,6 +43,7 @@ const ProductBox = ({comics}) => {
                                 </div>
                             </div>
                 </div>
+                </Link>
             )
         })}
     </div>

@@ -22,6 +22,7 @@ router.get("/:id", (req, res, next) => {
     })
 })
 
+//router.put("/edit/:id",async (req,res,next)=>{
 //creemos que es para admins nada mas
 router.post("/", (req, res, next) => {
   const { name, price, category, img, plot, rating, stock, year } = req.body
