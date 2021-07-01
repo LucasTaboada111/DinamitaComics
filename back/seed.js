@@ -66,7 +66,7 @@ const Humorístico = [
   },
   {
     name: "Deadpool Kills the Marvel Universe",
-    price: 4.20,
+    price: 4.21,
     img: "https://images-na.ssl-images-amazon.com/images/I/919h1KUZY6L.jpg",
     plot: "What if everything you thought was funny about Deadpool was actually just disturbing? What if he decided to kill everyone and everything that makes up the Marvel Universe? What if he actually pulled it off? Would that be FUN for you? The Merc with a Mouth takes a turn for the twisted in a horror comic like no other!",
     rating: 3.2,

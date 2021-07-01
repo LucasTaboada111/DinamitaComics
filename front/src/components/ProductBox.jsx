@@ -23,7 +23,7 @@ const ProductBox = ({comics}) => {
                                     {comic.name}
                                 </div>
                                 <div className={styles.price}>
-                                    {comic.price}
+                                    {comic.price} $
                                 </div>
                                 <div >
                                     <Button className={styles.addToCart} >
