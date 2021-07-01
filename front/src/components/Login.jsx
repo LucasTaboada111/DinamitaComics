@@ -32,6 +32,7 @@ const LoginView = () => {
           Welcome back
           <hr />
         </h2>
+
         <form onSubmit={handleClick}>
           <input
             className={styles.input}
@@ -50,10 +51,11 @@ const LoginView = () => {
           />
           <button className={styles.button}>Log In</button>
         </form>
+
         <Link to="/register">
-          <br></br>
           <div>Don't have an account? Sign up</div>
         </Link>
+
         {error && <Error />}
       </div>
     </div>

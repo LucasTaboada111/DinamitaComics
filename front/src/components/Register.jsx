@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
+import { useDispatch } from "react-redux"
+
 import { useFormik } from "formik"
 import { InputText } from "primereact/inputtext"
 import { Button } from "primereact/button"
@@ -7,8 +9,7 @@ import { Password } from "primereact/password"
 import { Dialog } from "primereact/dialog"
 import { Divider } from "primereact/divider"
 import { classNames } from "primereact/utils"
-import { useDispatch } from "react-redux"
-import { postUser } from "../store/user"
+import { userRegister } from "../store/user"
 import style from "../styles/form.module.css"
 
 const FormikFormDemo = () => {
@@ -65,14 +66,13 @@ const FormikFormDemo = () => {
 
   const redirect = () => history.push("/login")
 
-  //Esta funcion ejecuta el mensaje post login
   const onSubmit = e => {
     e.preventDefault()
     setShowMessage(true)
     setTimeout(() => redirect(), 4000)
   }
 
-  const handlePost = e => {
+  const handleRegister = e => {
     e.preventDefault()
     dispatch(userRegister(registro))
   }
@@ -126,7 +126,7 @@ const FormikFormDemo = () => {
       <form
         className={style.form}
         onSubmit={e => {
-          handlePost(e)
+          handleRegister(e)
           onSubmit(e)
         }}>
         <div className="p-field">

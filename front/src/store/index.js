@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import { configureStore } from "@reduxjs/toolkit"
 import logger from "redux-logger"
 import userReducer from "./user"
-=======
-import { configureStore } from "@reduxjs/toolkit";
-import logger from "redux-logger";
-import userReducer from "./user";
-import comicsReducer from "./comics";
-
->>>>>>> fb9c5b8240a45b8fed929c59d0df961ca9aa5e9f
+import comicsReducer from "./comics"
 
 const store = configureStore({
   middleware: getDefaultMiddleware =>
@@ -17,18 +10,9 @@ const store = configureStore({
     }).concat(logger),
 
   reducer: {
-<<<<<<< HEAD
-    user: userReducer
+    user: userReducer,
+    comics: comicsReducer
   }
 })
 
 export default store
-=======
-    user: userReducer,
-    comics: comicsReducer,
-  },
-
-});
-
-export default store;
->>>>>>> fb9c5b8240a45b8fed929c59d0df961ca9aa5e9f

@@ -11,24 +11,22 @@ const CarrouselBanner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={banner} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>All marvel comics in one place!</h3>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img className="d-block w-100" src={banner2} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Buy amazings comics</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner3} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>A lot of categories to choose</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
