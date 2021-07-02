@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ProductBox = ({comics}) => {
-    
+    console.log("hola",comics)
 
   return (
 
@@ -17,7 +17,7 @@ const ProductBox = ({comics}) => {
                 
                 <div className={styles.container} key={comic.id}> <Link                   
                 
-                to={`/comic/:${comic.id}`}
+                to={`/comic/${comic.id}`}
                 comics={comics}
               > 
                             <div >

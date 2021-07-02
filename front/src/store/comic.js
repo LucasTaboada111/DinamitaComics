@@ -4,7 +4,7 @@ import axios from "axios"
 
 export const getComic = createAsyncThunk("GET_COMIC", (id) => {
 
-
+console.log(id)
  return axios.get(`/api/comics/${id}`).then(res => res.data)
 
 //  return axios.get(`/api/comics/${props.match.params.id}`).then(res => res.data)
@@ -13,7 +13,7 @@ export const getComic = createAsyncThunk("GET_COMIC", (id) => {
 
 const comicReducer = createReducer({}, {
 
-  [getComic.fulfilled]: (state, action) => [state, action.payload]
+  [getComic.fulfilled]: (state, action) =>action.payload
 
 })
 

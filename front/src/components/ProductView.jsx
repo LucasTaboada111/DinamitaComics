@@ -13,13 +13,15 @@ const ProductView = ({comicId}) => {
   const dispatch = useDispatch();
   
 
-  const comic = useSelector((state => state?.comic[1]? state.comic[1] : null ))
-  console.log(comic, "soy comic")
+  /* const comic = useSelector((state => state?.comic[1]? state.comic[1] : null ))
+  console.log(comic, "soy comic") */
+  const comic = useSelector((state => state.comic))
 
+ 
   useEffect(()=>{
-    dispatch(getComic(Number(comicId.split('')[1])));   
+    dispatch(getComic(comicId));   
 
-  },[]);
+  },[dispatch]);
     
   
   return (
@@ -29,12 +31,12 @@ const ProductView = ({comicId}) => {
           <div className={styles.boxLeft}>
             <img
               className={styles.image}
-              src={comic?.img }
+              src={comic.img }
             />
           </div>
           <div className={styles.boxRight}>
-            <div className={styles.title}> {comic?.name} </div>
-            <div className={styles.price}> ${comic?.price} </div>
+            <div className={styles.title}> {comic.name} </div>
+            <div className={styles.price}> ${comic.price} </div>
             <div>
               <Button className={styles.cartButton} > Add to Cart ! </Button>
             </div>
@@ -47,10 +49,12 @@ const ProductView = ({comicId}) => {
           </div>
 
         </div>
-        <div className={styles.description}>{comic?.plot}</div>
+        <div className={styles.description}>{comic.plot}</div>
       </div>
     </div>
   );
 };
 
 export default ProductView;
+
+
