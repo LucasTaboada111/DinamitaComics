@@ -19,6 +19,7 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
+import DataTableTemplatingDemo from "./components/Cart"
 
 function App() {
   const dispatch = useDispatch()
@@ -38,6 +39,7 @@ function App() {
     <div>
       <Navbar />
       <Switch>
+        <Route path="/cart" component={DataTableTemplatingDemo}/>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
