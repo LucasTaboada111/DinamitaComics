@@ -12,6 +12,7 @@ import "primereact/resources/primereact.min.css"
 import "primeicons/primeicons.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import ProductView from './components/ProductView';
 import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import Register from "./components/Register"
@@ -19,6 +20,7 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
+import DataTableTemplatingDemo from "./components/Cart"
 
 function App() {
   const dispatch = useDispatch()
@@ -36,8 +38,16 @@ function App() {
   }, [dispatch])
   return (
     <div>
+
+          
       <Navbar />
       <Switch>
+        <Route path="/cart" component={DataTableTemplatingDemo}/>
+
+        <Route path='/comic/:id' render={({ match }) => 
+            <ProductView comicId={match.params.id}/>}  />
+
+
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

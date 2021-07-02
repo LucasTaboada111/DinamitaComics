@@ -68,4 +68,6 @@ db.sync({ force: false })
     console.log("DB sync failed", err)
   })
 
+
+  
 module.exports = app

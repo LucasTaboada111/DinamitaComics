@@ -1,0 +1,32 @@
+.datatable-templating-demo .table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datatable-templating-demo .product-image {
+  width: 50px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.boton {
+  display: flex;
+  max-width: 10%;
+  height: 20px;
+  color: black;
+  background-color: white;
+  margin: auto 4px;
+}
+
+.imgProduct{
+  max-width: 100px;
+  max-height: 100px;
+  display:flex;
+}
+
+.divFooter{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+

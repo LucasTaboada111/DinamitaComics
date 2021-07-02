@@ -2,6 +2,8 @@ import { configureStore } from "@reduxjs/toolkit"
 import logger from "redux-logger"
 import userReducer from "./user"
 import comicsReducer from "./comics"
+import cartReducer from "./cart"
+import comicReducer from "./comic"
 
 const store = configureStore({
   middleware: getDefaultMiddleware =>
@@ -11,7 +13,9 @@ const store = configureStore({
 
   reducer: {
     user: userReducer,
-    comics: comicsReducer
+    comics: comicsReducer,
+    cart:cartReducer,
+    comic: comicReducer
   }
 })
 

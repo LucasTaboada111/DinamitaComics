@@ -46,3 +46,12 @@ box-shadow:  7px 7px 12px #ccc29e,
     color: green;
 
 }
+
+.boxBottom  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 0.7rem;
+}
