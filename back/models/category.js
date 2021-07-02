@@ -1,5 +1,5 @@
-const S = require("sequelize");
-const db = require("../config");
+const S = require("sequelize")
+const db = require("../config")
 
 class Category extends S.Model {}
 
@@ -7,10 +7,10 @@ Category.init(
   {
     name: {
       type: S.STRING,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   },
   { sequelize: db, modelName: "category" }
-);
+)
 
-module.exports = Category;
+module.exports = Category
