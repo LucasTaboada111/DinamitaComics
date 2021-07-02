@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const router = require("express").Router();
 const { User, Comic, OrderDetail, Order } = require("../models");
 
@@ -82,3 +83,23 @@ router.delete("/deleteComic", (req, res, next) => {
  */
 
 module.exports = router;
+=======
+const router = require("express").Router()
+const { User, Comic, Order, OrderDetail } = require("../models")
+
+router.post("/addComic", (req, res, next) => {
+  const LoggedUser = req.user
+  const Comic = req.Comic
+
+  Order.findAll({ where: { userId: LoggedUser.id } }).then(orders => {
+    OrderDetail.findOrCreate({ where: { id: orders.length + 1 } }).then(order => {
+      User.findByPk(LoggedUser.id).then(usuario => {
+        usuario.addOrder_detail(order[0])
+        res.send(order)
+      })
+    })
+  })
+})
+
+module.exports = router
+>>>>>>> 4a10b04fd438094f1f5ec848b47db64e2215d3d9
