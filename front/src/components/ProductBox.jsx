@@ -7,13 +7,6 @@ import { Link } from "react-router-dom";
 const ProductBox = ({comics}) => {
     
 
-
-
- 
-
-
-
-
   return (
 
     <div
@@ -27,10 +20,11 @@ const ProductBox = ({comics}) => {
                 to={`/comic/:${comic.id}`}
                 comics={comics}
               > 
-                            <div>
+                            <div >
                                 <div className={styles.imageContainer}>
                                 <img  className={styles.image} src= {comic.img} alt="comic" />
                                 </div>
+                                <div className={styles.boxBottom}>
                                 <div className={styles.productName}>
                                     {comic.name}
                                 </div>
@@ -41,6 +35,7 @@ const ProductBox = ({comics}) => {
                                     <Button className={styles.addToCart} >
                                         Add to Cart
                                     </Button>
+                                    </div>
                                 </div>
                             </div>
                 </Link>

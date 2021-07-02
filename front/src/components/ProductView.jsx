@@ -4,6 +4,8 @@ import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { getComic } from "../store/comic";
 import { useEffect, useState } from "react";
+import {GrFavorite} from 'react-icons/gr'
+import {FiPlus} from 'react-icons/fi'
 
 
 const ProductView = ({comicId}) => {
@@ -34,10 +36,10 @@ const ProductView = ({comicId}) => {
             <div className={styles.title}> {comic?.name} </div>
             <div className={styles.price}> ${comic?.price} </div>
             <div>
-              <Button className={styles.cartButton}> Add to Cart</Button>
+              <Button className={styles.cartButton} > Add to Cart ! </Button>
             </div>
             <div>
-              <Button className={styles.cartButton}> Add to Favorites</Button>
+              <Button className={styles.cartButton}> <GrFavorite /> </Button>
             </div>
             <div>
                 +10 (Quantity)

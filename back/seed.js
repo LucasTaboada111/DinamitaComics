@@ -8,15 +8,6 @@ categories.map(async item => {
 
 const Aventuras = [
   {
-    name: "Batman: The Killing Joke",
-    price: 1.14,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7GCIxlrwMmzS1j0Y73OmX5InrDRsAo_JErSk5TLXNfNHM9NkFTpEoNyGrHRHoRgbcp0&usqp=CAU",
-    plot: "Batman: The Killing Joke is a 1988 DC Comics one-shot graphic novel featuring the characters Batman and the Joker written by Alan Moore and illustrated by Brian Bolland. The Killing Joke provides an origin story for the supervillain the Joker, loosely adapted from the 1951 story arc 'The Man Behind the Red Hood!'. The Joker's origin is presented via flashback, while simultaneously depicting his attempt to drive Jim Gordon insane and Batman's desperate attempt to stop him.",
-    rating: 5,
-    stock: 5,
-    year: 2012
-  },
-  {
     name: "The Dark Knight Returns",
     price: 1.25,
     img: "https://upload.wikimedia.org/wikipedia/en/e/e9/Batman_The_Dark_Knight_Returns_%28film%29.jpg",
@@ -94,7 +85,7 @@ const Humorístico = [
   {
     name: "HARLEY QUINN: VILLAIN OF THE YEAR #1",
     price: 1.69,
-    img: "https://static.wikia.nocookie.net/batman/images/e/ed/Harley_Quinn_Villain_of_the_Year_Vol.1_1.png/revision/latest?cb=20191211170835&path-prefix=es",
+    img: "https://www.previewsworld.com/SiteImage/MainImage/STL146112.jpg",
     plot: "Harley Quinn hosts “Villainy’s Biggest Night” as the DCU’s most dastardly gather at the Hall of Doom to do what they do best—congratulate themselves! But one villain has a secret plan, fueled by years of being overlooked by his peers, and the burning desire to receive the praise he so rightly deserves... Don’t miss out on a one-of-a-kind comic book experience, with the winners decided by you, the fans! Who will be crowned DC’s Villain of the Year?",
     rating: 4.25,
     stock: 2,
@@ -204,7 +195,16 @@ const Fantástico = [
     rating: 2.8,
     stock: 4,
     year: 2013
-  }
+  },
+  {
+    name: "Batman: The Killing Joke",
+    price: 1.14,
+    img: "https://1.bp.blogspot.com/-F8HcuOOgzxw/WAJ3eRKnUVI/AAAAAAAAJCU/Ub0vnmtP1xU_4MJeBvvkHmp7DRdUTRR2gCLcB/s280/Batman-The-Killing-Joke-2016-movie-poster.jpg",
+    plot: "Batman: The Killing Joke is a 1988 DC Comics one-shot graphic novel featuring the characters Batman and the Joker written by Alan Moore and illustrated by Brian Bolland. The Killing Joke provides an origin story for the supervillain the Joker, loosely adapted from the 1951 story arc 'The Man Behind the Red Hood!'. The Joker's origin is presented via flashback, while simultaneously depicting his attempt to drive Jim Gordon insane and Batman's desperate attempt to stop him.",
+    rating: 5,
+    stock: 5,
+    year: 2012
+  },
 ]
 
 console.log("Please wait creating data!!")
