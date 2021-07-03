@@ -41,7 +41,7 @@ const Navbar = () => {
         </div>
 
         <div className={styles.btns}>
-          <Button href= "/cart">
+          <Button href="/cart">
             <FaShoppingCart />
           </Button>
         </div>
