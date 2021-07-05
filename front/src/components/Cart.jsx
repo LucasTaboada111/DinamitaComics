@@ -6,7 +6,9 @@ import { Rating } from "primereact/rating"
 import styles from "../styles/cart.module.css"
 
 const DataTableTemplatingDemo = () => {
-  const example = [
+
+
+const example = [
     {
       name: "Batman: The Killing Joke",
       price: 1.14,
@@ -35,7 +37,8 @@ const DataTableTemplatingDemo = () => {
       year: 2018
     }
   ]
-  const [products, setProducts] = useState([])
+  
+const [products, setProducts] = useState([])
 
 useEffect(() => {
     setProducts(example)
