@@ -1,10 +1,9 @@
 const { Comic, Category } = require("./models")
 
-const categories = ["Aventuras", "Humorístico", "Terror", "Fantástico"]
+const db = require("./config/db")
+const axios = require("axios")
 
-categories.map(async item => {
-  await Category.create({ name: item })
-})
+const categories = ["Aventuras", "Humorístico", "Terror", "Fantástico"]
 
 const Aventuras = [
   {
@@ -51,9 +50,8 @@ const Aventuras = [
     rating: 5,
     stock: 4,
     year: 1996
-  },
+  }
 ]
-
 const Humorístico = [
   {
     name: "All-New Guardians Of The Galaxy Vol. 1: Communication Breakdown",
@@ -101,7 +99,6 @@ const Humorístico = [
     year: 2013
   }
 ]
-
 const Terror = [
   {
     name: "Saga of the Swamp Thing Book One",
@@ -149,7 +146,6 @@ const Terror = [
     year: 2013
   }
 ]
-
 const Fantástico = [
   {
     name: "Critical Role Vox Machina: Origins Volume 1",
@@ -204,39 +200,47 @@ const Fantástico = [
     rating: 5,
     stock: 5,
     year: 2012
-  },
+  }
 ]
 
-console.log("Please wait creating data!!")
+const seed = () => {
+  console.log("SEED STARTING")
 
-Aventuras.map(comic => {
-  Comic.create(comic).then(comicCreado => {
-    Category.findOne({ where: { name: "Aventuras" } }).then(category => {
-      comicCreado.addCategory(category)
+  categories.map(async item => {
+    await Category.create({ name: item })
+  })
+
+  Aventuras.map(comic => {
+    Comic.create(comic).then(comicCreado => {
+      Category.findOne({ where: { name: "Aventuras" } }).then(category => {
+        comicCreado.addCategory(category)
+      })
     })
   })
-})
 
-Terror.map(comic => {
-  Comic.create(comic).then(comicCreado => {
-    Category.findOne({ where: { name: "Terror" } }).then(category => {
-      comicCreado.addCategory(category)
+  Terror.map(comic => {
+    Comic.create(comic).then(comicCreado => {
+      Category.findOne({ where: { name: "Terror" } }).then(category => {
+        comicCreado.addCategory(category)
+      })
     })
   })
-})
 
-Fantástico.map(comic => {
-  Comic.create(comic).then(comicCreado => {
-    Category.findOne({ where: { name: "Fantástico" } }).then(category => {
-      comicCreado.addCategory(category)
+  Fantástico.map(comic => {
+    Comic.create(comic).then(comicCreado => {
+      Category.findOne({ where: { name: "Fantástico" } }).then(category => {
+        comicCreado.addCategory(category)
+      })
     })
   })
-})
 
-Humorístico.map(comic => {
-  Comic.create(comic).then(comicCreado => {
-    Category.findOne({ where: { name: "Humorístico" } }).then(category => {
-      comicCreado.addCategory(category)
+  Humorístico.map(comic => {
+    Comic.create(comic).then(comicCreado => {
+      Category.findOne({ where: { name: "Humorístico" } }).then(category => {
+        comicCreado.addCategory(category)
+      })
     })
   })
-})
+}
+
+seed()

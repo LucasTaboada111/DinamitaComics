@@ -5,7 +5,7 @@ const { Comic, Category } = require("../models")
 router.get("/", async (req, res, next) => {
   try {
     const comics = await Comic.findAll()
-    res.send(comics)
+    res.status(200).send(comics)
   } catch (error) {
     next(error)
   }

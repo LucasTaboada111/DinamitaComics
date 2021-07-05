@@ -1,14 +1,14 @@
-const S = require("sequelize");
-const db = require("../config");
-const bcrypt = require("bcrypt");
+const S = require("sequelize")
+const db = require("../config/db")
+const bcrypt = require("bcrypt")
 
 class User extends S.Model {
   hash(password, salt) {
-    return bcrypt.hash(password, salt);
+    return bcrypt.hash(password, salt)
   }
 
   validPassword(password) {
-    return this.password === User.hash(password, this.salt);
+    return this.password === User.hash(password, this.salt)
   }
 }
 
@@ -18,52 +18,50 @@ User.init(
       type: S.STRING,
       allowNull: false,
       validate: {
-        isEmail: true,
-      },
+        isEmail: true
+      }
     },
     password: {
       type: S.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    country:{
-        type:S.STRING,
-        allowNull: false,
+    country: {
+      type: S.STRING,
+      allowNull: false
     },
     username: {
       type: S.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true,
-      },
+        notEmpty: true
+      }
     },
     fullname: {
       type: S.STRING,
-      allowNull: false,
+      allowNull: false
     },
     address: {
       type: S.STRING,
-      allowNull: false,
+      allowNull: false
     },
     phone: {
       type: S.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
-    isAdmin:{
-        type: S.BOOLEAN,
-        defaultValue:false,
+    isAdmin: {
+      type: S.BOOLEAN,
+      defaultValue: false
     },
     salt: {
-      type: S.STRING,
-    },
+      type: S.STRING
+    }
   },
   { sequelize: db, modelName: "user" }
-);
-
+)
 
 User.addHook("beforeCreate", async user => {
-    user.salt = await bcrypt.genSalt(6)
-    user.password = await user.hash(user.password, user.salt)
-  })
+  user.salt = await bcrypt.genSalt(6)
+  user.password = await user.hash(user.password, user.salt)
+})
 
-
-module.exports = User;
+module.exports = User
