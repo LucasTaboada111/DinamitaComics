@@ -48,37 +48,30 @@ router.delete("/deleteComic", (req, res, next) => {
   });
 });
 
-/* router.post("/addComic", (req, res, next) => {
-  const LoggedUser = req.user;
-  const addedComic = req.body.comic;
-  const cantidad = req.body.cantidad;
-
-  Order.findAll({ where: { userId: LoggedUser.id } })
-    .then((orders) => {
-      OrderDetail.findOrCreate({ where: { id: orders.length + 1 } }).then(
-        (order) => {
-          Comic.findByPk(addedComic.id).then((comic) => {
-            
-            order[0]
-              .update({
-                products: [...order[0].products, { comic, cantidad }],
-              })
-              .then((orderActualizada) => {
-                User.findByPk(LoggedUser.id).then((usuario) => {
-                  usuario.addOrder_detail(order[0]);
-                  res.status(200).send(orderActualizada);
-                });
-              });
-          });
-        }
-      );
-    })
-    .catch((err) => {
-      next(err);
+router.put("/updateComic", (req, res, next) => {
+  const cant = req.body.cant;
+  const comicId = req.body.comic.id;
+  const userId = req.user.id;
+  OrderDetail.findByPk(userId).then((order) => {
+    order.products.map((data) => {
+      if (data.comic.id == comicId) {
+        data.cantidad = cant;
+      }
     });
+
+    OrderDetail.update(
+      {
+        products: order.products,
+      },
+      { where: { id: userId } }
+    );
+  }).then((orderUpdateada)=>{
+    res.status(200).send({ msg: "editado correctamente" });
+  }).catch((err)=>{
+    next(err)
+  })
 });
 
 
- */
 
 module.exports = router;

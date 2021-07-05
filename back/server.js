@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const db = require("./config/db")
+const {User,Comic,Category,Order,OrderDetail,Review,CreditCard} = require("./models")
 const PORT = process.env.PORT || 3001
 const passport = require("passport")
 const sessions = require("express-session")
