@@ -4,13 +4,15 @@ const admin = require("./admin")
 const orderDetail = require("./orderDetail")
 const comics = require("./comics")
 const products = require("./products")
-const categories = require("./categories")
+const review = require("./reviews")
+const categorys = require("./categorys")
 
 router.use("/users", users)
 router.use("/admin", admin)
 router.use("/orderDetails", orderDetail)
 router.use("/comics", comics)
 router.use("/products", products)
+router.use("/review", review)
 router.use("/categories", categories)
 
 router.get("/me", (req, res) => {
