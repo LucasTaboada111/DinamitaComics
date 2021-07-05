@@ -29,8 +29,8 @@ OrderDetail.hasMany(Order,{foreignKey:'order_detail_id'})
 
 
 //Comic tiene varias orderDetail
-Comic.hasMany(OrderDetail,{foreignKey:'comicId'})
-OrderDetail.belongsTo(Comic)
+/* Comic.hasMany(OrderDetail,{foreignKey:'comicId'})
+OrderDetail.belongsTo(Comic) */
 
 
 

@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router"
-import { useDispatch } from "react-redux"
 
-import { useFormik } from "formik"
-import { InputText } from "primereact/inputtext"
-import { Button } from "primereact/button"
-import { Password } from "primereact/password"
-import { Dialog } from "primereact/dialog"
-import { Divider } from "primereact/divider"
-import { classNames } from "primereact/utils"
-import { userRegister } from "../store/user"
-import style from "../styles/form.module.css"
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import { useFormik } from "formik";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { Password } from "primereact/password";
+import { Dialog } from "primereact/dialog";
+import { Divider } from "primereact/divider";
+import { classNames } from "primereact/utils";
+import { useDispatch } from "react-redux";
+import { userRegister } from "../store/user";
+import { postUser } from "../store/user";
+import style from "../styles/form.module.css";
+
 
 const FormikFormDemo = () => {
   const [countries, setCountries] = useState([])
