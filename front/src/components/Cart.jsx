@@ -5,42 +5,23 @@ import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
 import "../styles/cart.module.css"
 import styles from "../styles/cart.module.css"
+import { useDispatch, useSelector } from "react-redux";
+import {getDataCart } from "../store/cart"
+
+
 
 const DataTableTemplatingDemo = () => {
-  const example = [
-    {
-      name: "Batman: The Killing Joke",
-      price: 1.14,
-      img: "https://images-na.ssl-images-amazon.com/images/I/91CLsiEAX8L.jpg",
-      plot: "Batman: The Killing Joke is a 1988 DC Comics one-shot graphic novel featuring the characters Batman and the Joker written by Alan Moore and illustrated by Brian Bolland. The Killing Joke provides an origin story for the supervillain the Joker, loosely adapted from the 1951 story arc 'The Man Behind the Red Hood!'. The Joker's origin is presented via flashback, while simultaneously depicting his attempt to drive Jim Gordon insane and Batman's desperate attempt to stop him.",
-      rating: 5,
-      stock: 5,
-      year: 2012
-    },
-    {
-      name: "The Dark Knight Returns",
-      price: 1.25,
-      img: "https://www.ecccomics.com/content/productos/8061/Batman_99_44_1a_cubierta.jpg",
-      plot: "The Dark Knight Returns (alternatively titled Batman: The Dark Knight Returns) is a 1986 four-issue comic book miniseries starring Batman, written by Frank Miller, illustrated by Miller, and Klaus Janson, with color by Lynn Varley, and published by DC Comics. It tells an alternative story of Bruce Wayne, who at 55-years-old returns from retirement to fight crime and faces opposition from the Gotham City police force and the United States government. The story also features the return of classic foes such as Two-Face and the Joker, and culminates with a confrontation against Superman, who is now a pawn of the government.",
-      rating: 4,
-      stock: 6,
-      year: 2010
-    },
-    {
-      name: "HARLEY QUINN: VILLAIN OF THE YEAR #1",
-      price: 1.69,
-      img: "https://www.ecccomics.com/content/productos/5020/HarleyQuinn_22.jpg",
-      plot: "Harley Quinn hosts “Villainy’s Biggest Night” as the DCU’s most dastardly gather at the Hall of Doom to do what they do best—congratulate themselves! But one villain has a secret plan, fueled by years of being overlooked by his peers, and the burning desire to receive the praise he so rightly deserves... Don’t miss out on a one-of-a-kind comic book experience, with the winners decided by you, the fans! Who will be crowned DC’s Villain of the Year?",
-      rating: 2.25,
-      stock: 2,
-      year: 2018
-    }
-  ]
+
+  const dispach = useDispatch()
+  const cartUser = useSelector(state => state.cart)
+  
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    setProducts(example)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+dispach(getDataCart())
+setProducts(cartUser)
+console.log("pero",cartUser)
+  }, []) 
 
   const formatCurrency = value => {
     return value.toLocaleString("en-US", {
