@@ -143,6 +143,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Fullname"
               style={{ width: "100%", border: "none" }}
+              required = "true"
             />
             <label
               htmlFor="name"
@@ -165,6 +166,7 @@ const FormikFormDemo = () => {
                 "p-invalid": isFormFieldValid("username")
               })}
               style={{ margin: "10px 0px", width: "100%" }}
+              required = "true"
             />
             <label
               htmlFor="name"
@@ -188,6 +190,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Adress"
               style={{ width: "100%" }}
+              required = "true"
             />
             <label
               htmlFor="name"
@@ -211,6 +214,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Phone"
               style={{ margin: "10px 0px", width: "100%" }}
+              required = "true"
             />
             <label
               htmlFor="name"
@@ -236,6 +240,7 @@ const FormikFormDemo = () => {
                 "p-invalid": isFormFieldValid("email")
               })}
               placeholder="Email"
+              required = "true"
             />
             <label
               htmlFor="email"
@@ -259,6 +264,7 @@ const FormikFormDemo = () => {
               placeholder="Password"
               style={{ margin: "10px 0px" }}
               header={passwordFooter}
+              required = "true"
             />
             <label
               htmlFor="password"

@@ -35,6 +35,7 @@ const LoginView = () => {
             name="email"
             onChange={e => setEmail(e.target.value)}
             placeholder="Email"
+            required = "true"
           />
 
           <input
@@ -43,6 +44,7 @@ const LoginView = () => {
             name="password"
             onChange={e => setPassword(e.target.value)}
             placeholder="Password"
+            required = "true"
           />
           <button className={styles.button}>Log In</button>
         </form>
