@@ -14,7 +14,7 @@ const store = configureStore({
   reducer: {
     user: userReducer,
     comics: comicsReducer,
-    cart:cartReducer,
+    cart: cartReducer,
     comic: comicReducer
   }
 })

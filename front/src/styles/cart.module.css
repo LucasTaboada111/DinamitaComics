@@ -17,16 +17,15 @@
   margin: auto 4px;
 }
 
-.imgProduct{
+.imgProduct {
   max-width: 100px;
   max-height: 100px;
-  display:flex;
+  display: flex;
 }
 
-.divFooter{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center
+.divFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-

@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 const S = require("sequelize");
 const db = require("../config");
 const Comic = require("./comic");
+=======
+const S = require("sequelize")
+const db = require("../config/db")
+>>>>>>> a2cb8f164279105d818a4c6ea4110c83b5695ed2
 
 class OrderDetail extends S.Model {}
 
 OrderDetail.init(
   {
+<<<<<<< HEAD
     products: {
       type: S.ARRAY(S.JSON),
       defaultValue: [],
@@ -13,10 +19,19 @@ OrderDetail.init(
     totalPrice: {
       type: S.FLOAT,
     },
+=======
+    totalPrice: {
+      type: S.INTEGER
+    },
+    quantity: {
+      type: S.STRING
+    }
+>>>>>>> a2cb8f164279105d818a4c6ea4110c83b5695ed2
   },
   { sequelize: db, modelName: "order_detail" }
-);
+)
 
+<<<<<<< HEAD
 
 /* const pepito = (arr) => {
   let valor = 0;
@@ -46,3 +61,6 @@ OrderDetail.addHook("beforeUpdate", (orderDetail) => {
 
 
 module.exports = OrderDetail;
+=======
+module.exports = OrderDetail
+>>>>>>> a2cb8f164279105d818a4c6ea4110c83b5695ed2
