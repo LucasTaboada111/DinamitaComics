@@ -2,9 +2,7 @@ import { React, useEffect } from "react"
 import { Route, Switch } from "react-router"
 import axios from "axios"
 import { useDispatch } from "react-redux"
-
 import { cookiesUser } from "./store/user"
-
 import "./App.css"
 
 import "primereact/resources/themes/saga-blue/theme.css"
@@ -21,6 +19,7 @@ import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
+import FilterCategoryProducts from "./components/FilterCategoryProducts"
 
 function App () {
   const dispatch = useDispatch()
@@ -36,19 +35,24 @@ function App () {
         console.log(response.status, response.statusText)
       })
   }, [dispatch])
+
+
   return (
     <div>
       <Navbar />
+     
       <Switch>
         <Route path="/cart" component={DataTableTemplatingDemo} /> cl
         <Route
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
+        
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
+       
       </Switch>
       <Footer />
     </div>

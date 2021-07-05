@@ -5,8 +5,11 @@ const FilterCategoryProducts = () => {
 
 
         <div className="row">
+
             <div className="col-md-4" ></div>
+                Productos encontrados
             <div className="col-md-4" ></div>
+
             <div className="col-md-4" ></div>
         </div>
     )
