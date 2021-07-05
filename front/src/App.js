@@ -40,7 +40,7 @@ function App() {
     <div>
       <Navbar />
       <Switch>
-        <Route path="/cart" component={DataTableTemplatingDemo} />
+        <Route path="/cart" component={DataTableTemplatingDemo} /> cl
         <Route
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
