@@ -1,5 +1,6 @@
 const router = require("express").Router()
 const { Comic, Category } = require("../models")
+const { Op } = require("sequelize");
 
 
 
@@ -16,15 +17,20 @@ router.get("/category",(req,res,next)=>{
     })
 })
 
-
 router.get("/comicName",(req,res,next)=>{
 
-    Comic.findAll({where:{name:req.body.comicName}}).then((comics)=>{
-        res.status(200).send(comics)
-    })
-    .catch((err)=>{
-        next(err)
-    })
+   Comic.findAll({
+       where:{
+           name:{
+               [Op.like] : `%${req.body.comicName}%`
+           }
+       }
+   }).then((comics)=>{
+       res.status(200).send(comics)
+   })
+   .catch((err)=>{
+       next(err)
+   })
 })
 
 
