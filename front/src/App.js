@@ -1,7 +1,7 @@
 import { React, useEffect } from "react"
 import { Route, Switch } from "react-router"
 import axios from "axios"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { cookiesUser } from "./store/user"
 
@@ -21,9 +21,11 @@ import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
+import Categories from "./containers/Categories"
 
 function App() {
   const dispatch = useDispatch()
+  const isAdmin = useSelector(state => state.user.isAdmin)
 
   useEffect(() => {
     axios
@@ -32,10 +34,8 @@ function App() {
       .then(user => {
         dispatch(cookiesUser(user))
       })
-      .catch(({ response }) => {
-        console.log(response.status, response.statusText)
-      })
   }, [dispatch])
+
   return (
     <div>
       <Navbar />
@@ -45,6 +45,7 @@ function App() {
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
+        {isAdmin && <Route path="/categories" component={Categories} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
