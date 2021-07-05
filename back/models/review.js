@@ -7,7 +7,11 @@ Review.init(
   {
     content: {
       type: S.TEXT
-    }
+    },
+    rating: {
+      type: S.FLOAT,
+      allowNull: false
+    },
   },
   { sequelize: db, modelName: "review" }
 )
