@@ -48,7 +48,7 @@ const LoginView = () => {
         </form>
 
         <Link to="/register">
-          <div>Don't have an account? Sign up</div>
+          <div> Dont have an account? Sign up</div>
         </Link>
 
         {error && <Error />}

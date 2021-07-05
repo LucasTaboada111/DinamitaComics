@@ -7,7 +7,7 @@ export const userRegister = createAsyncThunk("userRegister", user => {
 
 export const userLogin = createAsyncThunk("userLogin", user => {
   return axios.post("/api/users/login", user).then(res => {
-    alert("now you are login")
+    alert("now you are login!")
     return res.data
   })
 })

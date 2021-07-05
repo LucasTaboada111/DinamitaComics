@@ -40,7 +40,7 @@ const FormikFormDemo = () => {
       accept: false
     },
     validate: data => {
-      let errors = {}
+      const errors = {}
 
       if (!data.name) {
         errors.name = "Name is required."

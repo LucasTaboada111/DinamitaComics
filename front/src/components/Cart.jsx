@@ -3,7 +3,6 @@ import { DataTable } from "primereact/datatable"
 import { Column } from "primereact/column"
 import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
-import "../styles/cart.module.css"
 import styles from "../styles/cart.module.css"
 
 const DataTableTemplatingDemo = () => {
@@ -38,11 +37,11 @@ const DataTableTemplatingDemo = () => {
   ]
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
+useEffect(() => {
     setProducts(example)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const formatCurrency = value => {
+  }, [])  
+  
+const formatCurrency = value => {
     return value.toLocaleString("en-US", {
       style: "currency",
       currency: "USD"

@@ -22,7 +22,7 @@ import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 
-function App() {
+function App () {
   const dispatch = useDispatch()
 
   useEffect(() => {

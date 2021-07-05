@@ -1,9 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { useEffect, useState } from "react"
 import { GrFavorite } from "react-icons/gr"
 
 const ProductView = ({ comicId }) => {
