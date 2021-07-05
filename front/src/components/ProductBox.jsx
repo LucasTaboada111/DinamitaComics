@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ProductBox = ({comics}) => {
-    console.log("hola",comics)
 
   return (
 
