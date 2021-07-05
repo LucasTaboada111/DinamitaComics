@@ -12,7 +12,7 @@ const Navbar = () => {
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
-  const handleLogout = e => {
+  const handleLogout = () => {
     if (user.id) dispatch(userLogout())
   }
 
@@ -29,6 +29,14 @@ const Navbar = () => {
       </div>
 
       <div className={styles.boxRight}>
+        {user.isAdmin && (
+          <div className={styles.btns}>
+            <Link to="/categories">
+              <Button>Categories</Button>
+            </Link>
+          </div>
+        )}
+
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
             <Button onClick={handleLogout}>{user.id ? "Log out" : "Log in"}</Button>
