@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
-const { User, Comic, Category, Cart, CartDetail, Review, Payment } = require("./models")
-const db = require("./config")
+const db = require("./config/db")
+const {User,Comic,Category,Order,OrderDetail,Review,CreditCard} = require("./models")
 const PORT = process.env.PORT || 3001
 const passport = require("passport")
 const sessions = require("express-session")
@@ -41,7 +41,9 @@ passport.use(
       })
       .catch(done)
   })
+
 )
+
 
 passport.serializeUser(function (user, done) {
   done(null, user.id)
@@ -66,6 +68,4 @@ db.sync({ force: false })
     console.log("DB sync failed", err)
   })
 
-
-  
 module.exports = app

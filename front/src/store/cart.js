@@ -7,10 +7,12 @@ const getDataCart = createAsyncThunk ("GET_CART",()=>{
 })
 
 
-const cartReducer = createReducer ({}, {
-  //  [getCartComic.fulfilled]: (state,action)=> action.payload
+const cartReducer = createReducer(
+  {},
+  {
+    //  [getCartComic.fulfilled]: (state,action)=> action.payload
+    //aqui mandar la data de todas las pelis que estaban en DataCart
+  }
+)
 
-  //aqui mandar la data de todas las pelis que estaban en DataCart
-})
-
-export default cartReducer;
+export default cartReducer
