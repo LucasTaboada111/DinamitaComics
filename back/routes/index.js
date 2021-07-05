@@ -3,11 +3,13 @@ const users = require("./users")
 const admin = require("./admin")
 const OrderDetail = require("./orderDetail")
 const Comics = require("./comics")
+const products = require("./products")
 
 router.use("/users", users)
 router.use("/admin", admin)
 router.use("/orderDetails", OrderDetail)
 router.use("/comics", Comics)
+router.use("/products",products)
 
 router.get("/me", (req, res) => {
   if (!req.user) res.sendStatus(401)
