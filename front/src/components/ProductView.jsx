@@ -13,8 +13,6 @@ const ProductView = ({comicId}) => {
   const dispatch = useDispatch();
   
 
-  /* const comic = useSelector((state => state?.comic[1]? state.comic[1] : null ))
-  console.log(comic, "soy comic") */
   const comic = useSelector((state => state.comic))
 
  
