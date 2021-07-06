@@ -3,7 +3,6 @@ const { defaults } = require("pg")
 const { Comic, User, Review } = require("../models")
 const { response } = require("../server")
 
-
 router.post("/:comicId", (req, res, next) => {
     const { content, rating } = req.body
     const comicId = req.params.comicId
@@ -42,41 +41,19 @@ router.post("/:comicId", (req, res, next) => {
         }
     })
     .catch(err => {
-        next(err)
+      next(err)
     })
 })
 
-//updateRating(comicId)
-// const updateRating = function(comicid){
-//     var total;
-//     var promedio;
-
-//     Review.findAll({where: {comicId: comicid}})
-//     .then((reviews) =>{
-//         console.log("review: ",reviews)
-
-//         reviews.map((reviewIndividual)=>{
-//             total += reviewIndividual.rating
-//         })
-
-//         promedio = (total/(reviews.length+1))
-
-//         Comic.update({rating: promedio}, {where:{id: comicid}})
-//         .then((comic)=>{
-//             return comic
-//         })
-//     })
-// }
-
-
 //"/api/review/comicid"
-router.get("/:comicId",(req, res, next) => {
-    const comicid = req.params.comicId
-    Review.findAll({where: { comicId: comicid}}).then((comicReviews)=>{
-        res.status(200).send(comicReviews)
+router.get("/:comicId", (req, res, next) => {
+  const comicid = req.params.comicId
+  Review.findAll({ where: { comicId: comicid } })
+    .then(comicReviews => {
+      res.status(200).send(comicReviews)
     })
-    .catch((err)=>{
-        next(err)
+    .catch(err => {
+      next(err)
     })
 })
 

@@ -5,15 +5,15 @@ const orderDetail = require("./orderDetail")
 const comics = require("./comics")
 const products = require("./products")
 const review = require("./reviews")
-const categorys = require("./categorys")
+const categories = require("./categories")
 
 router.use("/users", users)
 router.use("/admin", admin)
 router.use("/orderDetails", orderDetail)
 router.use("/comics", comics)
-router.use("/products",products)
+router.use("/products", products)
 router.use("/review", review)
-router.use("/categorys",categorys)
+router.use("/categories", categories)
 
 router.get("/me", (req, res) => {
   if (!req.user) res.sendStatus(401)
