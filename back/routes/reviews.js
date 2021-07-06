@@ -1,7 +1,6 @@
 const router = require("express").Router()
-const { defaults } = require("pg")
 const { Comic, User, Review } = require("../models")
-const { response } = require("../server")
+
 
 
 router.post("/:comicId", (req, res, next) => {
