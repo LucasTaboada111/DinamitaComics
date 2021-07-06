@@ -25,6 +25,14 @@ Comic.init(
       type: S.FLOAT,
       allowNull: false
     },
+    userRating: {
+      type: S.INTEGER,
+      defaultValue: 0,
+    },
+    reviewAmount: {
+      type: S.INTEGER,
+      defaultValue: 0,
+    },
     stock: {
       type: S.INTEGER,
       allowNull: false
