@@ -4,6 +4,7 @@ import userReducer from "./user"
 import comicsReducer from "./comics"
 import cartReducer from "./cart"
 import comicReducer from "./comic"
+import categoryReducer from "./category"
 
 const store = configureStore({
   middleware: getDefaultMiddleware =>
@@ -15,7 +16,8 @@ const store = configureStore({
     user: userReducer,
     comics: comicsReducer,
     cart: cartReducer,
-    comic: comicReducer
+    comic: comicReducer,
+    category: categoryReducer
   }
 })
 

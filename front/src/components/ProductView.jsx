@@ -3,11 +3,11 @@ import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { GrFavorite } from "react-icons/gr"
 
 const ProductView = ({ comicId }) => {
-  const dispatch = useDispatch()
 
+
+  const dispatch = useDispatch()
   const comic = useSelector(state => state.comic)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ProductView = ({ comicId }) => {
             </div>
             <div>
               <Button className={styles.cartButton}>
-                <GrFavorite />
+                Añadir a favoritos
               </Button>
             </div>
             <div>+10 (Quantity)</div>

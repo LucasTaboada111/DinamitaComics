@@ -19,7 +19,8 @@ import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
-import FilterCategoryProducts from "./components/FilterCategoryProducts"
+import Categories from "./components/Categories"
+
 
 function App () {
   const dispatch = useDispatch()
@@ -42,12 +43,12 @@ function App () {
       <Navbar />
      
       <Switch>
-        <Route path="/cart" component={DataTableTemplatingDemo} /> cl
+        <Route path="/cart" component={DataTableTemplatingDemo} /> 
         <Route
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
-        
+        <Route path="/categories/:categorie" render={({match}) => <Categories categories={match.params.categorie}/>  } />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

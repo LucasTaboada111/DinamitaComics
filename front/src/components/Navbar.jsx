@@ -1,20 +1,21 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import styles from "../styles/navbar.module.css"
-import logo from "./utils/logo.png"
-import { Button, FormControl } from "react-bootstrap"
-import { FaShoppingCart } from "react-icons/fa"
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "../styles/navbar.module.css";
+import logo from "./utils/logo.png";
+import { Button, FormControl } from "react-bootstrap";
+import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogout } from "../store/user";
+import DropdownCont from '../containers/DropdownContainer'
 
-import { useDispatch, useSelector } from "react-redux"
-import { userLogout } from "../store/user"
 
 const Navbar = () => {
-  const user = useSelector(state => state.user)
-  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  const handleLogout = e => {
-    if (user.id) dispatch(userLogout())
-  }
+  const handleLogout = (e) => {
+    if (user.id) dispatch(userLogout());
+  };
 
   return (
     <div className={styles.container}>
@@ -28,10 +29,15 @@ const Navbar = () => {
         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
       </div>
 
+      <DropdownCont />
+
+
       <div className={styles.boxRight}>
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
-            <Button onClick={handleLogout}>{user.id ? "Log out" : "Log in"}</Button>
+            <Button onClick={handleLogout}>
+              {user.id ? "Log out" : "Log in"}
+            </Button>
           </Link>
         </div>
         <div className={styles.btns}>
@@ -47,7 +53,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

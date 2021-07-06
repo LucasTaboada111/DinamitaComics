@@ -47,3 +47,13 @@
 .btns button:hover {
   background-color: lightcoral;
 }
+
+
+.categories {
+  
+  display: flex;
+  align-items: center;
+  background-color: rgba(62,107,158,255);
+  border: none;
+  border-radius: 10px;
+}
