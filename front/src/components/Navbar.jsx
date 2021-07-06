@@ -8,45 +8,46 @@ import { FaShoppingCart } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../store/user"
 
-import {setSearch} from "../store/search"
-import { useState , useEffect } from "react"
+import { setSearch } from "../store/search"
+import { useState, useEffect } from "react"
 
 const Navbar = () => {
-
-  const [inputValue,setInputValue] = useState({})
+  const [inputValue, setInputValue] = useState({})
 
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
-
-
 
   const handleLogout = () => {
     if (user.id) dispatch(userLogout())
   }
 
-const handleChange = (e)=>{
-  e.preventDefault()
-  const value = e.target.value 
-  setInputValue({comicName:value})
+  const handleChange = e => {
+    e.preventDefault()
+    const value = e.target.value
+    setInputValue({ comicName: value })
+  }
 
-}
+  const handleSubmit = e => {
+    e.preventDefault()
 
-const handleSubmit=(e)=>{
-e.preventDefault()
+    dispatch(setSearch(inputValue))
+  }
 
-dispatch(setSearch(inputValue))
-}
-  
   return (
     <div className={styles.container}>
       <div className={styles.boxLeft}>
-        <Link to="/" onClick={()=>dispatch(setSearch([]))}>
+        <Link to="/" onClick={() => dispatch(setSearch([]))}>
           <img className={styles.logo} src={logo} alt="logo" />
         </Link>
       </div>
 
       <div className={styles.boxCenter}>
-        <FormControl onChange={(e)=>handleChange(e)}  type="text" placeholder="Search" className="mr-sm-2" />
+        <FormControl
+          onChange={e => handleChange(e)}
+          type="text"
+          placeholder="Search"
+          className="mr-sm-2"
+        />
         <Button onClick={handleSubmit}>Search</Button>
       </div>
 
@@ -58,6 +59,12 @@ dispatch(setSearch(inputValue))
             </Link>
           </div>
         )}
+
+        <div className={styles.btns}>
+          <Link to="/comics">
+            <Button>Comics</Button>
+          </Link>
+        </div>
 
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
