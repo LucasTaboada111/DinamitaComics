@@ -17,7 +17,7 @@ router.get("/category",(req,res,next)=>{
     })
 })
 
-router.get("/comicName",(req,res,next)=>{
+router.post("/comicName",(req,res,next)=>{
 
    Comic.findAll({
        where:{
@@ -26,16 +26,13 @@ router.get("/comicName",(req,res,next)=>{
            }
        }
    }).then((comics)=>{
+
        res.status(200).send(comics)
    })
    .catch((err)=>{
        next(err)
    })
 })
-
-
-
-
 
 
 module.exports = router
