@@ -18,7 +18,7 @@ router.get("/category",(req,res,next)=>{
 })
 
 router.post("/comicName",(req,res,next)=>{
-console.log("soy body",req.body)
+
    Comic.findAll({
        where:{
            name:{
@@ -26,7 +26,7 @@ console.log("soy body",req.body)
            }
        }
    }).then((comics)=>{
-       console.log("soy el comic",comics)
+
        res.status(200).send(comics)
    })
    .catch((err)=>{

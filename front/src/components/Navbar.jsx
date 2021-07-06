@@ -28,12 +28,12 @@ const handleChange = (e)=>{
   e.preventDefault()
   const value = e.target.value 
   setInputValue({comicName:value})
-  console.log(inputValue)
+
 }
 
 const handleSubmit=(e)=>{
 e.preventDefault()
-console.log("hizo submit")
+
 dispatch(setSearch(inputValue))
 }
   
