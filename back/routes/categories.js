@@ -28,8 +28,9 @@ router.post("/", isAdmin, (req, res, next) => {
 
 router.delete("/:id", isAdmin, (req, res, next) => {
   Category.destroy({ where: { id: req.params.id } })
-    .then(() => {
-      res.sendStatus(200)
+    .then(async () => {
+      const categories = await Category.findAll()
+      res.status(200).send(categories)
     })
     .catch(err => {
       next(err)
@@ -38,10 +39,10 @@ router.delete("/:id", isAdmin, (req, res, next) => {
 
 router.put("/:id", isAdmin, (req, res, next) => {
   const id = req.params.id
-  console.log("req", req.body)
   Category.update({ name: req.body.category }, { where: { id } })
-    .then(cat => {
-      res.status(200).send(cat)
+    .then(async () => {
+      const categories = await Category.findAll()
+      res.status(200).send(categories)
     })
     .catch(err => {
       next(err)

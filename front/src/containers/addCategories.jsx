@@ -1,12 +1,14 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 
+//components
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
-
-import { editCategory } from "../store/categories"
-
 import { addCategory } from "../store/categories"
-import { useDispatch } from "react-redux"
+
+// messages
+import success from "../utils/message/success"
+import warningNoText from "../utils/message/warningNoText"
 
 import "../styles/addCategories.css"
 
@@ -15,8 +17,14 @@ const AddCategories = () => {
   const dispatch = useDispatch()
 
   const addCategories = () => {
-    dispatch(addCategory({ category }))
-    setcategory("")
+    if (!category.length) {
+      warningNoText()
+      return
+    } else {
+      dispatch(addCategory({ category }))
+      setcategory("")
+      success()
+    }
   }
 
   return (
