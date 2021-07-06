@@ -1,7 +1,7 @@
 import React from "react";
 import FilterCategoryProducts from "./FilterCategoryProducts";
 
-const Categories = () => {
+const CategoriesProduct = () => {
 
   return (
 
@@ -13,4 +13,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default CategoriesProduct;

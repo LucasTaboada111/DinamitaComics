@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/navbar.module.css";
-import logo from "./utils/logo.png";
+import logo from "../utils/logo.png";
 import { Button, FormControl } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,6 +33,14 @@ const Navbar = () => {
 
 
       <div className={styles.boxRight}>
+        {user.isAdmin && (
+          <div className={styles.btns}>
+            <Link to="/categories">
+              <Button>Categories</Button>
+            </Link>
+          </div>
+        )}
+
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
             <Button onClick={handleLogout}>

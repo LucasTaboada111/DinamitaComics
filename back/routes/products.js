@@ -4,8 +4,9 @@ const { Op } = require("sequelize");
 
 
 
-router.get("/category",(req,res,next)=>{
-    const cate = req.body.category
+router.get("/category/:categorie",(req,res,next)=>{
+
+    const cate = req.params.categorie
     Comic.findAll({include:[{
         model: Category,
         where:{name:cate}
@@ -32,10 +33,5 @@ router.get("/comicName",(req,res,next)=>{
        next(err)
    })
 })
-
-
-
-
-
 
 module.exports = router

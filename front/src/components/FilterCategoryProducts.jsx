@@ -9,16 +9,16 @@ const FilterCategoryProducts = ({products}) => {
         console.log("soy category", category)
     }
 
-    return (
+return (
 
         <div>
+
             {products && products.map(comic => {
                 return(
                     <div key={products}>
                         <Link to={'/category'}>
                             <img src={comic.img} alt="" />
                         </Link>    
-
                     <div> 
                     {comic.title.slice(0, 21)}</div>
                     <div> Price: {comic.price} </div>
@@ -29,7 +29,6 @@ const FilterCategoryProducts = ({products}) => {
             })}
 
         </div>
-
         
     )
 }
