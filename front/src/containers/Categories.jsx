@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react"
-
-import { getCategories, deleteCategory, editCategory } from "../store/categories"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
-import { InputText } from "primereact/inputtext"
-
+import Swal from "sweetalert2"
+import { getCategories, deleteCategory, editCategory } from "../store/categories"
 import AddCategories from "./addCategories"
-
-//primereact
+import success from "../utils/message/success"
 import { OrderList } from "primereact/orderlist"
 import { Button } from "primereact/button"
 
 import "../styles/ListCategories.css"
-import Swal from "sweetalert2"
 
 const Categories = () => {
   const dispatch = useDispatch()
@@ -21,19 +16,18 @@ const Categories = () => {
   useEffect(() => {
     dispatch(getCategories())
   }, [dispatch])
-  // ver porq se genera lop infito
 
   const handleDelete = id => {
     dispatch(deleteCategory(id))
+    success()
   }
 
   const handleEdit = async id => {
     const { value: category } = await Swal.fire({
-      title: "Enter a new value",
       input: "text",
-      inputLabel: "Your category",
       showCancelButton: true,
       inputPlaceholder: "New value",
+      confirmButtonText: "Add it!",
       inputValidator: value => {
         if (!value) {
           return "You need to write something!"
@@ -43,6 +37,7 @@ const Categories = () => {
 
     if (category) {
       dispatch(editCategory({ id, category }))
+      success()
     }
   }
 
