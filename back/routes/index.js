@@ -5,7 +5,7 @@ const orderDetail = require("./orderDetail")
 const comics = require("./comics")
 const products = require("./products")
 const review = require("./reviews")
-const categorys = require("./categorys")
+const categories = require("./categories")
 
 router.use("/users", users)
 router.use("/admin", admin)
