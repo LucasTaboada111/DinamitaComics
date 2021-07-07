@@ -4,7 +4,7 @@ const passport = require("passport")
 
 
 router.get("/cart",(req,res,next)=>{
-  const userId=req.user.id
+  const userId= req.user.id
   OrderDetail.findAll({where:{id:userId}})
   .then((data)=>res.send(data))
   })

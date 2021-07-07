@@ -1,21 +1,21 @@
 import { React, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { userLogin } from "../store/user";
 import styles from "../styles/login.module.css";
 
 //Lo relacionado a este componente es meramente estetico, esta todo comentado
-import { Dialog } from "primereact/dialog";
+
 
 const LoginView = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector((state) => state.user);
-  const [showMessage, setShowMessage] = useState(false)
+ 
+/*   const setShowMessage = useState(false) */
 /* 
   const alert = 
     <div>
@@ -32,7 +32,7 @@ const LoginView = () => {
   ; */
 
   const validatorLogin = (payload) => {
-    if (!payload) return setShowMessage(true)
+    /* if (!payload) return setShowMessage(true) */
     return history.push("/");
   };
 
@@ -41,7 +41,7 @@ const LoginView = () => {
     dispatch(userLogin({ email, password })).then((data) =>
       validatorLogin(data.payload)
     );
-    setTimeout(setShowMessage(false),2000)
+   /*  setTimeout(setShowMessage(false),2000) */
   };
 
   const Error = () => (

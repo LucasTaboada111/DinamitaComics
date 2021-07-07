@@ -12,6 +12,7 @@ const DataTableTemplatingDemo = () => {
   const [products, setProducts] = useState([])
   const user = useSelector(state => state.user)
 
+
   const handleClick = async (e,comic)=>{
     e.preventDefault()
     const comicData = comic.comic
@@ -33,6 +34,7 @@ const DataTableTemplatingDemo = () => {
     })
    
   }, [dispatch])
+
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {

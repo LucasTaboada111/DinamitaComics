@@ -1,18 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import Dropdown from "react-bootstrap/Dropdown"
-import DropdownButton from "react-bootstrap/DropdownButton"
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { setCategory } from "../store/category"
-import axios from "axios"
+
+
+
 
 const DropdownCont = () => {
-  const [dropDown, setDropdown] = useState(false)
-  const dispatch = useDispatch()
-  const comics = useSelector(state => state?.comicsFilter) //arreglo que quiero renderizar
-  //const [category, putCategory] = useState("")
-
-  const toggle = () => setDropdown(!dropDown)
 
   const categories = ["Aventuras", "Humorístico", "Terror", "Fantástico"]
 
