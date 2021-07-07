@@ -24,6 +24,7 @@ import DataTableTemplatingDemo from "./components/Cart"
 import Categories from "./containers/Categories"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
+import NewComicForm from "./components/NewComicForm"
 function App() {
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
@@ -49,6 +50,7 @@ function App() {
         {isAdmin && <Route path="/categories" component={Categories} />}
         {<Route exact path="/comics" component={Comics} />}
         {<Route path="/comics/edit/:id" component={EditComicForm} />}
+        {<Route path="/comics/new" component={NewComicForm} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

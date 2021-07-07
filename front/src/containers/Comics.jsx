@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { OrderList } from "primereact/orderlist"
 import { Button } from "primereact/button"
+import { InputText } from "primereact/inputtext"
+
 import Swal from "sweetalert2"
 
 import { useDispatch } from "react-redux"
@@ -42,7 +44,9 @@ const Comics = () => {
 
         <div className="product-list-detail">
           <h5 className="p-mb-2">{item.name}</h5>
-          <h6 className="p-mb-2">${item.price}</h6>
+          <h6 className="p-mb-2">Price: ${item.price}</h6>
+          <h6 className="p-mb-2">Stock: {item.stock} unidades</h6>
+          <h6 className="p-mb-2">Rating: {item.rating} / 5</h6>
         </div>
 
         <span className="p-buttonset">
@@ -66,6 +70,13 @@ const Comics = () => {
 
   return (
     <div className="orderlist-demo">
+      <div className="add-container">
+        <span className="p-input-icon-left">
+          <Link to="/comics/new">
+            <Button label="Add new comic" icon="pi pi-plus" className="p-button-success" />
+          </Link>
+        </span>
+      </div>
       <div className="card">
         <OrderList
           value={comics}

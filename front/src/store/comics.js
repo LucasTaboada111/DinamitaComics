@@ -10,10 +10,16 @@ export const deleteComic = createAsyncThunk("DELETE_COMICS", id => {
 export const updateComic = createAsyncThunk("UPDATE_COMICS", comic => {
   return axios.put(`/api/comics/${comic.id}`, comic).then(res => res.data)
 })
+export const addComic = createAsyncThunk("ADD_COMICS", comic => {
+  return axios.post(`/api/comics`, comic).then(res => res.data)
+})
 const comicsReducer = createReducer([], {
   [getComics.fulfilled]: (state, action) => action.payload,
   [deleteComic.fulfilled]: (state, action) => action.payload,
-  [updateComic.fulfilled]: (state, action) => action.payload
+  [updateComic.fulfilled]: (state, action) => action.payload,
+  [addComic.fulfilled]: (state, action) => {
+    state.push(action.payload)
+  }
 })
 
 export default comicsReducer

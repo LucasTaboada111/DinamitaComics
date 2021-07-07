@@ -16,7 +16,6 @@ router.get("/", async (req, res, next) => {
   }
 })
 
-//si buscas un  id que no existe no tira un error
 router.get("/:id", (req, res, next) => {
   Comic.findByPk(req.params.id)
     .then(comic => {
@@ -27,11 +26,8 @@ router.get("/:id", (req, res, next) => {
     })
 })
 
-//router.put("/edit/:id",async (req,res,next)=>{
-//creemos que es para admins nada mas
-router.post("/", isAdmin, (req, res, next) => {
-  const { name, price, category, img, plot, rating, stock, year } = req.body
-  Comic.create({ name, price, img, plot, rating, stock, year }).then(comic => {
+router.post("/", (req, res, next) => {
+  Comic.create(req.body).then(comic => {
     Category.findOne({ where: { name: category } })
       .then(category => {
         comic.addCategory(category)
