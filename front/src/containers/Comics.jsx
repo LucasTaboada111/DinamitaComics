@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { OrderList } from "primereact/orderlist"
 import { Button } from "primereact/button"
+import { InputText } from "primereact/inputtext"
 
 import Swal from "sweetalert2"
 

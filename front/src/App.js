@@ -41,7 +41,6 @@ function App() {
   }, [dispatch])
 
   return (
-    
     <div>
       <Navbar />
 
@@ -51,14 +50,12 @@ function App() {
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
-
         <Route path="/category/:CategoriesProduct" component={CategoriesProduct} />
-
         {isAdmin && <Route path="/categories" component={Categories} />}
-        {isAdmin &&<Route exact path="/comics" component={Comics} />}
-        {isAdmin&&<Route path="/comics/edit/:id" component={EditComicForm} />}
-        {isAdmin&&<Route path="/comics/new" component={NewComicForm} />}
-        {isAdmin&&<Route path="/users" component={UsersAdminContainer} />}
+        {isAdmin && <Route exact path="/comics" component={Comics} />}
+        {isAdmin && <Route path="/comics/edit/:id" component={EditComicForm} />}
+        {isAdmin && <Route path="/comics/new" component={NewComicForm} />}
+        {isAdmin && <Route path="/users" component={UsersAdminContainer} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
