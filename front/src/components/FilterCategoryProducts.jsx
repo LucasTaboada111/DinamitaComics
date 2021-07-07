@@ -8,6 +8,7 @@ const FilterCategoryProducts = ({ products }) => {
 
 
 
+
   return (
     <div className={containerStyles.container}>
       {products.length && products.map(comic => {
