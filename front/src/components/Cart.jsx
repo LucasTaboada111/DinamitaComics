@@ -12,7 +12,7 @@ const DataTableTemplatingDemo = () => {
   const [products, setProducts] = useState([])
   const user = useSelector(state => state.user)
 
-<<<<<<< HEAD
+
   const handleClick = async (e,comic)=>{
     e.preventDefault()
     const comicData = comic.comic
