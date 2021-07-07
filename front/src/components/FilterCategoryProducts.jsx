@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import styles from "../styles/productBox.module.css";
 import containerStyles from '../styles/productsContainer.module.css'
 import { Button } from "react-bootstrap";
 
 const FilterCategoryProducts = ({ products }) => {
 
-  const category = useSelector((state) => state.comicsFilter);
+
 
   return (
     <div className={containerStyles.container}>

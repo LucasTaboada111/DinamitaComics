@@ -55,7 +55,6 @@ const EditComicForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <Card
-        title="Advanced Card"
         title={title}
         style={{ width: "25em", margin: "auto", marginTop: "10px" }}
         footer={footer}>

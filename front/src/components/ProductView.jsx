@@ -19,7 +19,7 @@ const [cantidad,setCantidad]=useState(1)
   useEffect(() => {
     dispatch(getComic(comicId))
 
-  }, [dispatch])
+  }, [dispatch,comicId])
 
   const  handleChange = (e)=>{
 e.preventDefault()
@@ -41,7 +41,7 @@ dispatch(setDataCart({comic,cantidad,userId}))
       <div className={styles.container}>
         <div className={styles.boxTop}>
           <div className={styles.boxLeft}>
-            <img className={styles.image} src={comic.img} />
+            <img className={styles.image} src={comic.img} alt={comic.name} />
           </div>
           <div className={styles.boxRight}>
             <div className={styles.title}> {comic.name} </div>
