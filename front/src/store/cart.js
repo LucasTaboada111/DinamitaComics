@@ -1,4 +1,4 @@
-import { createAsyncThunk, createReducer } from "@reduxjs/toolkit"
+import {createAsyncThunk, createReducer} from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const getDataCart = createAsyncThunk ("GET_DATA_CART",()=>{
@@ -8,15 +8,15 @@ export const getDataCart = createAsyncThunk ("GET_DATA_CART",()=>{
 
 
 export const setDataCart = createAsyncThunk ("SET_DATA_CART",(obj)=>{
-  console.log("soy el obj",obj)
+//  console.log("soy el obj",obj)
 return axios.post("http://localhost:3001/api/orderDetails/addComic",obj)
 .then((response)=>response.data)
 .catch(err=>console.log(err))
 })
 
 export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",({comicData,userId})=>{
-  console.log("soy user", userId)
-  console.log("soy comicData", comicData)
+//  console.log("soy user", userId)
+//  console.log("soy comicData", comicData)
   return axios.delete(`http://localhost:3001/api/orderDetails/deleteComic/${userId}/${comicData.id}`)
 })
 

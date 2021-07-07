@@ -28,7 +28,7 @@ const [cantidad,setCantidad]=useState(1)
   setCantidad(cantidadInput)
   }
 
-  console.log(cantidad)
+ // console.log(cantidad)
 
 const handleClick = (e,comic,cantidad)=>{
   const userId = user.id

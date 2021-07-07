@@ -7,9 +7,9 @@ router.post("/addComic", (req, res, next) => {
   const addedComic = req.body.comic;
   const cantidad = req.body.cantidad;
 
-  console.log("cantidad",cantidad)
-  console.log("comic",addedComic)
-console.log(LoggedUserId)
+ // console.log("cantidad",cantidad)
+ // console.log("comic",addedComic)
+ // console.log(LoggedUserId)
   //La onda de esto es crear un carrito con el el id de l usuario y cuando se digne a comprar
   // guardamos ese carrrito en algun lugar (para historial, probablemente tabla nueva) y
   //le borramos al carajo la data del carrito de ese usuario, entonces le queda limpia para que pueda seguir
@@ -18,7 +18,7 @@ console.log(LoggedUserId)
   OrderDetail.findOrCreate({ where: { id: LoggedUserId } }).then((order) => {
     Comic.findByPk(addedComic.id).then((comic) => {
       /* const id = comic.id */
-      console.log("Orden",order[0])
+     // console.log("Orden",order[0])
       order[0]
         .update({
           products: [...order[0].products, { comic, cantidad }],
@@ -26,7 +26,7 @@ console.log(LoggedUserId)
         .then((orderActualizada) => {
           User.findByPk(LoggedUserId).then((usuario) => {
             usuario.addOrder_detail(order[0]);
-            console.log(orderActualizada)
+          //  console.log(orderActualizada)
             res.status(200).send(orderActualizada);
           });
         });

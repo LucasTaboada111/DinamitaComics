@@ -37,15 +37,11 @@ OrderDetail.init(
 OrderDetail.addHook("beforeUpdate", (orderDetail) => {
   let valor = 0;
   orderDetail.products.map((data)=>{
-    console.log(data)
-    valor = valor + (data.comic.price * data.cantidad)
+    //console.log(data)
+    valor += data.comic.price * data.cantidad
   })
-  
   orderDetail.totalPrice = valor
-
 });
-
-
 
 
 module.exports = OrderDetail;
