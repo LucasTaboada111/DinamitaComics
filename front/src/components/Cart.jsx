@@ -4,33 +4,30 @@ import { Column } from "primereact/column"
 import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
 import styles from "../styles/cart.module.css"
-import { useDispatch, useSelector } from "react-redux";
-import {getDataCart , deleteDataCart} from "../store/cart"
-
-
+import { useDispatch, useSelector } from "react-redux"
+import { getDataCart, deleteDataCart } from "../store/cart"
 
 const DataTableTemplatingDemo = () => {
-  
   const dispatch = useDispatch()
   const [products, setProducts] = useState([])
- const user = useSelector(state=>state.user)
+  const user = useSelector(state => state.user)
 
+  useEffect(() => {
+    dispatch(getDataCart()).then(data => setProducts(data.payload[0]?.products))
+  }, [products])
 
-    useEffect(() => {
-      dispatch(getDataCart())
-      .then((data)=>setProducts(data.payload[0]?.products))
+  const handleClick = async (e, comic) => {
+    e.preventDefault()
+    const comicData = comic.comic
+    const userId = user.id
+    dispatch(deleteDataCart({ comicData, userId }))
+    //console.log("soy user",user)
+  }
+
+  useEffect(() => {
+    dispatch(getDataCart()).then((data)=>setProducts(data.payload[0]?.products) )
     
-    }, [products]) 
-  
-
-const handleClick = async (e,comic)=>{
-  e.preventDefault()
-  const comicData = comic.comic
-  const userId = user.id
-  dispatch(deleteDataCart({comicData,userId}))
-  //console.log("soy user",user)
-}
-
+  }, [products ])
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {
@@ -64,19 +61,18 @@ const handleClick = async (e,comic)=>{
     return <Rating value={rowData.comic.rating} readOnly cancel={false} />
   }
 
-  const quantityBodyTemplate = (rowData) => {
+  const quantityBodyTemplate = rowData => {
     return (
       <div style={{ display: "flex" }}>
-        {/*   <Button className={styles.boton} icon="pi pi-plus"></Button> */} <h6>{rowData.cantidad}</h6>
+        {/*   <Button className={styles.boton} icon="pi pi-plus"></Button> */}{" "}
+        <h6>{rowData.cantidad}</h6>
         {/*  <Button className={styles.boton} icon="pi pi-minus"></Button>{" "} */}
       </div>
     )
   }
 
-  const buttonDeleteBodyTemplate = (rowData)=>{
-    return (
-      <Button icon="pi pi-trash" onClick={(e)=>handleClick(e,rowData)}></Button>
-    )
+  const buttonDeleteBodyTemplate = rowData => {
+    return <Button icon="pi pi-trash" onClick={e => handleClick(e, rowData)}></Button>
   }
 
   const header = `In total there are ${products ? products.length : 0} products in your cart.`
