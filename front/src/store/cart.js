@@ -14,9 +14,10 @@ return axios.post("http://localhost:3001/api/orderDetails/addComic",obj)
 .catch(err=>console.log(err))
 })
 
-export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",(comic)=>{
-  console.log(comic)
-  return axios.delete(`http://localhost:3001/api/orderDetails/deleteComic/${comic.id}`,comic)
+export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",({comicData,userId})=>{
+  console.log("soy user", userId)
+  console.log("soy comicData", comicData)
+  return axios.delete(`http://localhost:3001/api/orderDetails/deleteComic/${userId}/${comicData.id}`)
 })
 
 const cartReducer = createReducer(

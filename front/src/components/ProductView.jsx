@@ -47,7 +47,7 @@ dispatch(setDataCart({comic,cantidad,userId}))
             <div>
               <Button onClick={(e)=>handleClick(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
-            <div><input onChange={handleChange} placeholder="cantidad" /></div>
+            <div><input required onChange={handleChange} placeholder="cantidad" /></div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>

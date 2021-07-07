@@ -14,17 +14,22 @@ const DataTableTemplatingDemo = () => {
   
   const dispatch = useDispatch()
   const [products, setProducts] = useState([])
-const cartState = useSelector((state)=>state.cart)
+ const user = useSelector(state=>state.user)
+
 
     useEffect(() => {
       dispatch(getDataCart())
       .then((data)=>setProducts(data.payload[0]?.products))
     
-    }, []) 
+    }, [products]) 
   
-const handleClick = (e,comic)=>{
+
+const handleClick = async (e,comic)=>{
   e.preventDefault()
-  dispatch(deleteDataCart(comic.comic))
+  const comicData = comic.comic
+  const userId = user.id
+  dispatch(deleteDataCart({comicData,userId}))
+  //console.log("soy user",user)
 }
 
 

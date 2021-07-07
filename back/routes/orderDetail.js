@@ -34,11 +34,10 @@ console.log(LoggedUserId)
   });
 });
 
-router.delete("/deleteComic/:comicId", (req, res, next) => {
-  console.log("Soy  Params  ",req.params.comicId)
-  console.log("soy user", req.user)
+router.delete("/deleteComic/:userId/:comicId", (req, res, next) => {
+
   const comicId = req.params.comicId;
-  const userId = req.user.id;
+  const userId = req.params.userId;
   OrderDetail.findByPk(userId).then((order) => {
     const comicPorEliminar = order.products.filter(
       (data) => data.comic.id == comicId
