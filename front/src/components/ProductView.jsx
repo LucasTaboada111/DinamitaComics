@@ -3,7 +3,6 @@ import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { useEffect, useState } from "react"
 import { GrFavorite } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import {setDataCart} from "../store/cart"
@@ -11,7 +10,7 @@ import {setDataCart} from "../store/cart"
 
 const ProductView = ({ comicId,handleClick }) => {
   const dispatch = useDispatch()
-const [cantidad,setCantidad]=useState(1)
+  const [cantidad,setCantidad]=useState(1)
 
 
 
@@ -30,10 +29,7 @@ const cantidadInput = e.target.value
 console.log("soy el input",cantidadInput)
 setCantidad(cantidadInput)
   }
-
-  console.log(cantidad)
-
-const handleClick = (e,comic,cantidad)=>{
+  const handleClicks = (e,comic,cantidad)=>{
   const userId = user.id
   e.preventDefault()
 dispatch(setDataCart({comic,cantidad,userId}))
@@ -50,18 +46,15 @@ dispatch(setDataCart({comic,cantidad,userId}))
             <div className={styles.title}> {comic.name} </div>
             <div className={styles.price}> ${comic.price} </div>
             <div>
-              <Button className={styles.cartButton}> Add to Cart ! </Button>
+              <Button className={styles.cartButton}>
+                <GrFavorite />
+              </Button>
+              <Button onClick={(e)=>handleClicks(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
             <div>
               <Link to= {`/review/${comicId}`}>
                 Ir a las reviews
               </Link>
-            </div>
-            <div>
-              <Button className={styles.cartButton}>
-                <GrFavorite />
-              </Button>
-              <Button onClick={(e)=>handleClick(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
             <div><input required onChange={handleChange} placeholder="cantidad" /></div>
           </div>

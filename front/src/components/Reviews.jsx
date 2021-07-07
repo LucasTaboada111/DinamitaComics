@@ -15,21 +15,20 @@ const ReviewView = ({}) => {
     dispatch(getReviews(comic.id))
   }, [dispatch])
 
-
   return (
     <div className={styles.center}>
       <div className={styles.container}>
           <div className ={styles.boxtop}>
                 <div className={styles.title}> {comic.name} </div>
 
-                {reviews.map(review => {
+                {reviews.length>0? reviews.map((review) => {
                     return (
-                        <div>
-                            <div className={styles.description}>User {review?.userId}: Rating:{review?.rating}/5</div>
-                            <div className={styles.description}>Review: {review?.content}</div>
-                        </div>
+                      <div>
+                          <div className={styles.description}>User {review?.userId}: Rating:{review?.rating}/5</div>
+                          <div className={styles.description}>Review: {review?.content}</div>
+                      </div>
                     )
-                })}
+                }):<div className= {styles.description}>No hay reviews de este comic</div>}
 
                 <form>
                     <input

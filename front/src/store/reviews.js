@@ -1,7 +1,7 @@
 import { createAsyncThunk, createReducer } from "@reduxjs/toolkit"
 import axios from "axios"
 
-export const getReviews = createAsyncThunk("GET_REVIEWS", id => {
+export const getReviews = createAsyncThunk("GET_REVIEWS", (id) => {
   return axios.get(`/api/review/${id}`).then(res => res.data)
 })
 
