@@ -25,9 +25,9 @@ const DataTableTemplatingDemo = () => {
   }
 
   useEffect(() => {
-    dispatch(getDataCart())
-    setProducts(cartUser)
-  }, [dispatch, cartUser])
+    dispatch(getDataCart()).then((data)=>setProducts(data.payload[0]?.products) )
+    
+  }, [products ])
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {
