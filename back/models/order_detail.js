@@ -33,13 +33,16 @@ OrderDetail.init(
 
 //Anda pero se puede mejorar pasandole el id del comic en vez del comic  entero.
 //no funca cuando quitamos o updateamos cantidad pero si cuando agregamos comics nuevos.
+
 OrderDetail.addHook("beforeUpdate", (orderDetail) => {
   let valor = 0;
   orderDetail.products.map((data)=>{
     console.log(data)
     valor = valor + (data.comic.price * data.cantidad)
   })
+  
   orderDetail.totalPrice = valor
+
 });
 
 

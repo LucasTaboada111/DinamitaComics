@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getDataCart, deleteDataCart } from "../store/cart"
 
 const DataTableTemplatingDemo = () => {
+  
   const dispatch = useDispatch()
   const [products, setProducts] = useState([])
   const user = useSelector(state => state.user)
