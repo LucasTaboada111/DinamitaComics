@@ -22,10 +22,10 @@ const [cantidad,setCantidad]=useState(1)
   }, [dispatch])
 
   const  handleChange = (e)=>{
-e.preventDefault()
-const cantidadInput = e.target.value
-console.log("soy el input",cantidadInput)
-setCantidad(cantidadInput)
+  e.preventDefault()
+    const cantidadInput = e.target.value
+      console.log("soy el input",cantidadInput)
+  setCantidad(cantidadInput)
   }
 
   console.log(cantidad)

@@ -16,18 +16,19 @@ const DataTableTemplatingDemo = () => {
     dispatch(getDataCart()).then(data => setProducts(data.payload[0]?.products))
   }, [products])
 
-  const handleClick = async (e, comic) => {
-    e.preventDefault()
-    const comicData = comic.comic
-    const userId = user.id
-    dispatch(deleteDataCart({ comicData, userId }))
-    //console.log("soy user",user)
-  }
-
   useEffect(() => {
     dispatch(getDataCart()).then((data)=>setProducts(data.payload[0]?.products) )
     
   }, [products ])
+  
+
+const handleClick = async (e,comic)=>{
+  e.preventDefault()
+  const comicData = comic.comic
+  const userId = user.id
+  dispatch(deleteDataCart({comicData,userId}))
+  //console.log("soy user",user)
+}
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {

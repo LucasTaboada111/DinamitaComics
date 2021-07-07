@@ -9,6 +9,7 @@ const FilterCategoryProducts = ({ products }) => {
 
   const category = useSelector((state) => state.comicsFilter);
 
+
   return (
     <div className={containerStyles.container}>
       {products.length && products.map(comic => {
