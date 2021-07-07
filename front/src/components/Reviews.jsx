@@ -1,11 +1,14 @@
 import React from "react"
 import styles from "../styles/productView.module.css"
 import { useSelector, useDispatch } from "react-redux"
-import { getReviews } from "../store/reviews"
-import { useEffect} from "react"
+import { getReviews, postReviews } from "../store/reviews"
+import { useEffect, useState} from "react"
 import { Button } from "react-bootstrap"
 
 const ReviewView = () => {
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState("");
+
   const dispatch = useDispatch()
 
   const comic = useSelector(state => state.comic)
@@ -16,12 +19,8 @@ const ReviewView = () => {
     dispatch(getReviews(comic.id))
   }, [dispatch])
 
-  const handleClick = (e)=>{
-      console.log("sumbit")
-  }
-
-  const  handleChange = (e)=>{
-    console.log("cambio")
+  const handleClick = e =>{
+    dispatch(postReviews({id: comic.id, content: content, rating: rating}))
   }
 
   return (
@@ -45,9 +44,10 @@ const ReviewView = () => {
                         type="text"
                         name="Content"
                         placeholder="Escribi tu review"
+                        onChange={(e) => setContent(e.target.value)}
                     />
                     <br/>
-                    <div><input required onChange={handleChange} placeholder="rating" /></div>
+                    <div><input required onChange={(e) => setRating(e.target.value)} placeholder="rating" /></div>
                     <div>
                       <Button onClick={(e)=>handleClick()} className={styles.cartButton}> Add to Cart ! </Button>
                     </div>
