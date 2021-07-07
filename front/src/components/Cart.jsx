@@ -12,23 +12,29 @@ const DataTableTemplatingDemo = () => {
   const [products, setProducts] = useState([])
   const user = useSelector(state => state.user)
 
-  useEffect(() => {
-    dispatch(getDataCart()).then(data => setProducts(data.payload[0]?.products))
-  }, [dispatch,products])
 
-  useEffect(() => {
-    dispatch(getDataCart()).then((data)=>setProducts(data.payload[0]?.products) )
-    
-  }, [dispatch,products ])
+  const handleClick = async (e,comic)=>{
+    e.preventDefault()
+    const comicData = comic.comic
+    const userId = user.id
+    dispatch(deleteDataCart({comicData,userId})).then((x)=>{
+     
+      dispatch(getDataCart()).then((data)=>{
   
+        setProducts(data.payload[0]?.products)
+      })
+    })
 
-const handleClick = async (e,comic)=>{
-  e.preventDefault()
-  const comicData = comic.comic
-  const userId = user.id
-  dispatch(deleteDataCart({comicData,userId}))
-  //console.log("soy user",user)
-}
+  }
+
+  useEffect(() => {
+    dispatch(getDataCart()).then(data => {
+   
+      setProducts(data.payload[0]?.products)
+    })
+   
+  }, [dispatch])
+
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {
