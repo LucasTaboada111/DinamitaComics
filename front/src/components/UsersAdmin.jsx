@@ -1,7 +1,6 @@
 import * as React from "react";
 
 const UsersForAdmin = ({ users ,handleClick}) => {
-  console.log(users);
   return (
     <div>
       <h1>Users : </h1>

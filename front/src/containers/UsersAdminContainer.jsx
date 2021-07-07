@@ -6,7 +6,7 @@ import UsersForAdmin from "../components/UsersAdmin";
 
 const UsersAdminContainer = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.usersForAdmin);
+  const users = useSelector((state) => state.usersForAdmin)
   const userLogged= useSelector(state=>state.user)
   
 
@@ -15,7 +15,9 @@ const UsersAdminContainer = () => {
         alert("no podes revocarte los permisos a vos mismo")
     }
     else if (id !== userLogged.id){
-        dispatch(setAdmin(id))
+        dispatch(setAdmin(id)).then(()=>{
+          dispatch(getUsersForAdmin())
+        })
     }
   }
 
