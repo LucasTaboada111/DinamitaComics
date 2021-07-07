@@ -2,6 +2,7 @@ import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const userRegister = createAsyncThunk("userRegister", user => {
+  console.log("ASD",user)
   return axios.post("/api/users/register", user).then(res => res.data)
 })
 

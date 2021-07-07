@@ -6,34 +6,40 @@ import { Rating } from "primereact/rating"
 import styles from "../styles/cart.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { getDataCart, deleteDataCart } from "../store/cart"
+import { setCheckout } from "../store/checkout"
+
 
 const DataTableTemplatingDemo = () => {
   const dispatch = useDispatch()
   const [products, setProducts] = useState([])
   const user = useSelector(state => state.user)
 
-
   const handleClick = async (e,comic)=>{
     e.preventDefault()
     const comicData = comic.comic
     const userId = user.id
     dispatch(deleteDataCart({comicData,userId})).then((x)=>{
-     
       dispatch(getDataCart()).then((data)=>{
-  
         setProducts(data.payload[0]?.products)
       })
     })
-
+    //console.log("soy user",user)
   }
+
+  const handleBuy = () =>{
+    dispatch(setCheckout()).then((data)=>{
+      setProducts([])
+    })
+  }
+  
 
   useEffect(() => {
     dispatch(getDataCart()).then(data => {
-   
       setProducts(data.payload[0]?.products)
     })
    
   }, [dispatch])
+
 
   const formatCurrency = value => {
     return value?.toLocaleString("en-US", {
@@ -41,6 +47,7 @@ const DataTableTemplatingDemo = () => {
       currency: "USD"
     })
   }
+
 
   const imageBodyTemplate = rowData => {
     return (
@@ -85,13 +92,18 @@ const DataTableTemplatingDemo = () => {
 
   const footer = (
     <div className={styles.divFooter}>
-      {" "}
+      <Button
+        onClick={handleBuy}
+        icon="pi pi-wallet"
+        className={styles.buttonBuy}
+        style={{ width: "20%", margin: "0 auto" }}>
+        Buy Cart
+      </Button>
       <Button
         icon="pi pi-wallet"
         className={styles.buttonBuy}
         style={{ width: "20%", margin: "0 auto" }}>
-        {" "}
-        Buy Cart{" "}
+        Shopping history
       </Button>
     </div>
   )

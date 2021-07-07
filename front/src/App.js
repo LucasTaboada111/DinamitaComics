@@ -23,10 +23,10 @@ import DataTableTemplatingDemo from "./components/Cart"
 import CategoriesProduct from "./components/CategoriesProduct"
 import Categories from "./containers/Categories"
 import ReviewView from "./components/Reviews"
-import UsersAdminContainer from "./containers/UsersAdminContainer"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
+import UsersAdminContainer from "./containers/UsersAdminContainer"
 
 function App() {
   const dispatch = useDispatch()

@@ -17,7 +17,7 @@ const ReviewView = () => {
 
   useEffect(() => {
     dispatch(getReviews(comic.id))
-  }, [dispatch])
+  }, [dispatch,comic.id])
 
   const handleClick = e =>{
     dispatch(postReviews({id: comic.id, content: content, rating: rating}))
