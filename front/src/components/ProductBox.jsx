@@ -1,11 +1,9 @@
 
-import React from "react";
-import styles from "../styles/productBox.module.css";
-import containerStyles from '../styles/productsContainer.module.css'
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-
+import React from "react"
+import styles from "../styles/productBox.module.css"
+import containerStyles from "../styles/productsContainer.module.css"
+import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const ProductBox = ({ comics }) => {
   return (
