@@ -22,6 +22,8 @@ import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 import CategoriesProduct from "./components/CategoriesProduct"
 import Categories from "./containers/Categories"
+import ReviewView from "./components/Reviews"
+import UsersAdminContainer from "./containers/UsersAdminContainer"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
@@ -61,6 +63,7 @@ function App() {
         {isAdmin&&<Route path="/users" component={UsersAdminContainer} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/review" component={ReviewView} />
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
       </Switch>
