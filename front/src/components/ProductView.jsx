@@ -9,7 +9,7 @@ import {setDataCart} from "../store/cart"
 
 const ProductView = ({ comicId }) => {
   const dispatch = useDispatch()
-const [cantidad,setCantidad]=useState({})
+const [cantidad,setCantidad]=useState(1)
 
   const comic = useSelector(state => state.comic)
 const user = useSelector(state=>state.user)
@@ -23,6 +23,7 @@ const user = useSelector(state=>state.user)
   const  handleChange = (e)=>{
 e.preventDefault()
 const cantidadInput = e.target.value
+console.log("soy el input",cantidadInput)
 setCantidad(cantidadInput)
   }
 
