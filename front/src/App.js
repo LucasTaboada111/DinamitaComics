@@ -28,7 +28,6 @@ import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
 
-
 function App() {
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
