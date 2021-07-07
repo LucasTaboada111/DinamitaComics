@@ -3,7 +3,6 @@ import { DataTable } from "primereact/datatable"
 import { Column } from "primereact/column"
 import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
-import "../styles/cart.module.css"
 import styles from "../styles/cart.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import {getDataCart , deleteDataCart} from "../store/cart"

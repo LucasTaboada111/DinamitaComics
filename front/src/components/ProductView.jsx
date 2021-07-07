@@ -1,9 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { useEffect, useState } from "react"
 import {setDataCart} from "../store/cart"
 
 
@@ -11,8 +10,10 @@ const ProductView = ({ comicId }) => {
   const dispatch = useDispatch()
 const [cantidad,setCantidad]=useState(1)
 
+
+
   const comic = useSelector(state => state.comic)
-const user = useSelector(state=>state.user)
+  const user = useSelector(state=>state.user)
 
 
   useEffect(() => {

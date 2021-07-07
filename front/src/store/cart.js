@@ -23,6 +23,8 @@ export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",({comicData,
 const cartReducer = createReducer(
   {},
   {
+    //  [getCartComic.fulfilled]: (state,action)=> action.payload
+    // aqui mandar la data de todas las pelis que estaban en DataCart
     [getDataCart.fulfilled]:(state,action)=>action.payload,
     [setDataCart.fulfilled]:(state,action)=>action.payload,
     [deleteDataCart.fulfilled]:(state,action)=>action.payload

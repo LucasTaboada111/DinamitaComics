@@ -46,7 +46,7 @@ const FormikFormDemo = () => {
       isAdmin: false
     },
     validate: data => {
-      let errors = {}
+      const errors = {}
 
       if (!data.name) {
         errors.name = "Name is required."
