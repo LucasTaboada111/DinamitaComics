@@ -1,15 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import styles from "../styles/navbar.module.css"
 import logo from "../utils/logo.png"
 import { Button, FormControl } from "react-bootstrap"
 import { FaShoppingCart } from "react-icons/fa"
-
 import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../store/user"
-
 import { setSearch } from "../store/search"
-import { useState, useEffect } from "react"
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState({})

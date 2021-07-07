@@ -1,18 +1,15 @@
-
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { useFormik } from "formik";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Password } from "primereact/password";
-import { Dialog } from "primereact/dialog";
-import { Divider } from "primereact/divider";
-import { classNames } from "primereact/utils";
-import { useDispatch } from "react-redux";
-import { userRegister } from "../store/user";
-import { postUser } from "../store/user";
-import style from "../styles/form.module.css";
-
+import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router"
+import { useFormik } from "formik"
+import { InputText } from "primereact/inputtext"
+import { Button } from "primereact/button"
+import { Password } from "primereact/password"
+import { Dialog } from "primereact/dialog"
+import { Divider } from "primereact/divider"
+import { classNames } from "primereact/utils"
+import { useDispatch } from "react-redux"
+import { userRegister } from "../store/user"
+import style from "../styles/form.module.css"
 
 const FormikFormDemo = () => {
   const [countries, setCountries] = useState([])
@@ -145,7 +142,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Fullname"
               style={{ width: "100%", border: "none" }}
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="name"
@@ -168,7 +165,7 @@ const FormikFormDemo = () => {
                 "p-invalid": isFormFieldValid("username")
               })}
               style={{ margin: "10px 0px", width: "100%" }}
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="name"
@@ -192,7 +189,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Adress"
               style={{ width: "100%" }}
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="name"
@@ -216,7 +213,7 @@ const FormikFormDemo = () => {
               })}
               placeholder="Phone"
               style={{ margin: "10px 0px", width: "100%" }}
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="name"
@@ -242,7 +239,7 @@ const FormikFormDemo = () => {
                 "p-invalid": isFormFieldValid("email")
               })}
               placeholder="Email"
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="email"
@@ -266,7 +263,7 @@ const FormikFormDemo = () => {
               placeholder="Password"
               style={{ margin: "10px 0px" }}
               header={passwordFooter}
-              required = "true"
+              required="true"
             />
             <label
               htmlFor="password"

@@ -23,7 +23,7 @@ import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 import Categories from "./containers/Categories"
 import Comics from "./containers/Comics"
-
+import EditComicForm from "./components/EditComicForm"
 function App() {
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
@@ -47,7 +47,8 @@ function App() {
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
         {isAdmin && <Route path="/categories" component={Categories} />}
-        {<Route path="/comics" component={Comics} />}
+        {<Route exact path="/comics" component={Comics} />}
+        {<Route path="/comics/edit/:id" component={EditComicForm} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

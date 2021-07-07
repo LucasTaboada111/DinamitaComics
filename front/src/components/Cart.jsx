@@ -5,23 +5,19 @@ import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
 import "../styles/cart.module.css"
 import styles from "../styles/cart.module.css"
-import { useDispatch, useSelector } from "react-redux";
-import {getDataCart } from "../store/cart"
-
-
+import { useDispatch, useSelector } from "react-redux"
+import { getDataCart } from "../store/cart"
 
 const DataTableTemplatingDemo = () => {
-
-  const dispach = useDispatch()
+  const dispatch = useDispatch()
   const cartUser = useSelector(state => state.cart)
-  
+
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-dispach(getDataCart())
-setProducts(cartUser)
-console.log("pero",cartUser)
-  }, []) 
+    dispatch(getDataCart())
+    setProducts(cartUser)
+  }, [dispatch, cartUser])
 
   const formatCurrency = value => {
     return value.toLocaleString("en-US", {

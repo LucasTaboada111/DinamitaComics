@@ -3,7 +3,7 @@ import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { setDataCart } from "../store/cart"
 
 const ProductView = ({ comicId }) => {
@@ -14,8 +14,9 @@ const ProductView = ({ comicId }) => {
 
   useEffect(() => {
     dispatch(getComic(comicId))
-  }, [dispatch])
+  }, [dispatch, comicId])
 
+  console.log("object")
   const handleClick = (e, comic, cantidad) => {
     const userId = user.id
     e.preventDefault()
@@ -26,7 +27,7 @@ const ProductView = ({ comicId }) => {
       <div className={styles.container}>
         <div className={styles.boxTop}>
           <div className={styles.boxLeft}>
-            <img className={styles.image} src={comic.img} />
+            <img className={styles.image} alt={comic.name} src={comic.img} />
           </div>
           <div className={styles.boxRight}>
             <div className={styles.title}> {comic.name} </div>

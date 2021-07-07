@@ -5,7 +5,7 @@ import { Button } from "primereact/button"
 import Swal from "sweetalert2"
 
 import { useDispatch } from "react-redux"
-
+import { Link } from "react-router-dom"
 import { getComics, deleteComic } from "../store/comics"
 
 const Comics = () => {
@@ -52,7 +52,13 @@ const Comics = () => {
             className="p-button-outlined p-button-danger"
             onClick={() => handleDeleteComic(item.id)}
           />
-          <Button label="Edit" icon="pi pi-pencil" className="p-button-outlined p-button-info" />
+          <Link to={{ pathname: `/comics/edit/${item.id}`, state: { item } }}>
+            <Button
+              label="Edit"
+              icon="pi pi-pencil"
+              className="p-button-outlined p-button-info"
+            />
+          </Link>
         </span>
       </div>
     )

@@ -43,11 +43,12 @@ router.post("/", isAdmin, (req, res, next) => {
   })
 })
 
-router.put("/edit/:id", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   const id = req.params.id
   try {
     await Comic.update(req.body, { where: { id } })
-    res.status(200)
+    const newComics = await Comic.findAll()
+    res.status(200).send(newComics)
   } catch (error) {
     next(error)
   }
