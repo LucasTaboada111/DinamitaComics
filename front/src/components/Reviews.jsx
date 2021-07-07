@@ -21,6 +21,12 @@ const ReviewView = () => {
 
   const handleClick = e =>{
     dispatch(postReviews({id: comic.id, content: content, rating: rating}))
+    .then(res =>{
+      if(typeof(res.payload) == "string"){
+        alert("ya publicaste una review de este comic")
+      }
+      dispatch(getReviews(comic.id))
+    })
   }
 
   return (
