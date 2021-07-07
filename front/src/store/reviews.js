@@ -8,7 +8,7 @@ export const getReviews = createAsyncThunk("GET_REVIEWS", (id) => {
 const reviewsReducer = createReducer(
   {},
   {
-    [getReviews.fulfilled]: (state, action) => action.payload
+    [getReviews.fulfilled]: (state, action) => action.payload,
   }
 )
 
