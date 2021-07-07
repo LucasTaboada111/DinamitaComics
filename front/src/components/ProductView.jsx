@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
 import {setDataCart} from "../store/cart"
-
+import { Link } from "react-router-dom"
 
 const ProductView = ({ comicId }) => {
   const dispatch = useDispatch()
@@ -19,13 +19,13 @@ const [cantidad,setCantidad]=useState(1)
   useEffect(() => {
     dispatch(getComic(comicId))
 
-  }, [dispatch])
+  }, [dispatch,comicId])
 
   const  handleChange = (e)=>{
-e.preventDefault()
-const cantidadInput = e.target.value
-console.log("soy el input",cantidadInput)
-setCantidad(cantidadInput)
+  e.preventDefault()
+    const cantidadInput = e.target.value
+      console.log("soy el input",cantidadInput)
+  setCantidad(cantidadInput)
   }
 
   console.log(cantidad)
@@ -41,7 +41,7 @@ dispatch(setDataCart({comic,cantidad,userId}))
       <div className={styles.container}>
         <div className={styles.boxTop}>
           <div className={styles.boxLeft}>
-            <img className={styles.image} src={comic.img} />
+            <img className={styles.image} src={comic.img} alt={comic.name} />
           </div>
           <div className={styles.boxRight}>
             <div className={styles.title}> {comic.name} </div>
@@ -50,6 +50,8 @@ dispatch(setDataCart({comic,cantidad,userId}))
               <Button onClick={(e)=>handleClick(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
             <div><input required onChange={handleChange} placeholder="cantidad" /></div>
+            <div>
+              <Link to= {`/review/${comicId}`}>Ir a las reviews</Link></div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>
