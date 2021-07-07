@@ -56,9 +56,11 @@ dispatch(setSearch(inputValue))
             <Link to="/categories">
               <Button>Categories</Button>
             </Link>
+            <Link to="/users">
+              <Button>Users</Button>
+            </Link>
           </div>
         )}
-
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
             <Button onClick={handleLogout}>{user.id ? "Log out" : "Log in"}</Button>

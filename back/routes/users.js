@@ -1,12 +1,14 @@
 const router = require("express").Router()
-const { User , OrderDetail } = require("../models")
+const { User ,OrderDetail} = require("../models")
 const passport = require("passport")
 
+
 router.get("/cart",(req,res,next)=>{
-const userId=req.user.id
-OrderDetail.findAll({where:{id:userId}})
-.then((data)=>res.send(data))
-})
+  const userId=req.user.id
+  OrderDetail.findAll({where:{id:userId}})
+  .then((data)=>res.send(data))
+  })
+
 
 router.post("/register", (req, res, next) => {
   User.create(req.body)

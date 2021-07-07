@@ -22,6 +22,7 @@ import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 import Categories from "./containers/Categories"
+import UsersAdminContainer from "./containers/UsersAdminContainer"
 
 function App() {
   const dispatch = useDispatch()
@@ -46,6 +47,7 @@ function App() {
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
         {isAdmin && <Route path="/categories" component={Categories} />}
+        {isAdmin && <Route path="/users" component={UsersAdminContainer} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

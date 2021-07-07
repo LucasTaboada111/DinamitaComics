@@ -10,12 +10,15 @@ import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
 import { userRegister } from "../store/user";
-import { postUser } from "../store/user";
+import {InputSwitch} from 'primereact/inputswitch';
 import style from "../styles/form.module.css";
+
 
 
 const FormikFormDemo = () => {
   const [countries, setCountries] = useState([])
+
+  const [valueSwitch, setValueSwitch] = useState(false)
 
   const [showMessage, setShowMessage] = useState(false)
 
@@ -39,7 +42,8 @@ const FormikFormDemo = () => {
       password: "",
       date: null,
       country: null,
-      accept: false
+      accept: false,
+      isAdmin: false
     },
     validate: data => {
       let errors = {}
@@ -85,6 +89,7 @@ const FormikFormDemo = () => {
 
     setRegistro({ ...registro, [key]: value })
   }
+
 
   const isFormFieldValid = name => !!(formik.touched[name] && formik.errors[name])
   const getFormErrorMessage = name => {
@@ -275,6 +280,10 @@ const FormikFormDemo = () => {
               })}></label>
           </span>
           {getFormErrorMessage("password")}
+        </div>
+        <div>
+          <label className={style.isAdmin} htmlFor="isAdmin"> admin?</label>
+        <InputSwitch  name="isAdmin" checked={valueSwitch} onChange={(e) =>  { handleData(e); setValueSwitch(!valueSwitch)}}/>
         </div>
         <div className="p-field">
           <div>
