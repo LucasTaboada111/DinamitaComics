@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
@@ -6,16 +6,39 @@ import { getComic } from "../store/comic"
 import { useEffect, useState } from "react"
 import { GrFavorite } from "react-icons/gr"
 import { Link } from "react-router-dom"
+import {setDataCart} from "../store/cart"
+
 
 const ProductView = ({ comicId,handleClick }) => {
   const dispatch = useDispatch()
+const [cantidad,setCantidad]=useState(1)
+
+
 
   const comic = useSelector(state => state.comic)
+  const user = useSelector(state=>state.user)
+
 
   useEffect(() => {
     dispatch(getComic(comicId))
+
   }, [dispatch])
 
+  const  handleChange = (e)=>{
+e.preventDefault()
+const cantidadInput = e.target.value
+console.log("soy el input",cantidadInput)
+setCantidad(cantidadInput)
+  }
+
+  console.log(cantidad)
+
+const handleClick = (e,comic,cantidad)=>{
+  const userId = user.id
+  e.preventDefault()
+dispatch(setDataCart({comic,cantidad,userId}))
+.then(res=>console.log(res))
+}
   return (
     <div className={styles.center}>
       <div className={styles.container}>
@@ -38,8 +61,9 @@ const ProductView = ({ comicId,handleClick }) => {
               <Button className={styles.cartButton}>
                 <GrFavorite />
               </Button>
+              <Button onClick={(e)=>handleClick(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
-            <div>+10 (Quantity)</div>
+            <div><input required onChange={handleChange} placeholder="cantidad" /></div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>

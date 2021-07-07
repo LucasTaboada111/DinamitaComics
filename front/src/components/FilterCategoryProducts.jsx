@@ -1,19 +1,20 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styles from "../styles/productBox.module.css";
 import containerStyles from '../styles/productsContainer.module.css'
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
+const FilterCategoryProducts = ({ products }) => {
 
+  const category = useSelector((state) => state.comicsFilter);
 
-const ProductBox = ({ comics }) => {
   return (
     <div className={containerStyles.container}>
-      {comics.length && comics.map(comic => {
+      {products.length && products.map(comic => {
         return (
           <div className={styles.container} key={comic.id}>
-            <Link to={`/comic/${comic.id}`} comics={comics}>
+            <Link to={`/comic/${comic.id}`} products={products}>
               <div>
                 <div className={styles.imageContainer}>
                   <img className={styles.image} src={comic.img} alt="comic" />
@@ -32,6 +33,33 @@ const ProductBox = ({ comics }) => {
       })}
     </div>
   )
-}
 
-export default ProductBox
+
+  /* return (
+
+    <div>
+      {products &&
+        products.map((comic) => {
+          return (
+            <div key={products}>
+              <Link to={"/category"}>
+                <img src={comic.img} alt="" />
+              </Link>
+              <div>
+                  
+              </div>
+              <div> Price: {comic.price} </div>
+              <div>
+                {" "}
+                <button> </button>{" "}
+              </div>
+               onCLick= {() => addOrder{comic.id}}  
+              <br />
+            </div>
+          );
+        })}
+    </div>
+    ) */
+};
+
+export default FilterCategoryProducts;
