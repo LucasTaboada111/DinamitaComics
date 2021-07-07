@@ -24,6 +24,9 @@ router.get("/historial", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+
+
+
 router.post("/buy", async (req, res, next) => {
 
     //TRANSPORTER QUEDA EN STAND BY

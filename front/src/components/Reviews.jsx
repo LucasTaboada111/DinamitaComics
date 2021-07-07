@@ -2,9 +2,9 @@ import React from "react"
 import styles from "../styles/productView.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { getReviews } from "../store/reviews"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
-const ReviewView = ({}) => {
+const ReviewView = () => {
   const dispatch = useDispatch()
 
   const comic = useSelector(state => state.comic)
@@ -13,7 +13,7 @@ const ReviewView = ({}) => {
 
   useEffect(() => {
     dispatch(getReviews(comic.id))
-  }, [dispatch])
+  }, [dispatch,comic.id])
 
   return (
     <div className={styles.center}>
