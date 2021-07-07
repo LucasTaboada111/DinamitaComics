@@ -21,12 +21,14 @@ import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 import CategoriesProduct from "./components/CategoriesProduct"
-
 import Categories from "./containers/Categories"
 import ReviewView from "./components/Reviews"
 import UsersAdminContainer from "./containers/UsersAdminContainer"
+import Comics from "./containers/Comics"
+import EditComicForm from "./components/EditComicForm"
+import NewComicForm from "./components/NewComicForm"
 
-function App () {
+function App() {
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
 
@@ -39,31 +41,34 @@ function App () {
       })
   }, [dispatch])
 
-
   return (
     <div>
       <Navbar />
-     
+
       <Switch>
-        <Route exact path="/cart" component={DataTableTemplatingDemo} /> 
+        <Route exact path="/cart" component={DataTableTemplatingDemo} />
         <Route
           path="/comic/:id"
-          render={({ match }) => <ProductView comicId={match.params.id} />}  />
+          render={({ match }) => <ProductView comicId={match.params.id} />}
+        />
 
         <Route path="/category/:CategoriesProduct" component={CategoriesProduct} />
-        
+
         {isAdmin && <Route path="/categories" component={Categories} />}
-        {isAdmin && <Route path="/users" component={UsersAdminContainer} />}
+        {<Route exact path="/comics" component={Comics} />}
+        {<Route path="/comics/edit/:id" component={EditComicForm} />}
+        {<Route path="/comics/new" component={NewComicForm} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/review" component={ReviewView} />
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
-       
       </Switch>
       <Footer />
     </div>
   )
 }
+
+// recordar poner solo para admin la ruta de comics
 
 export default App

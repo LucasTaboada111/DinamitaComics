@@ -1,6 +1,24 @@
 import { createAsyncThunk, createReducer } from "@reduxjs/toolkit"
 import axios from "axios"
 
+<<<<<<< HEAD
+export const getDataCart = createAsyncThunk("GET_CART", () => {
+  return axios.get(`/api/users/cart`).then(cart => cart.data)
+})
+
+export const setDataCart = createAsyncThunk("SET_CART", obj => {
+  return axios
+    .post("http://localhost:3001/api/orderDetails/addComic", obj)
+    .then(response => response.data)
+    .catch(err => console.log(err))
+})
+
+const cartReducer = createReducer(
+  {},
+  {
+    [getDataCart.fulfilled]: (state, action) => action.payload,
+    [setDataCart.fulfilled]: (state, action) => action.payload
+=======
 export const getDataCart = createAsyncThunk ("GET_DATA_CART",()=>{
   return axios.get(`/api/users/cart`)
   .then(cart=>cart.data)
@@ -28,6 +46,7 @@ const cartReducer = createReducer(
     [getDataCart.fulfilled]:(state,action)=>action.payload,
     [setDataCart.fulfilled]:(state,action)=>action.payload,
     [deleteDataCart.fulfilled]:(state,action)=>action.payload
+>>>>>>> dfccea2d79ebf4ebd99c933f3a38a932c825f814
   }
 )
 
