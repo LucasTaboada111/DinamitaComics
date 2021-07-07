@@ -22,6 +22,7 @@ const ReviewView = ({}) => {
                 <div className={styles.title}> {comic.name} </div>
 
                 {reviews.length>0? reviews.map((review) => {
+                    // const userName = getnameUSed(review.userId)  
                     return (
                       <div>
                           <div className={styles.description}>User {review?.userId}: Rating:{review?.rating}/5</div>

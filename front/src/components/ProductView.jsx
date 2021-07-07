@@ -7,8 +7,6 @@ import { GrFavorite } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import {setDataCart} from "../store/cart"
 
-import { setDataCart } from "../store/cart"
-
 const ProductView = ({ comicId,handleClick }) => {
   const dispatch = useDispatch()
   const [cantidad, setCantidad] = useState(1)
@@ -21,7 +19,7 @@ const ProductView = ({ comicId,handleClick }) => {
   }, [dispatch, comicId])
 
   console.log("object")
-  const handleClick = (e, comic, cantidad) => {
+  const handleClicks = (e, comic, cantidad) => {
     const userId = user.id
     e.preventDefault()
     dispatch(setDataCart({ comic, cantidad, userId })).then(res => console.log(res))
