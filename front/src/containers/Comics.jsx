@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { OrderList } from "primereact/orderlist"
 import { Button } from "primereact/button"
 import Swal from "sweetalert2"
 
-import { useDispatch } from "react-redux"
+import { Link, Route } from "react-router-dom"
 
 import { getComics, deleteComic } from "../store/comics"
 
@@ -52,7 +52,18 @@ const Comics = () => {
             className="p-button-outlined p-button-danger"
             onClick={() => handleDeleteComic(item.id)}
           />
-          <Button label="Edit" icon="pi pi-pencil" className="p-button-outlined p-button-info" />
+
+          <Link
+            to={{
+              pathname: `/comics/edit/${item.id}`,
+              state: { comic: item }
+            }}>
+            <Button
+              label="Edit"
+              icon="pi pi-pencil"
+              className="p-button-outlined p-button-info"
+            />
+          </Link>
         </span>
       </div>
     )
