@@ -66,6 +66,7 @@ router.post("/buy", async (req, res, next) => {
     });
 
     user.addOrder(orderClient);
+    OrderDetail.update({products:[]},{where:{id:cartUser.id}})
     
 /*     transporter.sendMail(mailOption, (err,info)=>{
         if(err) res.status(500)  
