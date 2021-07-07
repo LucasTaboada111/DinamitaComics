@@ -1,13 +1,16 @@
-import React from "react"
-import styles from "../styles/productBox.module.css"
-import containerStyles from "../styles/productsContainer.module.css"
-import { Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+
+import React from "react";
+import styles from "../styles/productBox.module.css";
+import containerStyles from '../styles/productsContainer.module.css'
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+
 
 const ProductBox = ({ comics }) => {
   return (
     <div className={containerStyles.container}>
-      {comics.map(comic => {
+      {comics.length && comics.map(comic => {
         return (
           <div className={styles.container} key={comic.id}>
             <Link to={`/comic/${comic.id}`} comics={comics}>

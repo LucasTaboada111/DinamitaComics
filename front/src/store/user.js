@@ -10,6 +10,9 @@ export const userLogin = createAsyncThunk("userLogin", user => {
     alert("now you are login!")
     return res.data
   })
+  .catch((err)=>{
+    alert("Las credenciales ingresadas son incorrectas")
+  })
 })
 
 export const cookiesUser = createAction("cookiesUser", user => ({ payload: user }))
@@ -29,9 +32,11 @@ export const getSingleUser = createAsyncThunk("GET_SINGLEUSER", () => {
   }).then(res => res.data)
 })
 
+
 const userReducer = createReducer(
   {},
   {
+    [userLogin.rejected]:(state, action)=> action.payload,
     [userLogin.fulfilled]: (state, action) => action.payload,
     [getSingleUser.fulfilled]: (state, action) => [state, action.payload],
     [userLogout.fulfilled]: (state, action) => action.payload,

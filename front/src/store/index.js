@@ -5,6 +5,7 @@ import cartReducer from "./cart"
 import comicReducer from "./comic"
 import categoryReducer from "./category"
 import categorioesReducer from "./categories"
+import searchReducer from "./search"
 
 const store = configureStore({
   reducer: {
@@ -12,8 +13,9 @@ const store = configureStore({
     comics: comicsReducer,
     cart: cartReducer,
     comic: comicReducer,
-    category: categoryReducer,
-    categories: categorioesReducer
+    comicsFilter: categoryReducer,
+    categories: categorioesReducer,
+    search : searchReducer
   }
 })
 

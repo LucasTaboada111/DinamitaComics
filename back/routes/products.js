@@ -4,21 +4,24 @@ const { Op } = require("sequelize");
 
 
 
-router.get("/category/:categorie",(req,res,next)=>{
-
-    const cate = req.params.categorie
-    Comic.findAll({include:[{
-        model: Category,
-        where:{name:cate}
-    }]}).then((comics)=>{
+router.get("/category/:category", (req, res, next) => {
+    const category = req.params.category
+    Comic.findAll({
+      include: [
+        {
+          model: Category,
+          where: { name: category }
+        }]
+    })
+      .then(comics => {
         res.status(200).send(comics)
-    })
-    .catch((err)=>{
+      })
+      .catch(err => {
         next(err)
-    })
-})
+      })
+  })
 
-router.get("/comicName",(req,res,next)=>{
+router.post("/comicName",(req,res,next)=>{
 
    Comic.findAll({
        where:{
@@ -27,6 +30,7 @@ router.get("/comicName",(req,res,next)=>{
            }
        }
    }).then((comics)=>{
+
        res.status(200).send(comics)
    })
    .catch((err)=>{
@@ -34,4 +38,12 @@ router.get("/comicName",(req,res,next)=>{
    })
 })
 
+
 module.exports = router
+
+/* {include:[{
+        model: Category,
+        where:{name:cate}
+    }]} */
+
+    //{[Op.iLike] : `%${cate}%`}

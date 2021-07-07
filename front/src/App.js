@@ -43,12 +43,13 @@ function App () {
       <Navbar />
      
       <Switch>
-        <Route path="/cart" component={DataTableTemplatingDemo} /> 
+        <Route exact path="/cart" component={DataTableTemplatingDemo} /> 
         <Route
           path="/comic/:id"
-          render={({ match }) => <ProductView comicId={match.params.id} />}
-        />
-        <Route path="/categories/:CategoriesProduct" render={({match}) => <CategoriesProduct categories={match.params.categorie}/>  } />
+          render={({ match }) => <ProductView comicId={match.params.id} />}  />
+
+        <Route path="/category/:CategoriesProduct" component={CategoriesProduct} />
+        
         {isAdmin && <Route path="/categories" component={Categories} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

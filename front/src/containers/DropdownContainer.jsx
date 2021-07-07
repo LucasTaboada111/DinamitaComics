@@ -1,49 +1,46 @@
 import React, { useState } from "react";
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../store/category";
+import axios from "axios";
 
 const DropdownCont = () => {
+  const [dropDown, setDropdown] = useState(false);
+  const dispatch = useDispatch();
+  const comics = useSelector (state => state?.comicsFilter)   //arreglo que quiero renderizar
+  //const [category, putCategory] = useState("")
 
-    const [dropDown, setDropdown] = useState(false)
-    const dispatch = useDispatch()
-    
-    const toggle = () => setDropdown(!dropDown)
+  const toggle = () => setDropdown(!dropDown);
 
+  
 
-    const SelectCategory = (category) => {
-        categories(category)
-        .then(({data}) => dispatch(setCategory(data)))
-    }
+  const categories = ["Aventuras", "Humorístico", "Terror", "Fantástico"];
 
-    const categories = [
-      "All", "Adventures", "Humor", "Terror", "Fantastic"
-    ]
+  return (
 
-    return (
+    <div>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          categories
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {categories.map((categorie) => (
+            <Dropdown.Item
+              onClick={() => (categorie)}
+              className="drop-color"
+            >
+              <Link to={`/category/${categorie}`}> {categorie} </Link>
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  );
+};
 
-        <div>
-                <Dropdown >
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    categorie
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                {categories.map(categorie => 
-                
-                <Dropdown.Item onClick={() => SelectCategory(categorie)}
-                 className="drop-color"><Link to={`/category/${categorie}`}> {categorie} </Link>  </Dropdown.Item> 
-                  )}
-                </Dropdown.Menu>
-                
-            </Dropdown> 
-        </div>
-    )
-
-}
-
-export default DropdownCont
+export default DropdownCont;
 
 /* 
     <div >
@@ -64,5 +61,4 @@ export default DropdownCont
         </Dropdown.Menu>
       </Dropdown>
       </div>
-      
 */

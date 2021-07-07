@@ -1,12 +1,25 @@
-import { createAsyncThunk, createReducer } from "@reduxjs/toolkit"
+import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 
-export const setCategory = createAsyncThunk("SET_CATEGORY", () => {
-    return axios.get("/api/products")
+/* export const setCategory = createAsyncThunk("SET_CATEGORY", (category) => {
+    return axios.get(`/api/products/category/${category}`)
     .then(res => res.data)
-})
+}) */
 
+export const setCategory = createAction("SET_CATEGORY");
+
+
+const categoryReducer = createReducer([], {
+
+  [setCategory]: (state, action) => action.payload,
+  
+});
+
+export default categoryReducer;
+
+
+/* 
 
 const categoryReducer = createReducer([], {
 
@@ -14,4 +27,4 @@ const categoryReducer = createReducer([], {
 
 })
 
-export default categoryReducer
+export default categoryReducer */
