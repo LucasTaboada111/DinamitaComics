@@ -2,13 +2,13 @@ const router = require("express").Router()
 const { Comic, Category } = require("../models")
 const { Op } = require("sequelize")
 
-router.get("/category", (req, res, next) => {
-  const cate = req.body.category
+router.get("/category/:category", (req, res, next) => {
+  const category = req.params.category
   Comic.findAll({
     include: [
       {
         model: Category,
-        where: { name: cate }
+        where: { name: category }
       }
     ]
   })

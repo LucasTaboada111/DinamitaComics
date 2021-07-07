@@ -3,8 +3,10 @@ import userReducer from "./user"
 import comicsReducer from "./comics"
 import cartReducer from "./cart"
 import comicReducer from "./comic"
+import categoryReducer from "./category"
 import categorioesReducer from "./categories"
 import searchReducer from "./search"
+import adminUsersReducer from "./usersForAdmin"
 
 const store = configureStore({
   reducer: {
@@ -12,8 +14,10 @@ const store = configureStore({
     comics: comicsReducer,
     cart: cartReducer,
     comic: comicReducer,
+    comicsFilter: categoryReducer,
     categories: categorioesReducer,
-    search : searchReducer
+    search : searchReducer,
+    usersForAdmin: adminUsersReducer,
   }
 })
 

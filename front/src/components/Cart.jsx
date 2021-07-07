@@ -3,16 +3,26 @@ import { DataTable } from "primereact/datatable"
 import { Column } from "primereact/column"
 import { Button } from "primereact/button"
 import { Rating } from "primereact/rating"
-import "../styles/cart.module.css"
 import styles from "../styles/cart.module.css"
 import { useDispatch, useSelector } from "react-redux"
-import { getDataCart } from "../store/cart"
+import { getDataCart, deleteDataCart } from "../store/cart"
 
 const DataTableTemplatingDemo = () => {
   const dispatch = useDispatch()
-  const cartUser = useSelector(state => state.cart)
-
   const [products, setProducts] = useState([])
+  const user = useSelector(state => state.user)
+
+  useEffect(() => {
+    dispatch(getDataCart()).then(data => setProducts(data.payload[0]?.products))
+  }, [products])
+
+  const handleClick = async (e, comic) => {
+    e.preventDefault()
+    const comicData = comic.comic
+    const userId = user.id
+    dispatch(deleteDataCart({ comicData, userId }))
+    //console.log("soy user",user)
+  }
 
   useEffect(() => {
     dispatch(getDataCart())
@@ -20,7 +30,7 @@ const DataTableTemplatingDemo = () => {
   }, [dispatch, cartUser])
 
   const formatCurrency = value => {
-    return value.toLocaleString("en-US", {
+    return value?.toLocaleString("en-US", {
       style: "currency",
       currency: "USD"
     })
@@ -29,31 +39,40 @@ const DataTableTemplatingDemo = () => {
   const imageBodyTemplate = rowData => {
     return (
       <img
-        src={rowData.img}
+        src={rowData.comic.img}
         onError={e =>
           (e.target.src = "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
         }
-        alt={rowData.image}
+        alt={rowData.comic.image}
         className={styles.imgProduct}
       />
     )
   }
 
   const priceBodyTemplate = rowData => {
-    return formatCurrency(rowData.price)
+    return formatCurrency(rowData.comic.price)
+  }
+
+  const nameBodyTemplate = rowData => {
+    return <p>{rowData.comic.name}</p>
   }
 
   const ratingBodyTemplate = rowData => {
-    return <Rating value={rowData.rating} readOnly cancel={false} />
+    return <Rating value={rowData.comic.rating} readOnly cancel={false} />
   }
 
-  const quantityBodyTemplate = () => {
+  const quantityBodyTemplate = rowData => {
     return (
       <div style={{ display: "flex" }}>
-        {/*   <Button className={styles.boton} icon="pi pi-plus"></Button> */} <h6>1</h6>
+        {/*   <Button className={styles.boton} icon="pi pi-plus"></Button> */}{" "}
+        <h6>{rowData.cantidad}</h6>
         {/*  <Button className={styles.boton} icon="pi pi-minus"></Button>{" "} */}
       </div>
     )
+  }
+
+  const buttonDeleteBodyTemplate = rowData => {
+    return <Button icon="pi pi-trash" onClick={e => handleClick(e, rowData)}></Button>
   }
 
   const header = `In total there are ${products ? products.length : 0} products in your cart.`
@@ -75,11 +94,12 @@ const DataTableTemplatingDemo = () => {
     <div className="datatable-templating-demo">
       <div className="card">
         <DataTable value={products} header={header} footer={footer}>
-          <Column field="name" header="Name"></Column>
+          <Column field="name" header="Name" body={nameBodyTemplate}></Column>
           <Column header="Image" body={imageBodyTemplate}></Column>
           <Column field="rating" header="Rating" body={ratingBodyTemplate}></Column>
           <Column header="Price" body={priceBodyTemplate}></Column>
           <Column header="Quantity" body={quantityBodyTemplate}></Column>
+          <Column header="" body={buttonDeleteBodyTemplate}></Column>
         </DataTable>
       </div>
     </div>

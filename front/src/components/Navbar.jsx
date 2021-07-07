@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import styles from "../styles/navbar.module.css"
 import logo from "../utils/logo.png"
@@ -6,7 +6,10 @@ import { Button, FormControl } from "react-bootstrap"
 import { FaShoppingCart } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../store/user"
+import DropdownCont from "../containers/DropdownContainer"
+
 import { setSearch } from "../store/search"
+import { useState, useEffect } from "react"
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState({})
@@ -48,15 +51,19 @@ const Navbar = () => {
         <Button onClick={handleSubmit}>Search</Button>
       </div>
 
+      <DropdownCont />
+
       <div className={styles.boxRight}>
         {user.isAdmin && (
           <div className={styles.btns}>
             <Link to="/categories">
               <Button>Categories</Button>
             </Link>
+            <Link to="/users">
+              <Button>Users</Button>
+            </Link>
           </div>
         )}
-
         <div className={styles.btns}>
           <Link to="/comics">
             <Button>Comics</Button>

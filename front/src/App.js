@@ -4,7 +4,6 @@ import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
 
 import { cookiesUser } from "./store/user"
-
 import "./App.css"
 
 import "primereact/resources/themes/saga-blue/theme.css"
@@ -21,10 +20,12 @@ import Footer from "./components/Footer"
 import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
+import CategoriesProduct from "./components/CategoriesProduct"
 import Categories from "./containers/Categories"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
+
 function App() {
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
@@ -41,12 +42,16 @@ function App() {
   return (
     <div>
       <Navbar />
+
       <Switch>
-        <Route path="/cart" component={DataTableTemplatingDemo} /> cl
+        <Route exact path="/cart" component={DataTableTemplatingDemo} />
         <Route
           path="/comic/:id"
           render={({ match }) => <ProductView comicId={match.params.id} />}
         />
+
+        <Route path="/category/:CategoriesProduct" component={CategoriesProduct} />
+
         {isAdmin && <Route path="/categories" component={Categories} />}
         {<Route exact path="/comics" component={Comics} />}
         {<Route path="/comics/edit/:id" component={EditComicForm} />}

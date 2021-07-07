@@ -1,13 +1,13 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/productView.module.css"
 import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
-import { useEffect } from "react"
 import { setDataCart } from "../store/cart"
 
 const ProductView = ({ comicId }) => {
   const dispatch = useDispatch()
+  const [cantidad, setCantidad] = useState(1)
 
   const comic = useSelector(state => state.comic)
   const user = useSelector(state => state.user)
@@ -33,12 +33,16 @@ const ProductView = ({ comicId }) => {
             <div className={styles.title}> {comic.name} </div>
             <div className={styles.price}> ${comic.price} </div>
             <div>
-              <Button onClick={e => handleClick(e, comic, 2)} className={styles.cartButton}>
+              <Button
+                onClick={e => handleClick(e, comic, cantidad)}
+                className={styles.cartButton}>
                 {" "}
                 Add to Cart !{" "}
               </Button>
             </div>
-            <div>+10 (Quantity)</div>
+            <div>
+              <input required onChange={handleChange} placeholder="cantidad" />
+            </div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>
