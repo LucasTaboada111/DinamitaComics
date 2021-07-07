@@ -22,6 +22,10 @@ Order.init(
     date: {
       type: S.DATE,
       defaultValue: S.NOW
+    },
+    products: {
+      type: S.ARRAY(S.JSON),
+      defaultValue: [],
     }
   },
   { sequelize: db, modelName: "order" }

@@ -7,8 +7,11 @@ export const userRegister = createAsyncThunk("userRegister", user => {
 
 export const userLogin = createAsyncThunk("userLogin", user => {
   return axios.post("/api/users/login", user).then(res => {
-    alert("now you are login")
+    alert("now you are login!")
     return res.data
+  })
+  .catch((err)=>{
+    alert("Las credenciales ingresadas son incorrectas")
   })
 })
 
@@ -29,9 +32,11 @@ export const getSingleUser = createAsyncThunk("GET_SINGLEUSER", () => {
   }).then(res => res.data)
 })
 
+
 const userReducer = createReducer(
   {},
   {
+    [userLogin.rejected]:(state, action)=> action.payload,
     [userLogin.fulfilled]: (state, action) => action.payload,
     [getSingleUser.fulfilled]: (state, action) => [state, action.payload],
     [userLogout.fulfilled]: (state, action) => action.payload,

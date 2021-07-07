@@ -15,9 +15,9 @@
 }
 
 .logo {
-  width: 6rem;
+  width: 8rem;
   border-radius: 10px;
-  height: 50px;
+  height: 80px;
   margin-left: 40%;
 }
 
@@ -46,4 +46,14 @@
 
 .btns button:hover {
   background-color: lightcoral;
+}
+
+
+.categories {
+  
+  display: flex;
+  align-items: center;
+  background-color: rgba(62,107,158,255);
+  border: none;
+  border-radius: 10px;
 }
