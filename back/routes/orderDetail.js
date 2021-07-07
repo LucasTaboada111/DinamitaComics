@@ -30,13 +30,14 @@ console.log(LoggedUserId)
             res.status(200).send(orderActualizada);
           });
         });
-    });
+    })
   });
 });
 
-router.delete("/deleteComic", (req, res, next) => {
-  const comicId = req.body.comic.id;
-  const userId = req.user.id;
+router.delete("/deleteComic/:userId/:comicId", (req, res, next) => {
+
+  const comicId = req.params.comicId;
+  const userId = req.params.userId;
   OrderDetail.findByPk(userId).then((order) => {
     const comicPorEliminar = order.products.filter(
       (data) => data.comic.id == comicId
@@ -51,7 +52,9 @@ router.delete("/deleteComic", (req, res, next) => {
     ).then((orderUpdateada) => {
       res.status(200).send({ msg: "eliminado correctamente" });
     });
-  });
+  })
+  .catch(next);
+  ;
 });
 
 router.put("/updateComic", (req, res, next) => {
