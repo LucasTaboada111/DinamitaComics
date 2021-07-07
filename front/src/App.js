@@ -26,6 +26,7 @@ import Categories from "./containers/Categories"
 import UsersAdminContainer from "./containers/UsersAdminContainer"
 
 function App () {
+  
   const dispatch = useDispatch()
   const isAdmin = useSelector(state => state.user.isAdmin)
 
@@ -40,6 +41,7 @@ function App () {
 
 
   return (
+    
     <div>
       <Navbar />
      

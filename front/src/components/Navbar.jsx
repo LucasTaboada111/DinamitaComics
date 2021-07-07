@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/navbar.module.css";
-import logo from "../utils/logo.png";
+import logo from "../utils/logoSvg.svg";
 import { Button, FormControl } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";

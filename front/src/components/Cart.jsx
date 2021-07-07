@@ -16,11 +16,10 @@ const DataTableTemplatingDemo = () => {
  const user = useSelector(state=>state.user)
 
 
-    useEffect(() => {
-      dispatch(getDataCart())
-      .then((data)=>setProducts(data.payload[0]?.products))
-    
-    }, [products]) 
+useEffect(() => {
+    dispatch(getDataCart())
+    .then((data)=>setProducts(data.payload[0]?.products))
+}, [products]) 
   
 
 const handleClick = async (e,comic)=>{
