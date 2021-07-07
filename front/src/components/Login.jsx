@@ -15,7 +15,7 @@ const LoginView = () => {
   const dispatch = useDispatch();
   const history = useHistory();
  
-  const [ setShowMessage] = useState(false)
+/*   const setShowMessage = useState(false) */
 /* 
   const alert = 
     <div>
@@ -32,7 +32,7 @@ const LoginView = () => {
   ; */
 
   const validatorLogin = (payload) => {
-    if (!payload) return setShowMessage(true)
+    /* if (!payload) return setShowMessage(true) */
     return history.push("/");
   };
 
@@ -41,7 +41,7 @@ const LoginView = () => {
     dispatch(userLogin({ email, password })).then((data) =>
       validatorLogin(data.payload)
     );
-    setTimeout(setShowMessage(false),2000)
+   /*  setTimeout(setShowMessage(false),2000) */
   };
 
   const Error = () => (
