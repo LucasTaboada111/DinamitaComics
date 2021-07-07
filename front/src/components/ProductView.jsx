@@ -5,8 +5,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
 import { useEffect, useState } from "react"
 import { GrFavorite } from "react-icons/gr"
+import { Link } from "react-router-dom"
 
-const ProductView = ({ comicId }) => {
+const ProductView = ({ comicId,handleClick }) => {
   const dispatch = useDispatch()
 
   const comic = useSelector(state => state.comic)
@@ -27,6 +28,11 @@ const ProductView = ({ comicId }) => {
             <div className={styles.price}> ${comic.price} </div>
             <div>
               <Button className={styles.cartButton}> Add to Cart ! </Button>
+            </div>
+            <div>
+              <Link to= {`/review/${comicId}`}>
+                Ir a las reviews
+              </Link>
             </div>
             <div>
               <Button className={styles.cartButton}>

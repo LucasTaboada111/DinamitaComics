@@ -22,6 +22,7 @@ import "./styles/global.module.css"
 import NotFound from "./components/NotFound"
 import DataTableTemplatingDemo from "./components/Cart"
 import Categories from "./containers/Categories"
+import ReviewView from "./components/Reviews"
 
 function App() {
   const dispatch = useDispatch()
@@ -48,6 +49,7 @@ function App() {
         {isAdmin && <Route path="/categories" component={Categories} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/review" component={ReviewView} />
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
       </Switch>
