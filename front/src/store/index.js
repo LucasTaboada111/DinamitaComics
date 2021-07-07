@@ -18,9 +18,8 @@ const store = configureStore({
     categories: categorioesReducer,
     review: reviewsReducer,
     comicsFilter: categoryReducer,
-    categories: categorioesReducer,
-    search : searchReducer,
-    usersForAdmin: adminUsersReducer,
+    search: searchReducer,
+    usersForAdmin: adminUsersReducer
   }
 })
 

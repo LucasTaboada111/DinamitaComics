@@ -4,7 +4,6 @@ import { useHistory } from "react-router"
 import { Link } from "react-router-dom"
 import { userLogin } from "../store/user"
 import styles from "../styles/login.module.css"
-import Swal from "sweetalert2"
 
 const LoginView = () => {
   const [email, setEmail] = useState("")
@@ -14,10 +13,10 @@ const LoginView = () => {
   const history = useHistory()
 
   const handleClick = e => {
-    console.log("e")
     e.preventDefault()
-    dispatch(userLogin({ email, password }))
-    setInterval(() => history.push("/"), 1200)
+    dispatch(userLogin({ email, password })).then(({ payload }) => {
+      if (payload) setTimeout(() => history.push("/"), 1200)
+    })
   }
 
   return (
