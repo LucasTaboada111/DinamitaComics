@@ -36,7 +36,7 @@ router.post("/:comicId", (req, res, next) => {
             })
         }
         else{
-            res.send("este usuario ya hizo una review ded este comic")
+            res.send("este usuario ya hizo una review de este comic")
         }
     })
     .catch(err => {
