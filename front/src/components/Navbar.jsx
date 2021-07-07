@@ -9,7 +9,7 @@ import { userLogout } from "../store/user";
 import DropdownCont from "../containers/DropdownContainer";
 
 import { setSearch } from "../store/search";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState({});
@@ -59,6 +59,7 @@ const Navbar = () => {
             <Link to="/categories">
               <Button>Categories</Button>
             </Link>
+
             <Link to="/users">
               <Button>Users</Button>
             </Link>

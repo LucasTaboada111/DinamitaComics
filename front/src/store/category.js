@@ -1,5 +1,5 @@
-import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit"
-import axios from "axios"
+import { createReducer, createAction } from "@reduxjs/toolkit"
+
 
 
 /* export const setCategory = createAsyncThunk("SET_CATEGORY", (category) => {

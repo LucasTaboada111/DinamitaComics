@@ -15,12 +15,12 @@ const DataTableTemplatingDemo = () => {
 
   useEffect(() => {
     dispatch(getDataCart()).then(data => setProducts(data.payload[0]?.products))
-  }, [products])
+  }, [dispatch,products])
 
   useEffect(() => {
     dispatch(getDataCart()).then((data)=>setProducts(data.payload[0]?.products) )
     
-  }, [products ])
+  }, [dispatch,products ])
   
 
 const handleClick = async (e,comic)=>{

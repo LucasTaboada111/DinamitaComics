@@ -25,6 +25,7 @@ import Categories from "./containers/Categories"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
+import UsersAdminContainer from "./containers/UsersAdminContainer"
 
 function App() {
   const dispatch = useDispatch()
@@ -57,6 +58,7 @@ function App() {
         {isAdmin &&<Route exact path="/comics" component={Comics} />}
         {isAdmin&&<Route path="/comics/edit/:id" component={EditComicForm} />}
         {isAdmin&&<Route path="/comics/new" component={NewComicForm} />}
+        {isAdmin&&<Route path="/users" component={UsersAdminContainer} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

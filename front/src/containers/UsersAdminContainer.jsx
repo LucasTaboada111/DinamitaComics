@@ -9,7 +9,7 @@ const UsersAdminContainer = () => {
   const userLogged = useSelector(state => state.user)
 
   const handleClick = id => {
-    if (id == userLogged.id) {
+    if (id === userLogged.id) {
       alert("no podes revocarte los permisos a vos mismo")
     } else if (id !== userLogged.id) {
       dispatch(setAdmin(id)).then(() => {
@@ -20,7 +20,7 @@ const UsersAdminContainer = () => {
 
   useEffect(() => {
     dispatch(getUsersForAdmin())
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
