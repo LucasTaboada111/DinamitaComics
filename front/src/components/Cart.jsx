@@ -24,17 +24,12 @@ const DataTableTemplatingDemo = () => {
     //console.log("soy user",user)
   }
 
-
-
   useEffect(() => {
     dispatch(getDataCart()).then(data => {
       setProducts(data.payload[0]?.products)
     })
    
   }, [dispatch])
-
-
-  
 
 
   const formatCurrency = value => {

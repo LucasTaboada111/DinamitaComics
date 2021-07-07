@@ -15,8 +15,7 @@ return axios.post("http://localhost:3001/api/orderDetails/addComic",obj)
 })
 
 export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",({comicData,userId})=>{
-  console.log("soy user", userId)
-  console.log("soy comicData", comicData)
+
   return axios.delete(`http://localhost:3001/api/orderDetails/deleteComic/${userId}/${comicData.id}`)
 })
 
