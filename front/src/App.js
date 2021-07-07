@@ -55,9 +55,9 @@ function App() {
         <Route path="/category/:CategoriesProduct" component={CategoriesProduct} />
 
         {isAdmin && <Route path="/categories" component={Categories} />}
-        {<Route exact path="/comics" component={Comics} />}
-        {<Route path="/comics/edit/:id" component={EditComicForm} />}
-        {<Route path="/comics/new" component={NewComicForm} />}
+        {isAdmin &&<Route exact path="/comics" component={Comics} />}
+        {isAdmin&&<Route path="/comics/edit/:id" component={EditComicForm} />}
+        {isAdmin&&<Route path="/comics/new" component={NewComicForm} />}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/review" component={ReviewView} />
