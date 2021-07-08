@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { getComic } from "../store/comic"
 import {setDataCart} from "../store/cart"
-
+import { Link } from "react-router-dom"
 
 const ProductView = ({ comicId }) => {
   const dispatch = useDispatch()
@@ -50,6 +50,8 @@ dispatch(setDataCart({comic,cantidad,userId}))
               <Button onClick={(e)=>handleClick(e,comic,cantidad)} className={styles.cartButton}> Add to Cart ! </Button>
             </div>
             <div><input required onChange={handleChange} placeholder="cantidad" /></div>
+            <div>
+              <Link to= {`/review/${comicId}`}>Ir a las reviews</Link></div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>

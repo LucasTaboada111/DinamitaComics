@@ -4,12 +4,13 @@ import { Link } from "react-router-dom"
 
 
 
-
 const DropdownCont = () => {
 
   const categories = ["Aventuras", "Humorístico", "Terror", "Fantástico"]
 
+  
   return (
+
     <div>
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">

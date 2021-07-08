@@ -27,11 +27,12 @@ const DataTableTemplatingDemo = () => {
   };
 
   useEffect(() => {
-    dispatch(getDataCart()).then((data) => {
-      console.log("ASD1");
-      setProducts(data.payload[0]?.products);
-    });
-  }, [dispatch]);
+    dispatch(getDataCart()).then(data => {
+   
+      setProducts(data.payload[0]?.products)
+    })
+   
+  }, [dispatch])
 
   const formatCurrency = (value) => {
     return value?.toLocaleString("en-US", {
