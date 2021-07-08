@@ -24,11 +24,12 @@ router.post("/comicName", (req, res, next) => {
   Comic.findAll({
     where: {
       name: {
-        [Op.like]: `%${req.body.comicName}%`
+        [Op.like]: `%${req.body.comic}%`
       }
     }
   })
     .then(comics => {
+      console.log(comics)
       res.status(200).send(comics)
     })
     .catch(err => {

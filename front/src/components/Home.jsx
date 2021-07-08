@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { getComics } from "../store/comics"
 
 const Home = () => {
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const Home = () => {
   }, [dispatch])
 
   const comics = useSelector(state => state.comics)
-  const  comicSearched = useSelector(state=>state.search)
+  const comicSearched = useSelector(state => state.search)
   return (
     <>
       <div>
@@ -26,7 +25,7 @@ const Home = () => {
         <CarrouselBanner />
       </div>
       <div>
-        <ProductBox comics={comicSearched.length?comicSearched:comics} />
+        <ProductBox comics={comicSearched.length ? comicSearched : comics} />
       </div>
     </>
   )

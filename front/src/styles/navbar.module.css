@@ -17,7 +17,7 @@
 .logo {
   width: 8rem;
   border-radius: 10px;
-  height: 80px;
+  height: 60px;
   margin-left: 40%;
 }
 
@@ -48,12 +48,10 @@
   background-color: lightcoral;
 }
 
-
 .categories {
-  
   display: flex;
   align-items: center;
-  background-color: rgba(62,107,158,255);
+  background-color: rgba(62, 107, 158, 255);
   border: none;
   border-radius: 10px;
 }

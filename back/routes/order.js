@@ -4,7 +4,7 @@ const transporter = require("./emails")
 
 
 
-router.get("/historial", (req, res, next) => {
+router.get("/history", (req, res, next) => {
   const userId = req.user.id;
   Order.findAll({ where: { userId: userId } })
     .then((allOrders) =>
@@ -12,6 +12,9 @@ router.get("/historial", (req, res, next) => {
     )
     .catch((err) => next(err));
 });
+
+
+
 
 router.post("/buy", async (req, res, next) => {
 
@@ -32,6 +35,11 @@ router.post("/buy", async (req, res, next) => {
     })
   
     user.addOrder(orderClient);
+    OrderDetail.update({products:[]},{where:{id:cartUser.id}})
+    
+/*     transporter.sendMail(mailOption, (err,info)=>{
+        if(err) res.status(500)  
+    }) */
     res.status(200).send(orderClient);
 
     let htmlTemplate = `

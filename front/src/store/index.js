@@ -8,6 +8,8 @@ import categorioesReducer from "./categories"
 import reviewsReducer from "./reviews"
 import searchReducer from "./search"
 import adminUsersReducer from "./usersForAdmin"
+import checkoutReducer from "./checkout"
+import filterCatReducer from "./filterCategory"
 
 const store = configureStore({
   reducer: {
@@ -18,9 +20,10 @@ const store = configureStore({
     categories: categorioesReducer,
     review: reviewsReducer,
     comicsFilter: categoryReducer,
-    categories: categorioesReducer,
-    search : searchReducer,
+    search: searchReducer,
     usersForAdmin: adminUsersReducer,
+    checkout: checkoutReducer,
+    filterCat: filterCatReducer
   }
 })
 

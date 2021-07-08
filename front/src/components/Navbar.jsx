@@ -1,37 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "../styles/navbar.module.css";
-import logo from "../utils/logoSvg.svg";
-import { Button, FormControl } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { userLogout } from "../store/user";
-import DropdownCont from "../containers/DropdownContainer";
+import React from "react"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 
-import { setSearch } from "../store/search";
-import { useState } from "react";
+import logo from "../utils/logoSvg.svg"
+import { Button, FormControl } from "react-bootstrap"
+import { userLogout } from "../store/user"
+import DropdownCont from "../containers/DropdownContainer"
+
+import styles from "../styles/navbar.module.css"
+import { setSearch } from "../store/search"
+import { useState } from "react"
 
 const Navbar = () => {
-  const [inputValue, setInputValue] = useState({});
+  const [inputValue, setInputValue] = useState("")
 
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
 
   const handleLogout = () => {
-    if (user.id) dispatch(userLogout());
-  };
+    if (user.id) dispatch(userLogout())
+  }
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const value = e.target.value;
-    setInputValue({ comicName: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch(setSearch(inputValue));
-  };
+  const handleSubmit = e => {
+    e.preventDefault()
+    dispatch(setSearch(inputValue))
+  }
 
   return (
     <div className={styles.container}>
@@ -43,15 +36,18 @@ const Navbar = () => {
 
       <div className={styles.boxCenter}>
         <FormControl
-          onChange={(e) => handleChange(e)}
+          onChange={e => setInputValue(e.target.value)}
           type="text"
           placeholder="Search"
           className="mr-sm-2"
         />
-        <Button onClick={handleSubmit}>Search</Button>
+        <div className={styles}>
+          <Button id="search" onClick={handleSubmit}>
+            Search
+          </Button>
+        </div>
+        <DropdownCont />
       </div>
-
-      <DropdownCont />
 
       <div className={styles.boxRight}>
         {user.isAdmin && (
@@ -72,9 +68,7 @@ const Navbar = () => {
 
         <div className={styles.btns}>
           <Link to={`/${user.id ? "" : "login"}`}>
-            <Button onClick={handleLogout}>
-              {user.id ? "Log out" : "Log in"}
-            </Button>
+            <Button onClick={handleLogout}>{user.id ? "Log out" : "Log in"}</Button>
           </Link>
         </div>
         <div className={styles.btns}>
@@ -84,13 +78,15 @@ const Navbar = () => {
         </div>
 
         <div className={styles.btns}>
-          <Button href="/cart">
-            <FaShoppingCart />
-          </Button>
+          <Link to="/cart">
+            <Button>
+              <i className="pi pi-shopping-cart"></i>
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

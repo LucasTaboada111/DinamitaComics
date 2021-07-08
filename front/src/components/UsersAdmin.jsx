@@ -1,30 +1,45 @@
-import * as React from "react";
-
-const UsersForAdmin = ({ users ,handleClick}) => {
-  return (
-    <div>
-      <h1>Users : </h1>
-      <div>
-        {users.length &&
-          users.map((user) => {
-            return (
-              <ul key={user.id}>
-                <h3>User:</h3>
-                <li>Fullname: {user.fullname}</li>
-                <li>Username: {user.username}</li>
-                <li>Email: {user.email}</li>
-                <li>Phone: {user.phone}</li>
-                <li>Country: {user.country}</li>
-                <li>Address: {user.address}</li>
-                <li>Id: {user.id}</li>
-                <li>isAdmin: {user.isAdmin? "Yes": "No"}</li>
-                <button onClick={(e)=>handleClick(user.id,e)}>ToggleAdmin</button>
-              </ul>
-            );
-          })}
+import React from "react"
+import { OrderList } from "primereact/orderlist"
+import { Button } from "primereact/button"
+const UsersForAdmin = ({ users, handleClick }) => {
+  console.log(users)
+  const itemTemplate = item => {
+    return (
+      <div className="product-item">
+        <div className="product-list-detail">
+          <h5 className="p-mb-2">Name - {item.fullname} -</h5>
+          <h6 className="p-mb-2">- Admin: {item.isAdmin ? "Yes" : "No"}</h6>
+          <h6 className="p-mb-2">- Email: {item.email}</h6>
+          <h6 className="p-mb-2">- Country: {item.country}</h6>
+          <h6 className="p-mb-2">- Address: {item.address}</h6>
+          <h6 className="p-mb-2">- Phone: {item.phone}</h6>
+        </div>
+        <div className="product-list-action">
+          <span className="p-buttonset">
+            <Button
+              label="ToggleAdmin"
+              icon="pi pi-pencil"
+              className="p-button-outlined p-button-info"
+              onClick={e => handleClick(item.id, e)}
+            />
+          </span>
+        </div>
       </div>
-    </div>
-  );
-};
+    )
+  }
 
-export default UsersForAdmin;
+  return (
+    <>
+      <div className="orderlist-demo">
+        <div className="card">
+          <OrderList
+            value={users ? users : []}
+            itemTemplate={itemTemplate}
+            header="Users"></OrderList>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default UsersForAdmin

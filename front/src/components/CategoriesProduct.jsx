@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from "react";
-import FilterCategoryProducts from "./FilterCategoryProducts";
-import {useParams} from 'react-router-dom'
-import axios from "axios";
-
+import React, { useEffect } from "react"
+import FilterCategoryProducts from "./FilterCategoryProducts"
+import { useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { getCategories } from "../store/filterCategory"
 
 const CategoriesProduct = () => {
-
-  const {CategoriesProduct} = useParams()
-  const [productsCategory, setProductsCategory] = useState([])
-
+  const dispatch = useDispatch()
+  const { CategoriesProduct } = useParams()
+  const productsCategory = useSelector(state => state.filterCat)
 
   useEffect(() => {
-  axios.get(`/api/products/category/${CategoriesProduct}`).then(res => setProductsCategory(res.data))
-
-  }, [CategoriesProduct])
-
-
+    dispatch(getCategories(CategoriesProduct))
+  }, [dispatch, CategoriesProduct])
 
   return (
-
-    <div >
+    <div>
       <FilterCategoryProducts products={productsCategory} />
     </div>
+  )
+}
 
-  );
-};
-
-export default CategoriesProduct;
+export default CategoriesProduct
