@@ -51,7 +51,7 @@ dispatch(setDataCart({comic,cantidad,userId}))
             </div>
             <div><input required onChange={handleChange} placeholder="cantidad" /></div>
             <div>
-              <Link to= {`/review/${comicId}`}>Ir a las reviews</Link></div>
+              <Link to= {`/review/${comicId}`}>{user.id?'Ir a las reviews':''}</Link></div>
           </div>
         </div>
         <div className={styles.description}>{comic.plot}</div>
