@@ -37,53 +37,61 @@ const DataTableTemplatingDemo = () => {
     })
   }, [dispatch])
 
-  const formatCurrency = value => {
+  const formatCurrency = (value) => {
     return value?.toLocaleString("en-US", {
       style: "currency",
-      currency: "USD"
-    })
-  }
+      currency: "USD",
+    });
+  };
 
-  const imageBodyTemplate = rowData => {
+  const imageBodyTemplate = (rowData) => {
     return (
       <img
         src={rowData.comic.img}
-        onError={e =>
-          (e.target.src = "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+        onError={(e) =>
+          (e.target.src =
+            "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
         }
         alt={rowData.comic.image}
         className={styles.imgProduct}
       />
-    )
-  }
+    );
+  };
 
-  const priceBodyTemplate = rowData => {
-    return formatCurrency(rowData.comic.price)
-  }
+  const priceBodyTemplate = (rowData) => {
+    return formatCurrency(rowData.comic.price);
+  };
 
-  const nameBodyTemplate = rowData => {
-    return <p>{rowData.comic.name}</p>
-  }
+  const nameBodyTemplate = (rowData) => {
+    return <p>{rowData.comic.name}</p>;
+  };
 
-  const ratingBodyTemplate = rowData => {
-    return <Rating value={rowData.comic.rating} readOnly cancel={false} />
-  }
+  const ratingBodyTemplate = (rowData) => {
+    return <Rating value={rowData.comic.rating} readOnly cancel={false} />;
+  };
 
-  const quantityBodyTemplate = rowData => {
+  const quantityBodyTemplate = (rowData) => {
     return (
       <div style={{ display: "flex" }}>
         {/*   <Button className={styles.boton} icon="pi pi-plus"></Button> */}{" "}
         <h6>{rowData.cantidad}</h6>
         {/*  <Button className={styles.boton} icon="pi pi-minus"></Button>{" "} */}
       </div>
-    )
-  }
+    );
+  };
 
-  const buttonDeleteBodyTemplate = rowData => {
-    return <Button icon="pi pi-trash" onClick={e => handleClick(e, rowData)}></Button>
-  }
+  const buttonDeleteBodyTemplate = (rowData) => {
+    return (
+      <Button
+        icon="pi pi-trash"
+        onClick={(e) => handleClick(e, rowData)}
+      ></Button>
+    );
+  };
 
-  const header = `In total there are ${products ? products.length : 0} products in your cart.`
+  const header = `In total there are ${
+    products ? products.length : 0
+  } products in your cart.`;
 
   const footer = (
     <div className={styles.divFooter}>
@@ -103,7 +111,7 @@ const DataTableTemplatingDemo = () => {
         </Button>
       </Link>
     </div>
-  )
+  );
 
   return (
     <div className="datatable-templating-demo">
@@ -111,14 +119,18 @@ const DataTableTemplatingDemo = () => {
         <DataTable value={products} header={header} footer={footer}>
           <Column field="name" header="Name" body={nameBodyTemplate}></Column>
           <Column header="Image" body={imageBodyTemplate}></Column>
-          <Column field="rating" header="Rating" body={ratingBodyTemplate}></Column>
+          <Column
+            field="rating"
+            header="Rating"
+            body={ratingBodyTemplate}
+          ></Column>
           <Column header="Price" body={priceBodyTemplate}></Column>
           <Column header="Quantity" body={quantityBodyTemplate}></Column>
           <Column header="" body={buttonDeleteBodyTemplate}></Column>
         </DataTable>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DataTableTemplatingDemo
+export default DataTableTemplatingDemo;
