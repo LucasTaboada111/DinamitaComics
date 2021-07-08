@@ -3,6 +3,7 @@ import axios from "axios"
 import Swal from "sweetalert2"
 
 export const userRegister = createAsyncThunk("userRegister", user => {
+  console.log("ASD",user)
   return axios.post("/api/users/register", user).then(res => res.data)
 })
 

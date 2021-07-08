@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import FilterCategoryProducts from "./FilterCategoryProducts"
 import { useParams } from "react-router-dom"
-import axios from "axios"
+import { useDispatch, useSelector } from "react-redux"
+import { getCategories } from "../store/filterCategory"
 
 const CategoriesProduct = () => {
+  const dispatch = useDispatch()
   const { CategoriesProduct } = useParams()
-  const [productsCategory, setProductsCategory] = useState([])
+  const productsCategory = useSelector(state => state.filterCat)
 
   useEffect(() => {
-    axios
-      .get(`/api/products/category/${CategoriesProduct}`)
-      .then(res => setProductsCategory(res.data))
-  }, [CategoriesProduct])
+    dispatch(getCategories(CategoriesProduct))
+  }, [dispatch, CategoriesProduct])
 
   return (
     <div>

@@ -49,10 +49,7 @@ const ProductView = ({ comicId }) => {
               <input required onChange={handleChange} placeholder="cantidad" />
             </div>
             <div>
-              <input required onChange={handleChange} placeholder="cantidad" />
-            </div>
-            <div>
-              <Link to={`/review/${comicId}`}>Ir a las reviews</Link>
+              <Link to={`/review/${comicId}`}>{user.id ? "Ir a las reviews" : ""}</Link>
             </div>
           </div>
         </div>
