@@ -45,3 +45,18 @@ body {
     transform: rotate(360deg);
   }
 }
+
+#search {
+  background-color: transparent;
+  border: none;
+}
+
+#dropdown-basic:hover,
+#search:hover {
+  background-color: lightcoral;
+}
+
+#dropdown-basic {
+  background-color: transparent;
+  border: none;
+}
