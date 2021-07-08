@@ -27,7 +27,7 @@ import UsersAdminContainer from "./containers/UsersAdminContainer"
 import Comics from "./containers/Comics"
 import EditComicForm from "./components/EditComicForm"
 import NewComicForm from "./components/NewComicForm"
-
+import History from "./components/History"
 
 function App() {
   const dispatch = useDispatch()
@@ -64,6 +64,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/review" component={ReviewView} />
+        <Route path="/history" component={History}/>
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
       </Switch>
