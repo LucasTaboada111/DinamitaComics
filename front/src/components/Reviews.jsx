@@ -64,7 +64,7 @@ const ReviewView = () => {
             <div>
               <Button onClick={e => handleClick()} className={styles.cartButton}>
                 {" "}
-                Add to Cart !{" "}
+                Add Review !{" "}
               </Button>
             </div>
           </form>

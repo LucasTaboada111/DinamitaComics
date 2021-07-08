@@ -12,10 +12,12 @@ export const setDataCart = createAsyncThunk("SET_DATA_CART", obj => {
     .catch(err => console.log(err))
 })
 
-export const  deleteDataCart = createAsyncThunk ("DELETE_DATA_CART",({comicData,userId})=>{
 
-  return axios.delete(`http://localhost:3001/api/orderDetails/deleteComic/${userId}/${comicData.id}`)
+export const deleteDataCart = createAsyncThunk("DELETE_DATA_CART", ({ comicData, userId }) => {
+  return axios.delete(`/api/orderDetails/deleteComic/${userId}/${comicData.id}`)
+
 })
+
 
 const cartReducer = createReducer(
   {},

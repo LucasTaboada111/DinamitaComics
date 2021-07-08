@@ -102,14 +102,16 @@ const DataTableTemplatingDemo = () => {
         style={{ width: "20%", margin: "0 auto" }}>
         Buy Cart
       </Button>
-      <Link to="/history">
-        <Button
-          icon="pi pi-wallet"
-          className={styles.buttonBuy}
-          style={{ width: "20%", margin: "0 auto" }}>
-          Shopping history
-        </Button>
-      </Link>
+      
+      <Button
+        icon="pi pi-wallet"
+        className={styles.buttonBuy}
+        style={{ width: "20%", margin: "0 auto" }}>
+ <Link to = "/history">
+        Shopping history
+         </Link>
+      </Button>
+     
     </div>
   );
 

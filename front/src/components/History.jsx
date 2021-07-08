@@ -32,8 +32,8 @@ dispatch(getCheckout())
         )
       }
 const dateBodyTemplate = rowData => {
-const date = new Date()
-    return "hoy"
+console.log()
+    return rowData.createdAt
 }
 
     return (
