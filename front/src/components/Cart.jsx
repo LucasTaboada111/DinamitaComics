@@ -7,6 +7,7 @@ import styles from "../styles/cart.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { getDataCart, deleteDataCart } from "../store/cart"
 import { setCheckout } from "../store/checkout"
+import { Link } from "react-router-dom"
 
 
 const DataTableTemplatingDemo = () => {
@@ -99,12 +100,14 @@ const DataTableTemplatingDemo = () => {
         style={{ width: "20%", margin: "0 auto" }}>
         Buy Cart
       </Button>
+       <Link to = "/history">
       <Button
         icon="pi pi-wallet"
         className={styles.buttonBuy}
         style={{ width: "20%", margin: "0 auto" }}>
         Shopping history
       </Button>
+      </Link>
     </div>
   )
 

@@ -15,7 +15,7 @@ let transporter = nodemailer.createTransport({
     }
 }) */
 
-router.get("/historial", (req, res, next) => {
+router.get("/history", (req, res, next) => {
   const userId = req.user.id;
   Order.findAll({ where: { userId: userId } })
     .then((allOrders) =>

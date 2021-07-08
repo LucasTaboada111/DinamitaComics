@@ -9,10 +9,14 @@ export const  setCheckout =  createAsyncThunk("SET CHECKOUT",()=>{
     })
 })
 
-
+export const getCheckout = createAsyncThunk ("GET_CHECKOUT",()=>{
+    return axios.get ("/api/order/history")
+    .then(orderList=>orderList.data)
+})
 
 const checkoutReducer = createReducer([],{
-    [setCheckout.fulfilled] : (state,action) => action.payload
+    [setCheckout.fulfilled] : (state,action) => action.payload,
+    [getCheckout.fulfilled] : (state,action) => action.payload
 })
 
 
